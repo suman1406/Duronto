@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duronto Favourites</title>
+    <link rel="stylesheet" href="./fontawesome-free-6.3.0-web/css/all.min.css">
+
+</head>
+<style>
+    /* Define styles for the navigation bar */
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;1,200&display=swap');
+
+
+
+    nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+    }
+
+    nav a {
+        color: rgb(22, 26, 19);
+        text-decoration: none;
+        font-weight: 100;
+        font-size: 30px;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Noto Sans', sans-serif;
+    }
+
+    /* devanagari */
+    @font-face {
+        font-family: 'Poppins';
+        font-style: italic;
+        font-weight: 300;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLm21lVFteOcEg.woff2) format('woff2');
+        unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+    }
+
+    /* latin-ext */
+    @font-face {
+        font-family: 'Poppins';
+        font-style: italic;
+        font-weight: 300;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLm21lVGdeOcEg.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    /* latin */
+    @font-face {
+        font-family: 'Poppins';
+        font-style: italic;
+        font-weight: 300;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLm21lVF9eO.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    nav a:hover {
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    a {
+        display: block;
+        margin-left: 60px;
+    }
+
+    #title {
+        font-size: 40px;
+        margin-left: 10px;
+    }
+
+    .background-color {
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        background-color: #b72626;
+        padding: 20px;
+    }
+
+    .main {
+        display: flex;
+    }
+
+    .contents {
+        width: 20%;
+    }
+
+    .contents a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+    }
+
+    .contents a:hover {
+        color: #333;
+        font-weight: bold;
+        transform: scale(1.1);
+        transition: 0.5s;
+    }
+
+    /* nav styling */
+
+    nav {
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo a {
+        font-size: 30px;
+        font-weight: bold;
+        color: #333;
+        text-decoration: none;
+        margin-top:10px ;
+
+    }
+
+    .logo img {
+        width: 20%;
+    }
+
+    .search {
+        margin-right: 35%;
+    }
+
+    .search form {
+        display: flex;
+
+    }
+
+    .search input[type="text"] {
+        border-color: #333;
+        width: 30vw;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 3px 0 0 3px;
+
+    }
+
+    .search button[type="submit"] {
+        background-color: #333;
+        color: #fff;
+        border-color: none;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 0 3px 3px 0;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .search button[type="submit"]:hover {
+        background-color: #666;
+
+    }
+
+    .cart img {
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+    }
+
+    .container {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 0 0px;
+    }
+
+    .contact {
+        margin: 0px 90px 0px 20px;
+    }
+
+    .heading {
+        width: 1000px;
+        text-align: left;
+        margin-left: 3%;
+        margin-top: 3%;
+    }
+
+    .heading h2 {
+        margin-left: 20px;
+    }
+
+    .favmain {
+        width: 75%;
+        background-color: rgb(229, 237, 237);
+        height: 800px;
+        display: flex;
+
+
+
+    }
+
+    .footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px 0;
+        font-size: 14px;
+        /* display: flex; */
+    }
+
+    .footer h3 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .news {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .footer p {
+        margin-bottom: 10px;
+    }
+
+    .legal_doc a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 10px;
+    }
+
+    .legal_doc a:hover {
+        text-decoration: underline;
+    }
+
+    .right_container {
+        text-align: left;
+        padding-top: 1%;
+        width: 49%;
+        display: inline-block;
+        margin: 0px 90px 0px 20px;
+    }
+
+    .left_container {
+        padding-top: 1%;
+        width: 49%;
+        display: inline-block;
+        margin: 0px 90px 0px 20px;
+    }
+
+    .leftk {
+
+        padding-top: 1%;
+        width: 90%;
+        display: inline-block;
+        margin: 0px 90px 0px 20px;
+    }
+
+    .navFooter {
+        margin: 0px 0px auto auto;
+    }
+
+    .logout {
+        text-decoration: none;
+        font-size: 1px;
+        font-weight: bold;
+    }
+
+    .favimages1 {
+        margin-left: 20%;
+        display: flex;
+    }
+
+    .image1 h5 {
+        margin-left: 35%;
+
+    }
+
+    .image1 h6 {
+        margin-left: 25%;
+    }
+
+    .favimg1 {
+        box-shadow: black;
+        border: 2px solid #000000;
+
+    }
+
+    .img1btns {
+        display: flex;
+        background-color: gray;
+    }
+
+    .img1btn1 {
+        text-decoration: none;
+        font-weight: bold;
+        margin-left: 10px;
+
+    }
+
+    .img1btn1 a{
+        text-decoration: none;
+        background-color: gray;
+        margin-left: 0px;
+        text-align: center;
+
+    }
+
+    .img1btn2 {
+        margin-left: 30px;
+    }
+
+    .img1btn2 a{
+        text-decoration: none;
+        background-color: gray;
+        margin-left: 0px;
+        text-align: center;
+
+    }
+
+    .image2 h5 {
+        margin-left: 30%;
+
+    }
+
+    .image2 h6 {
+        margin-left: 25%;
+    }
+
+    .favimg2 {
+        box-shadow: black;
+        border: 2px solid #000000;
+        margin-left:50px;
+
+    }
+
+    .img2btns {
+        display: flex;
+        background-color: gray;
+    }
+
+    .img2btn1 {
+        text-decoration: none;
+        font-weight: bold;
+        margin-left: 10px;
+
+    }
+
+    .img2btn1 a{
+        text-decoration: none;
+        background-color: gray;
+        margin-left: 0px;
+        text-align: center;
+
+    }
+
+    .img2btn2 {
+        margin-left: 30px;
+    }
+
+    .img2btn2 a{
+        text-decoration: none;
+        background-color: gray;
+        margin-left: 0px;
+        text-align: center;
+
+    }
+
+    
+    .image3 h5{
+        margin-left: 30%;
+    }
+
+    .image3 h6 {
+        margin-left: 20%;
+    }
+
+    .favimg3 {
+        box-shadow: black;
+        border: 2px solid #000000;
+        margin-left:50px;
+
+    }
+
+    .img3btns {
+        display: flex;
+        background-color: gray;
+    }
+
+    .img3btn1 {
+        text-decoration: none;
+        font-weight: bold;
+        margin-left: 10px;
+
+    }
+
+    .img3btn1 a{
+        text-decoration: none;
+        background-color: gray;
+        margin-left: 0px;
+        text-align: center;
+
+    }
+
+    .img3btn2 {
+        margin-left: 30px;
+    }
+
+    .img3btn2 a{
+        text-decoration: none;
+        background-color: gray;
+        margin-left: 0px;
+        text-align: center;
+
+    }
+
+
+    .favimages2 {
+        margin-left: 20%;
+        display: flex;
+        margin-top: 7%;
+    }
+
+    .image4 h5 {
+        margin-left: 40%;
+
+    }
+
+    .image4 h6 {
+        margin-left: 20%;
+    }
+
+    .favimg4 {
+        box-shadow: black;
+        border: 2px solid #000000;
+
+    }
+
+    .img4btns {
+        display: flex;
+        background-color: gray;
+    }
+
+    
+
+    .img4btn1 {
+        text-decoration: none;
+        font-weight: bold;
+        margin-left: 10px;
+
+    }
+
+    .img4btn1 a{
+        text-decoration: none;
+        background-color: gray;
+        margin-left: 0px;
+        text-align: center;
+
+    }
+
+
+    .img4btn2 {
+        margin-left: 30px;
+    }
+
+    .img4btn2 a{
+        text-decoration: none;
+        background-color: gray;
+        margin-left: 0px;
+        text-align: center;
+
+    }
+
+    .image5 h5 {
+        margin-left: 40%;
+
+    }
+
+    .image5 h6 {
+        margin-left: 25%;
+    }
+
+    .favimg5 {
+        box-shadow: black;
+        border: 2px solid #000000;
+        margin-left:50px;
+
+    }
+
+    .img5btns {
+        display: flex;
+        background-color: gray;
+    }
+
+    .img5btn1 {
+        text-decoration: none;
+        font-weight: bold;
+        margin-left: 10px;
+
+    }
+
+    .img5btn1 a{
+        text-decoration: none;
+        background-color: gray;
+        margin-left: 0px;
+        text-align: center;
+
+    }
+
+    .img5btn2 {
+        margin-left: 30px;
+    }
+
+    .img5btn2 a{
+        text-decoration: none;
+        background-color: gray;
+        margin-left: 0px;
+        text-align: center;
+
+    }
+
+    .image6 h5{
+        margin-left: 35%;
+    }
+
+    .image6 h6 {
+        margin-left: 25%;
+    }
+
+    .favimg6 {
+        box-shadow: black;
+        border: 2px solid #000000;
+        margin-left:50px;
+
+    }
+
+    .img6btns {
+        display: flex;
+        background-color: gray;
+    }
+
+    .img6btn1 {
+        text-decoration: none;
+        font-weight: bold;
+        margin-left: 10px;
+
+    }
+
+    .img6btn1 a{
+        text-decoration: none;
+        background-color: gray;
+        margin-left: 0px;
+        text-align: center;
+
+    }
+
+    .img6btn2 {
+        margin-left: 30px;
+    }
+
+    .img6btn2 a{
+        text-decoration: none;
+        background-color: gray;
+        margin-left: 0px;
+        text-align: center;
+
+    }
+    .phead a{
+    text-decoration: none;
+    color: black;
+    margin-left: 1px;
+  }
+</style>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a href="#"><img src="./images/logo.jpg" alt="logo_black">Duronto </a><br>
+        </div>
+        <div class="search">
+            <form>
+                <input type="text" placeholder="Search...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <div class="logout" style="position: fixed; right: 0; top: 0;">
+            <a href=""><img src="https://cdn-icons-png.flaticon.com/512/152/152535.png" height="30"
+                    alt="image description"> Logout
+            </a>
+        </div>
+    </nav>
+    <hr>
+    <div class="phead">
+        <a href="profile.html"><H1 id="title"><u>PROFILE</u></H1></a>
+      </div>
+
+    <div class="main">
+        <div class="contents"><br><br>
+            <a class="a" href="editprofile.html"><img
+                    src="https://e7.pngegg.com/pngimages/782/114/png-clipart-profile-icon-circled-user-icon-icons-logos-emojis-users.png"
+                    height="20">Edit Profile</a><br>
+            <a class="a" href="notification.html"><img
+                    src="https://cdn-icons-png.flaticon.com/512/633/633816.png?w=740&t=st=1679996267~exp=1679996867~hmac=b70e1a85ef306959940e85a8cb3b72a4a1f59ed7f7226a28244bd68cd769929a"
+                    height="20">Notifications</a><br>
+            <a class="a" href="#"><img src="https://img.icons8.com/ios-filled/256/star.png" height="30">
+                <b>Favourites</b></a><br>
+            <a class="a" href="#"><img src="https://cdn-icons-png.flaticon.com/512/60/60992.png" height="20"> Cart</a><br>
+            <a class="a" href="settings.html"><img src="https://cdn-icons-png.flaticon.com/512/3524/3524659.png" height="20">
+                Settings</a><br>
+            <a class="a" href="orders.html"><img
+                    src="https://icon-library.com/images/orders-icon/orders-icon-4.jpg"
+                    height="20"> Orders</a>
+        </div>
+        <div class="favmain">
+            <div class="favimages">
+                <div class="heading">
+                    <h2>Favourites</h2><br>
+                    <hr>
+
+                </div><br>
+                <div class="favimages1">
+                    <div class="favimg1">
+                        <div class="image1">
+                            <img src="./images/product-1.jpg" height="200">
+                            <b>
+                                <h5>SUNSHINE</h5>
+                            </b>
+                            <i>
+                                <h6>Oversized T-Shirt (M)</h6>
+                            </i>
+                        </div>
+                        <div class="img1btns">
+                            <div class="img1btn1">
+                                <a href="#"><h4>BuyNow</h4></a>
+                            </div>
+                            <div class="img1btn2">
+                                <a href="#"> <h4>Add to Cart</h4></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="favimg2">
+                        <div class="image2">
+                            <img src="./images/product-6.jpg" height="200">
+                            <b>
+                                <h5>U.S.POLO.ASSN</h5>
+                            </b>
+                            <i>
+                                <h6>Men Panelled Jacket(M)</h6>
+                            </i>
+                        </div>
+                        <div class="img2btns">
+                            <div class="img2btn1">
+                                <a href="#"><h4>BuyNow</h4></a>
+                            </div>
+                            <div class="img2btn2">
+                                <a href="#"> <h4>Add to Cart</h4></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="favimg3">
+                        <div class="image3">
+                            <img src="./images/product-11.png" height="200">
+                            <b>
+                                <h5>JACK & JONES</h5>
+                            </b>
+                            <i>
+                                <h6>Blue Trucker Denim Jacket(M)</h6>
+                            </i>
+                        </div>
+                        <div class="img3btns">
+                            <div class="img3btn1">
+                                <a href="#"><h4>BuyNow</h4></a>
+                            </div>
+                            <div class="img3btn2">
+                                <a href="#"> <h4>Add to Cart</h4></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="favimages2">
+                    <div class="favimg4">
+                        <div class="image4">
+                            <img src="./images/product-5.jpg" height="200">
+                            <b>
+                                <h5>LEVIS</h5>
+                            </b>
+                            <i>
+                                <h6>Men Floral Print Casual(M)</h6>
+                            </i>
+                        </div>
+                        <div class="img4btns">
+                            <div class="img4btn1">
+                                <a href="#"><h4>BuyNow</h4></a>
+                            </div>
+                            <div class="img4btn2">
+                                <a href="#"> <h4>Add to Cart</h4></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="favimg5">
+                        <div class="image5">
+                            <img src="./images/product-7.jpg" height="200">
+                            <b>
+                                <h5>H&M</h5>
+                            </b>
+                            <i>
+                                <h6>Patterned Dress(S)</h6>
+                            </i>
+                        </div>
+                        <div class="img5btns">
+                            <div class="img5btn1">
+                                <a href="#"><h4>BuyNow</h4></a>
+                            </div>
+                            <div class="img5btn2">
+                                <a href="#"> <h4>Add to Cart</h4></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="favimg6">
+                        <div class="image6">
+                            <img src="./images/product-12.jpg" height="200">
+                            <b>
+                                <h5>CHEROKEE</h5>
+                            </b>
+                            <i>
+                                <h6>Solid Casual T-Shirt (M)</h6>
+                            </i>
+                        </div>
+                        <div class="img6btns">
+                            <div class="img6btn1">
+                                <a href="#"><h4>BuyNow</h4></a>
+                            </div>
+                            <div class="img6btn2">
+                                <a href="#"> <h4>Add to Cart</h4></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                
+
+            </div>
+        </div><br>
+    </div>
+    </div><br>
+    <footer div class="footer">
+        <div class="leftk">
+            <div class="left_container">
+                <div class="contact">
+                    <h3>Contact Us</h3>
+                    <p class="address">
+                        123, XYZ Street,<br>
+                        City - 12345<br>
+                        State, Country
+                    </p>
+                    <p class="address">
+                        Phone: +1 234 567890<br>
+                        Email: info@duronto.com
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="right_container">
+            <div class="newsletter">
+                <h3 class="news">Newsletter</h3>
+                <form action="#" method="POST">
+                    <input type="email" name="email" id="email" placeholder="Your Email Address">
+                    <button type="submit" class="btn-subscribe">Subscribe</button>
+                </form>
+            </div>
+            <br>
+            <div class="legal_doc">
+                <div class="navFooter">
+                    <li class="nav_first">
+                        <a href="#">Terms and Conditions</a>
+                    </li>
+                    <li class="nav_first">
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                    <li class="nav_first">
+                        <a href="#">Help</a>
+                    </li>
+                </div>
+            </div>
+            <br>
+            <p class="copywrite">&copy; 2023 Duronto. All Rights Reserved.</p>
+        </div>
+
+    </footer>
+
+
+</body>
+<script src="./fontawesome-free-6.3.0-web/js/all.min.js"></script>
+
+</html>

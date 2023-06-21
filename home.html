@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duronto</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap');
+    /* General styling */
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Poppins, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        background-color: white;
+    }
+
+    /* nav styling */
+
+    nav {
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo a {
+        font-size: 30px;
+        font-weight: bold;
+        color: #333;
+        text-decoration: none;
+    }
+
+    .logo img {
+        width: 20%;
+    }
+
+    .search {
+        margin-right: 10%;
+    }
+
+    .search form {
+        display: flex;
+    }
+
+    .search input[type="text"] {
+        border-color: #333;
+        width: 30vw;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .search button[type="submit"] {
+        background-color: #333;
+        color: #fff;
+        border-color: none;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 0 3px 3px 0;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .search button[type="submit"]:hover {
+        background-color: #666;
+    }
+
+    .container {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 0 0px;
+    }
+
+    .contact {
+        margin: 0px 90px 0px 20px;
+    }
+
+    /* Slider styling */
+
+    /* .slider {
+        margin: auto;
+            width: 80%;
+            text-align: center;
+            padding-top: 40px;
+            box-sizing: border-box;
+    }
+
+    .slider img {
+        width: 100%;
+        height: 140%;
+        text-align: center;
+        align-content: center;
+    }
+
+    @media(max-width: 732px)
+        {
+            .slider img
+            {
+                height: 12em;
+            }
+        }
+        @media(max-width: 500px)
+        {
+            .slider img
+            {
+                height: 10em;
+            }
+        } */
+
+    .slideshow-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .slide {
+        display: none;
+    }
+
+    .slide img {
+        width: 100%;
+        height: auto;
+    }
+
+    .prev,
+    .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 30px;
+        font-weight: bold;
+        padding: 10px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .prev {
+        left: 0;
+    }
+
+    .next {
+        right: 0;
+    }
+
+    /* Products styling */
+
+    .products {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+    }
+
+    .product {
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .product img {
+        max-width: 100%;
+        height: 40%;
+    }
+
+    .product h3 {
+        margin-top: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .product p {
+        margin-top: 10px;
+        font-size: 16px;
+        color: #666;
+        line-height: 1.5;
+    }
+
+    .product a {
+        display: block;
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        border-radius: 3px;
+        transition: background-color 0.3s ease;
+    }
+
+    .product a:hover {
+        background-color: #666;
+    }
+
+    /* Footer styling */
+
+    .footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px 0;
+        font-size: 14px;
+        display: flex;
+    }
+
+    .news {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .footer h3 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .footer p {
+        margin-bottom: 10px;
+    }
+
+    .bottom a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 10px;
+    }
+
+    .bottom a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .products {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 576px) {
+        nav {
+            flex-direction: column;
+        }
+
+        .search form {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .search input[type="text"] {
+            border-radius: 3px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .search button[type="submit"] {
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+
+        .products {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .legal_doc a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 10px;
+    }
+
+    .legal_doc a:hover {
+        text-decoration: underline;
+    }
+
+    .right_container {
+        text-align: left;
+        padding-top: 1%;
+        width: 49%;
+        display: inline-block;
+        margin: 0px 90px 0px 20px;
+    }
+
+    .left_container {
+        padding-top: 1%;
+        width: 49%;
+        display: inline-block;
+        margin: 0px 90px 0px 20px;
+    }
+
+    .leftk {
+
+        padding-top: 1%;
+        width: 90%;
+        display: inline-block;
+        margin: 0px 90px 0px 20px;
+    }
+
+    .navFooter {
+        margin: 0px 0px auto auto;
+    }
+
+    .login-button {
+        font-weight: bold;
+        color: #fff;
+        background: linear-gradient(to bottom right, #034cab, #a5c0e7);
+        padding: 10px 30px;
+        border-radius: 30px;
+        position: relative;
+        top: 50%;
+    }
+
+    .login-button:hover {
+        background: #0fae51;
+        color: #150404;
+    }
+
+    .anchor {
+        text-decoration: none;
+        color: #333;
+        padding: 6px 15px;
+        border-radius: 20px;
+        margin: 0 10px;
+        font-weight: 600;
+        display: flex;
+        width: 5.5vw;
+        text-align: center;
+    }
+
+    .anchor a {
+        text-decoration: none;
+        color: #150404;
+
+    }
+
+    .anchor:hover {
+        background-color: #034cab;
+        text-decoration: none;
+    }
+
+    .acc {
+        text-decoration: none;
+        color: #333;
+        padding: 6px 15px;
+        border-radius: 20px;
+        margin: 0 20px;
+        font-weight: 600;
+        display: flex;
+        width: 20vw;
+        width: 7vw;
+
+    }
+
+    .acc a {
+        text-decoration: none;
+        color: #150404;
+    }
+
+    .acc:hover {
+        background-color: #034cab;
+        text-decoration: none;
+    }
+</style>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a href="about.html"><img src="./images/logo.png" alt="logo_black">Duronto</a>
+        </div>
+        <div class="search">
+            <form>
+                <input type="text" placeholder="Search...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <div class="anchor">
+            <a href="about.html">About</a>
+        </div>
+        <div class="acc"><a href="#">Account</a></div>
+        <div class="login-button">
+            <a href="login.html">Login</a>
+        </div>
+    </nav>
+    <main>
+        <!-- <div class id="slider">
+            <img src="slider1.jpg">
+            <img src="slider2.jpg">
+            <img src="slider3.jpg">
+            <img src="slider4.jpg">
+        </div> -->
+        <br>
+
+        <div class="slideshow-container">
+            <div class="slide">
+                <img src="./images/slider1.jpg" alt="Image 1">
+            </div>
+            <div class="slide">
+                <img src="./images/slider2.jpg" alt="Image 2">
+            </div>
+            <div class="slide">
+                <img src="./images/slider3.jpg" alt="Image 3">
+            </div>
+            <div class="slide">
+                <img src="./images/slider4.jpg" alt="Image 4">
+            </div><br><br>
+
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
+        <div class="products">
+            <script>
+    // console.clear();
+
+let contentTitle;
+
+console.log(document.cookie);
+function dynamicClothingSection(ob) {
+  let boxDiv = document.createElement("div");
+  boxDiv.id = "box";
+
+  let boxLink = document.createElement("a");
+  // boxLink.href = '#'
+  boxLink.href = "/contentDetails.html?" + ob.id;
+  // console.log('link=>' + boxLink);
+
+  let imgTag = document.createElement("img");
+  // imgTag.id = 'image1'
+  // imgTag.id = ob.photos
+  imgTag.src = ob.preview;
+
+  let detailsDiv = document.createElement("div");
+  detailsDiv.id = "details";
+
+  let h3 = document.createElement("h3");
+  let h3Text = document.createTextNode(ob.name);
+  h3.appendChild(h3Text);
+
+  let h4 = document.createElement("h4");
+  let h4Text = document.createTextNode(ob.brand);
+  h4.appendChild(h4Text);
+
+  let h2 = document.createElement("h2");
+  let h2Text = document.createTextNode("rs  " + ob.price);
+  h2.appendChild(h2Text);
+
+  boxDiv.appendChild(boxLink);
+  boxLink.appendChild(imgTag);
+  boxLink.appendChild(detailsDiv);
+  detailsDiv.appendChild(h3);
+  detailsDiv.appendChild(h4);
+  detailsDiv.appendChild(h2);
+
+  return boxDiv;
+}
+
+//  TO SHOW THE RENDERED CODE IN CONSOLE
+// console.log(dynamicClothingSection());
+
+// console.log(boxDiv)
+
+let mainContainer = document.getElementById("mainContainer");
+let containerClothing = document.getElementById("containerClothing");
+let containerAccessories = document.getElementById("containerAccessories");
+// mainContainer.appendChild(dynamicClothingSection('hello world!!'))
+
+// BACKEND CALLING
+
+let httpRequest = new XMLHttpRequest();
+
+httpRequest.onreadystatechange = function() {
+  if (this.readyState === 4) {
+    if (this.status == 200) {
+      // console.log('call successful');
+      contentTitle = JSON.parse(this.responseText);
+      if (document.cookie.indexOf(",counter=") >= 0) {
+        var counter = document.cookie.split(",")[1].split("=")[1];
+        document.getElementById("badge").innerHTML = counter;
+      }
+      for (let i = 0; i < contentTitle.length; i++) {
+        if (contentTitle[i].isAccessory) {
+          console.log(contentTitle[i]);
+          containerAccessories.appendChild(
+            dynamicClothingSection(contentTitle[i])
+          );
+        } else {
+          console.log(contentTitle[i]);
+          containerClothing.appendChild(
+            dynamicClothingSection(contentTitle[i])
+          );
+        }
+      }
+    } else {
+      console.log("call failed!");
+    }
+  }
+};
+httpRequest.open(
+  "GET",
+  "https://5d76bf96515d1a0014085cf9.mockapi.io/product",
+  true
+);
+httpRequest.send();
+</script>
+
+
+        </div>
+        <br>
+    </main>
+
+    <footer class="footer">
+        <div class="leftk">
+            <div class="left_container">
+                <div class="contact">
+                    <h3>Contact Us</h3>
+                    <p class="address">
+                        123, XYZ Street,<br>
+                        City - 12345<br>
+                        State, Country
+                    </p>
+                    <p class="address">
+                        Phone: +1 234 567890<br>
+                        Email: info@duronto.com
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="right_container">
+            <div class="newsletter">
+                <h3 class="news">Newsletter</h3>
+                <form action="#" method="POST">
+                    <input type="email" name="email" id="email" placeholder="Your Email Address">
+                    <button type="submit" class="btn-subscribe">Subscribe</button>
+                </form>
+            </div>
+            <br>
+            <div class="legal_doc">
+                <div class="navFooter">
+                    <li class="nav_first">
+                        <a href="#">Terms and Conditions</a>
+                    </li>
+                    <li class="nav_first">
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                    <li class="nav_first">
+                        <a href="#">Help</a>
+                    </li>
+                </div>
+            </div>
+            <br>
+            <p class="copywrite">&copy; 2023 Duronto. All Rights Reserved.</p>
+        </div>
+
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script>
+        let slideIndex = 0;
+        showSlide(slideIndex);
+
+        function changeSlide(n) {
+            showSlide(slideIndex += n);
+        }
+
+        function showSlide(n) {
+            const slides = document.getElementsByClassName("slide");
+
+            if (n >= slides.length) {
+                slideIndex = 0;
+            } else if (n < 0) {
+                slideIndex = slides.length - 1;
+            }
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slides[slideIndex].style.display = "block";
+
+            // Automatically change slide after 2 seconds
+            setTimeout(() => {
+                showSlide(slideIndex += 1);
+            }, 2000);
+        }
+    </script>
+
+
+</body>
+
+</html>

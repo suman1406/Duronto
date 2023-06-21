@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duronto</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <link rel="stylesheet" href="./fontawesome-free-6.3.0-web/css/all.min.css">
+
+</head>
+<style>
+  /* Define styles for the navigation bar */
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;1,200&display=swap');
+
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+  }
+
+  nav a {
+    color: rgb(22, 26, 19);
+    text-decoration: none;
+    font-weight: 100;
+    font-size: 30px;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif;
+  }
+
+  nav a:hover {
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  a {
+    display: block;
+    margin-left: 60px;
+  }
+
+  #title {
+    font-size: 40px;
+    margin-left: 10px;
+  }
+
+  .background-color {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    /* background-color: #b72626; */
+    padding: 20px;
+  }
+
+  .main {
+    display: flex;
+  }
+
+  .contents {
+    width: 20%;
+
+  }
+
+  .contents a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+  }
+
+  .contents a:hover {
+    font-weight: bold;
+    color: #07010d;
+    /* box-shadow: 0px 0px 8px #888888; */
+    transform: scale(1.1);
+    transition: 0.5s;
+  }
+
+  .profilemain {
+    background-color: rgb(229, 237, 237);
+    width: 70%;
+    height: 700px;
+  }
+
+  .personal {
+    width: 90%;
+    margin-left: 1.5%;
+    border-radius: 30px;
+
+  }
+
+  .personalinfo1 {
+    width: 60vw;
+    margin-left: 7%;
+    height: 1000px;
+  }
+
+  .photo img {
+    border-radius: 50%;
+    margin-top: 15%;
+    margin-left: 17%;
+    width: 12vw;
+    height: 25vh;
+    /* background-color: #c9b8b8; */
+    box-shadow: 0px 0px 8px #888888;
+
+
+
+
+  }
+
+  .photo {
+    width: 20%;
+    /* background-color: #c9b8b8; */
+    margin-right: 0.5%;
+    border-radius: 30px;
+    margin-left: 0.5%;
+    height: 35vh;
+    margin-bottom: 10%;
+  }
+
+  nav {
+    /* background-color: #fff; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .logo a {
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    margin-top: 10px;
+
+  }
+
+  .logo img {
+    width: 20%;
+  }
+
+  .search {
+    margin-right: 35%;
+  }
+
+  .search form {
+    display: flex;
+  }
+
+  .search input[type="text"] {
+    border-color: #333;
+    width: 30vw;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 3px 0 0 3px;
+  }
+
+  .search button[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border-color: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .search button[type="submit"]:hover {
+    background-color: #666;
+  }
+
+  .cart img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 0px;
+  }
+
+  .contact {
+    margin: 0px 90px 0px 20px;
+  }
+
+  .footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    font-size: 14px;
+    /* display: flex; */
+  }
+
+  .footer h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .news {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .footer p {
+    margin-bottom: 10px;
+  }
+
+  .legal_doc a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+  }
+
+  .legal_doc a:hover {
+    text-decoration: underline;
+  }
+
+  .right_container {
+    text-align: left;
+    padding-top: 1%;
+    width: 49%;
+    display: inline-block;
+    margin: 0px 90px 0px 20px;
+  }
+
+  .left_container {
+    padding-top: 1%;
+    width: 49%;
+    display: inline-block;
+    margin: 0px 90px 0px 20px;
+  }
+
+  .leftk {
+
+    padding-top: 1%;
+    width: 90%;
+    display: inline-block;
+    margin: 0px 90px 0px 20px;
+  }
+
+  .navFooter {
+    margin: 0px 0px auto auto;
+  }
+
+  .name {
+    display: flex;
+    width: 600px;
+    justify-content: space-evenly;
+
+
+  }
+
+  .contactsinfo {
+    display: flex;
+    width: 600px;
+    justify-content: space-evenly;
+  }
+
+  .addressmain {
+    display: flex;
+
+  }
+
+  .personalinfo13 {
+    margin-left: 10%;
+  }
+
+  .address2 {
+    margin-left: 10%;
+  }
+
+  .heading {
+    margin-top: 3%;
+  }
+
+  .phead a {
+    text-decoration: none;
+    color: black;
+    margin-left: 1px;
+  }
+
+  div>input {
+    background-color: #b1f3ef;
+    border-radius: 10%;
+    tex
+  }
+</style>
+
+<body>
+  <nav>
+    <div class="logo">
+      <a href="#"><img src="./images/logo.jpg" alt="logo_black">Duronto</a><br>
+    </div>
+    <div class="search">
+      <form>
+        <input type="text" placeholder="Search...">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+    <div style="position: fixed; right: 0; top: 0;">
+      <img src="https://cdn-icons-png.flaticon.com/512/152/152535.png" height="30" alt="image description"> Logout
+    </div>
+  </nav>
+  <hr>
+  <div class="phead">
+    <a href="profile.html">
+      <H1 id="title"><u>PROFILE</u></H1>
+    </a>
+  </div>
+
+
+
+
+  <div class="main">
+    <div class="contents"><br><br>
+      <a class="a" href="editprofile.html"><img
+          src="https://e7.pngegg.com/pngimages/782/114/png-clipart-profile-icon-circled-user-icon-icons-logos-emojis-users.png"
+          height="20"> Edit Profile</a><br>
+      <a class="a" href="notification.html"><img
+          src="https://cdn-icons-png.flaticon.com/512/633/633816.png?w=740&t=st=1679996267~exp=1679996867~hmac=b70e1a85ef306959940e85a8cb3b72a4a1f59ed7f7226a28244bd68cd769929a"
+          height="20"> Notifications</a><br>
+      <a class="a" href="favourites.html"><img src="https://img.icons8.com/ios-filled/256/star.png" height="20">
+        Favourites</a><br>
+      <a class="a" href="#"><img src="https://cdn-icons-png.flaticon.com/512/60/60992.png" height="20"> Cart</a><br>
+      <a class="a" href="settings.html"><img src="https://cdn-icons-png.flaticon.com/512/3524/3524659.png" height="20">
+        Settings</a><br>
+      <a class="a" href="orders.html"><img
+          src="https://icon-library.com/images/orders-icon/orders-icon-4.jpg"
+          height="20"> Orders</a><br><br><br><br><br>
+    </div>
+
+    <br>
+    <div class="profilemain">
+      <div class="personal">
+        <div class="heading">
+          <h2>Personal Information</h2><br>
+
+        </div>
+        <hr><br><br>
+
+        <div class="personalinfo1">
+          <div class="name">
+            <div class="personal12">
+              <label>First Name :</label>
+              <input type="text" readonly name="fname" value="Santhosh"><br><br>
+            </div>
+            <div class="personalinfo13">
+              <label>Last Name :</label>
+              <input type="text" readonly name="lname" value="Kumar">
+            </div>
+
+          </div><br>
+          <label>DOB :</label>
+          <input type="text" readonly value="26-08-1999"><br><br><br>
+          <label>Gender :</label>
+          <select name="Gender">
+            <option value="male">Male</option>
+          </select><br><br>
+          <h2>Contacts</h2> <br>
+          <hr><br>
+          <div class="contactsinfo">
+            <label>Email ID :</label>
+            <input type="email" readonly name="email" value="santhoshkumar1999@gmail.com">
+            <label>Phone no :</label>
+            <input type="number" readonly name="phone" maxlength="10" minlength="10" value="9328567830">
+
+
+
+          </div><br><br>
+          <h2>Address</h2><br>
+          <hr><br>
+          <div class="addressmain">
+            <div class="address1">
+              <label>State :</label>
+              <input type="text" readonly name="email" value="Telangana"><br><br>
+              <label>Village :</label>
+              <input type="text" readonly name="email" value="Kukatpally"><br><br>
+              <label>Land Mark :</label>
+              <input type="text" readonly name="email" value="Reliance Super Mart"><br><br>
+            </div>
+            <div class="address2">
+              <label>City :</label>
+              <input type="text" readonly name="city" value="Hyderabad"><br><br>
+              <label>Society :</label>
+              <input type="text" readonly name="society" value="Eenadu Society"><br><br>
+              <label>Pincode :</label>
+              <input type="text" readonly name="email" value="500072"><br><br>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 
+  <div class="photo">
+      <img src="https://www.shareicon.net/data/128x128/2016/05/26/771204_man_512x512.png"><br>
+    </div> -->
+  </div>
+  <div style="position: fixed; right: 0; top: 0;">
+    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/152/152535.png" height="30" alt="image description">
+      Logout
+  </div><br>
+  <footer div class="footer">
+    <div class="leftk">
+      <div class="left_container">
+        <div class="contact">
+          <h3>Contact Us</h3>
+          <p class="address">
+            123, XYZ Street,<br>
+            City - 12345<br>
+            State, Country
+          </p>
+          <p class="address">
+            Phone: +1 234 567890<br>
+            Email: info@duronto.com
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="right_container">
+      <div class="newsletter">
+        <h3 class="news">Newsletter</h3>
+        <form action="#" method="POST">
+          <input type="email" name="email" id="email" placeholder="Your Email Address">
+          <button type="submit" class="btn-subscribe">Subscribe</button>
+        </form>
+      </div>
+      <br>
+      <div class="legal_doc">
+        <div class="navFooter">
+          <li class="nav_first">
+            <a href="#">Terms and Conditions</a>
+          </li>
+          <li class="nav_first">
+            <a href="#">Privacy Policy</a>
+          </li>
+          <li class="nav_first">
+            <a href="#">Help</a>
+          </li>
+        </div>
+      </div>
+      <br>
+      <p class="copywrite">&copy; 2023 Duronto. All Rights Reserved.</p>
+    </div>
+
+  </footer>
+
+
+</body>
+<script src="./fontawesome-free-6.3.0-web/js/all.min.js"></script>
+
+</html>
