@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Duronto</title>
     <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap');
@@ -33,7 +36,7 @@
         justify-content: space-evenly;
         align-items: center;
         padding: 20px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
     .logo a {
@@ -49,19 +52,30 @@
 
     .search {
         margin-right: 10%;
+        border: 2px solid white;
     }
 
     .search form {
         display: flex;
+    
 
     }
+
+    .search:hover{
+        border: 2px solid pink;
+        border-radius: 40px;
+    }
+
 
     .search input[type="text"] {
         border-color: #333;
         width: 30vw;
         padding: 10px;
-        font-size: 16px;
-        border-radius: 3px 0 0 3px;
+        font-size: 16px;        
+        border-top-left-radius: 40px;
+        border-bottom-left-radius: 40px;
+
+
     }
 
     .search button[type="submit"] {
@@ -73,10 +87,22 @@
         border-radius: 0 3px 3px 0;
         cursor: pointer;
         transition: background-color 0.3s ease;
+        border-top-right-radius: 40px;
+        border-bottom-right-radius: 40px;
     }
 
     .search button[type="submit"]:hover {
         background-color: #666;
+    }
+
+    .searchbtn{
+        background-color: gray;
+        display: flex;
+        align-items: center;
+        width: 9%;
+        border-top-right-radius: 40px;
+        border-bottom-right-radius: 40px;
+        justify-content: center;
     }
 
     .container {
@@ -361,7 +387,7 @@
         color: black;
     }
 
-    .logout {
+    /* .logout {
         text-decoration: none;
         color: #333;
         padding: 6px 15px;
@@ -383,7 +409,7 @@
         background-color: rgb(190, 138, 141);
         text-decoration: none;
 
-    }
+    } */
 
     .about {
         text-decoration: none;
@@ -509,8 +535,11 @@
         <div class="search">
             <form>
                 <input type="text" placeholder="Search...">
-                <button type="submit">Search</button>
-            </form>
+                <div class="searchbtn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+         </form>
         </div>
         <div class="about">
             <a href="about.html">About</a>
@@ -519,10 +548,10 @@
         <div class="login-button">
             <a href="login.html">Login</a>
         </div>
-        <div class="logout">
+        <!-- <div class="logout">
             <a href="#"> Logout
             </a>
-        </div>
+        </div> -->
     </nav>
     <main>
         <!-- <div class id="slider">
