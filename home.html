@@ -30,7 +30,7 @@
     nav {
         background-color: #fff;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         align-items: center;
         padding: 20px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -53,6 +53,7 @@
 
     .search form {
         display: flex;
+
     }
 
     .search input[type="text"] {
@@ -332,7 +333,35 @@
         color: #150404;
     }
 
-    .anchor {
+
+
+    .acc {
+        text-decoration: none;
+        color: #333;
+        padding: 6px 15px;
+        border-radius: 20px;
+        margin: 0 20px;
+        font-weight: 600;
+        display: flex;
+
+    }
+
+    .acc a {
+        text-decoration: none;
+        color: #150404;
+    }
+
+    .acc:hover {
+        background-color: rgb(190, 138, 141);
+        text-decoration: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .logout {
         text-decoration: none;
         color: #333;
         padding: 6px 15px;
@@ -344,38 +373,131 @@
         text-align: center;
     }
 
-    .anchor a {
+    .logout a {
         text-decoration: none;
         color: #150404;
 
     }
 
-    .anchor:hover {
-        background-color: #034cab;
+    .logout:hover {
+        background-color: rgb(190, 138, 141);
         text-decoration: none;
+
     }
 
-    .acc {
+    .about {
         text-decoration: none;
         color: #333;
         padding: 6px 15px;
         border-radius: 20px;
-        margin: 0 20px;
+        margin: 0 10px;
         font-weight: 600;
         display: flex;
-        width: 20vw;
-        width: 7vw;
-
+        text-align: center;
     }
 
-    .acc a {
+    .about a {
         text-decoration: none;
         color: #150404;
+
     }
 
-    .acc:hover {
-        background-color: #034cab;
+    .about:hover {
+        background-color: rgb(190, 138, 141);
         text-decoration: none;
+
+    }
+
+    .shopsection {
+        background-color: #e2e7e6;
+
+    }
+
+    .shopsection1 {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .shopsection2 {
+        display: flex;
+        justify-content: space-evenly;
+
+    }
+
+    .box {
+        height: 400px;
+        width: 23%;
+        background-color: white;
+        padding: 20px 0px 15px;
+        margin-top: 15px;
+
+    }
+
+    .boximg {
+        height: 300px;
+        background-size: cover;
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    .boxcontent {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+
+    .justatext {
+        background-color: pink;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85rem;
+        margin-bottom: 25px;
+        width: 80%;
+        margin-left: 130px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .footpanel1 {
+        background-color: rgb(222, 213, 215);
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.85rem;
+    }
+
+    .footpanel2 {
+        background-color: #333;
+        color: white;
+        height: 300px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .footpanel2 a {
+        color: white;
+
+    }
+
+    .footpanel2 a:hover {
+        text-decoration: underline;
+    }
+
+
+    ul {
+        margin-top: 20px;
+    }
+
+    ul a {
+        display: block;
+        font-size: 0.85rem;
+        margin-top: 10px;
+        color: #ddddd;
     }
 </style>
 
@@ -390,12 +512,16 @@
                 <button type="submit">Search</button>
             </form>
         </div>
-        <div class="anchor">
+        <div class="about">
             <a href="about.html">About</a>
         </div>
         <div class="acc"><a href="profile.html">Account</a></div>
         <div class="login-button">
             <a href="login.html">Login</a>
+        </div>
+        <div class="logout">
+            <a href="#"> Logout
+            </a>
         </div>
     </nav>
     <main>
@@ -426,103 +552,284 @@
         </div>
         <div class="products">
             <script>
-    // console.clear();
+                // console.clear();
 
-let contentTitle;
+                let contentTitle;
 
-console.log(document.cookie);
-function dynamicClothingSection(ob) {
-  let boxDiv = document.createElement("div");
-  boxDiv.id = "box";
+                console.log(document.cookie);
+                function dynamicClothingSection(ob) {
+                    let boxDiv = document.createElement("div");
+                    boxDiv.id = "box";
 
-  let boxLink = document.createElement("a");
-  // boxLink.href = '#'
-  boxLink.href = "/contentDetails.html?" + ob.id;
-  // console.log('link=>' + boxLink);
+                    let boxLink = document.createElement("a");
+                    // boxLink.href = '#'
+                    boxLink.href = "/contentDetails.html?" + ob.id;
+                    // console.log('link=>' + boxLink);
 
-  let imgTag = document.createElement("img");
-  // imgTag.id = 'image1'
-  // imgTag.id = ob.photos
-  imgTag.src = ob.preview;
+                    let imgTag = document.createElement("img");
+                    // imgTag.id = 'image1'
+                    // imgTag.id = ob.photos
+                    imgTag.src = ob.preview;
 
-  let detailsDiv = document.createElement("div");
-  detailsDiv.id = "details";
+                    let detailsDiv = document.createElement("div");
+                    detailsDiv.id = "details";
 
-  let h3 = document.createElement("h3");
-  let h3Text = document.createTextNode(ob.name);
-  h3.appendChild(h3Text);
+                    let h3 = document.createElement("h3");
+                    let h3Text = document.createTextNode(ob.name);
+                    h3.appendChild(h3Text);
 
-  let h4 = document.createElement("h4");
-  let h4Text = document.createTextNode(ob.brand);
-  h4.appendChild(h4Text);
+                    let h4 = document.createElement("h4");
+                    let h4Text = document.createTextNode(ob.brand);
+                    h4.appendChild(h4Text);
 
-  let h2 = document.createElement("h2");
-  let h2Text = document.createTextNode("rs  " + ob.price);
-  h2.appendChild(h2Text);
+                    let h2 = document.createElement("h2");
+                    let h2Text = document.createTextNode("rs  " + ob.price);
+                    h2.appendChild(h2Text);
 
-  boxDiv.appendChild(boxLink);
-  boxLink.appendChild(imgTag);
-  boxLink.appendChild(detailsDiv);
-  detailsDiv.appendChild(h3);
-  detailsDiv.appendChild(h4);
-  detailsDiv.appendChild(h2);
+                    boxDiv.appendChild(boxLink);
+                    boxLink.appendChild(imgTag);
+                    boxLink.appendChild(detailsDiv);
+                    detailsDiv.appendChild(h3);
+                    detailsDiv.appendChild(h4);
+                    detailsDiv.appendChild(h2);
 
-  return boxDiv;
-}
+                    return boxDiv;
+                }
 
-//  TO SHOW THE RENDERED CODE IN CONSOLE
-// console.log(dynamicClothingSection());
+                //  TO SHOW THE RENDERED CODE IN CONSOLE
+                // console.log(dynamicClothingSection());
 
-// console.log(boxDiv)
+                // console.log(boxDiv)
 
-let mainContainer = document.getElementById("mainContainer");
-let containerClothing = document.getElementById("containerClothing");
-let containerAccessories = document.getElementById("containerAccessories");
-// mainContainer.appendChild(dynamicClothingSection('hello world!!'))
+                let mainContainer = document.getElementById("mainContainer");
+                let containerClothing = document.getElementById("containerClothing");
+                let containerAccessories = document.getElementById("containerAccessories");
+                // mainContainer.appendChild(dynamicClothingSection('hello world!!'))
 
-// BACKEND CALLING
+                // BACKEND CALLING
 
-let httpRequest = new XMLHttpRequest();
+                let httpRequest = new XMLHttpRequest();
 
-httpRequest.onreadystatechange = function() {
-  if (this.readyState === 4) {
-    if (this.status == 200) {
-      // console.log('call successful');
-      contentTitle = JSON.parse(this.responseText);
-      if (document.cookie.indexOf(",counter=") >= 0) {
-        var counter = document.cookie.split(",")[1].split("=")[1];
-        document.getElementById("badge").innerHTML = counter;
-      }
-      for (let i = 0; i < contentTitle.length; i++) {
-        if (contentTitle[i].isAccessory) {
-          console.log(contentTitle[i]);
-          containerAccessories.appendChild(
-            dynamicClothingSection(contentTitle[i])
-          );
-        } else {
-          console.log(contentTitle[i]);
-          containerClothing.appendChild(
-            dynamicClothingSection(contentTitle[i])
-          );
-        }
-      }
-    } else {
-      console.log("call failed!");
-    }
-  }
-};
-httpRequest.open(
-  "GET",
-  "https://5d76bf96515d1a0014085cf9.mockapi.io/product",
-  true
-);
-httpRequest.send();
-</script>
+                httpRequest.onreadystatechange = function () {
+                    if (this.readyState === 4) {
+                        if (this.status == 200) {
+                            // console.log('call successful');
+                            contentTitle = JSON.parse(this.responseText);
+                            if (document.cookie.indexOf(",counter=") >= 0) {
+                                var counter = document.cookie.split(",")[1].split("=")[1];
+                                document.getElementById("badge").innerHTML = counter;
+                            }
+                            for (let i = 0; i < contentTitle.length; i++) {
+                                if (contentTitle[i].isAccessory) {
+                                    console.log(contentTitle[i]);
+                                    containerAccessories.appendChild(
+                                        dynamicClothingSection(contentTitle[i])
+                                    );
+                                } else {
+                                    console.log(contentTitle[i]);
+                                    containerClothing.appendChild(
+                                        dynamicClothingSection(contentTitle[i])
+                                    );
+                                }
+                            }
+                        } else {
+                            console.log("call failed!");
+                        }
+                    }
+                };
+                httpRequest.open(
+                    "GET",
+                    "https://5d76bf96515d1a0014085cf9.mockapi.io/product",
+                    true
+                );
+                httpRequest.send();
+            </script>
+
 
 
         </div>
-        <br>
+        <h5 class="justatext">You are on duronto.com. You can also shop on Duronto India for millions of products with
+            fast local
+            delivery.</h5>
+        <div class="shopsection">
+            <div class="shopsection1">
+                <div class="box1 box">
+                    <a href="#">
+                        <div class="boxcontent">
+                            <h2>Clothes</h2><br>
+                            <div class="boximg" style="background-image: url('./images/box1_image.jpg');"></div>
+                        </div>
+                    </a>
+
+                </div>
+                <div class="box2 box">
+                    <a href="#">
+
+                        <div class="boxcontent">
+                            <h2>Health & Personal Care</h2><br>
+                            <div class="boximg" style="background-image: url('./images/box2_image.jpg');"></div>
+                        </div>
+                    </a>
+
+                </div>
+                <div class="box3 box">
+                    <a href="#">
+
+                        <div class="boxcontent">
+                            <h2>Furniture</h2><br>
+                            <div class="boximg" style="background-image: url('./images/box3_image.jpg');"></div>
+                        </div>
+                    </a>
+
+                </div>
+                <div class="box4 box">
+                    <a href="#">
+
+                        <div class="boxcontent">
+                            <h2>Electronics</h2><br>
+                            <div class="boximg" style="background-image: url('./images/box4_image.jpg');"></div>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="shopsection2">
+                <div class="box1 box">
+                    <a href="#">
+
+                        <div class="boxcontent">
+                            <h2>Beauty Picks</h2><br>
+                            <div class="boximg" style="background-image: url('./images/box5_image.jpg');"></div>
+                        </div>
+                    </a>
+
+                </div>
+                <div class="box2 box">
+                    <a href="#">
+
+                        <div class="boxcontent">
+                            <h2>Pet Care</h2><br>
+                            <div class="boximg" style="background-image: url('./images/box6_image.jpg');"></div>
+                        </div>
+                    </a>
+
+                </div>
+                <div class="box3 box">
+                    <a href="#">
+
+                        <div class="boxcontent">
+                            <h2>New Arrivals in Toys</h2><br>
+                            <div class="boximg" style="background-image: url('./images/box7_image.jpg');"></div>
+                        </div>
+                    </a>
+
+                </div>
+                <div class="box4 box">
+                    <a href="#">
+
+                        <div class="boxcontent">
+                            <h2>Discover Fashion Trends</h2><br>
+                            <div class="boximg" style="background-image: url('./images/box8_image.jpg');"></div>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+            <br>
+        </div>
     </main>
+    <br>
+    <div class="footpanel1">
+        <h4> <a href="#"> Back to Top</a></h4>
+    </div>
+
+    <div class="footpanel2">
+        <ul>
+            <b>
+                <p>Get to Know Us</p>
+            </b>
+            <a href="">Careers</a>
+            <a href="">Blog</a>
+            <a href="">About Duronto</a>
+            <a href="">Investor Relations</a>
+            <a href="">Duronto Devices</a>
+            <a href="">Duronto Science</a>
+
+
+        </ul>
+
+        <ul>
+            <b>
+                <p>Make Money with Us</p>
+            </b>
+
+            <a href=""> Sell products on Duronto</a>
+            <a href=""> Sell on Duronto Business
+            </a>
+            <a href=""> Sell apps on Duronto
+            </a>
+            <a href=""> Become an Affiliate
+            </a>
+            <a href=""> Advertise Your Products
+            </a>
+            <a href=""> Self-Publish with Us
+            </a>
+            <a href=""> Host an Duronto Hub
+
+            </a>
+
+
+        </ul>
+
+        <ul>
+            <b>
+                <p> Duronto Payment Products
+                </p>
+            </b>
+            <a href=""> Duronto Business Card
+            </a>
+            <a href=""> Shop with Points
+            </a>
+            <a href=""> Reload Your Balance
+            </a>
+            <a href=""> Duronto Currency Converter
+            </a>
+
+
+
+        </ul>
+
+        <ul>
+            <b>
+                <p> Let Us Help You
+                </p>
+            </b>
+            <a href=""> Duronto and COVID-19
+            </a>
+            <a href=""> Your Account
+            </a>
+            <a href=""> Your Orders
+            </a>
+            <a href=""> Shipping Rates & Policies
+            </a>
+            <a href=""> Returns & Replacements
+            </a>
+            <a href=""> Manage Your Content and Devices
+            </a>
+            <a href=""> Duronto Assistant
+
+            </a>
+            <a href=""> Help
+
+            </a>
+
+
+        </ul>
+
+
+    </div><hr>
+
 
     <footer class="footer">
         <div class="leftk">
