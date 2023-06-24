@@ -6,8 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Duronto Edit Profile</title>
-  <!-- <link rel="icon" type="image/png" href="/favicon.png"> -->
-  <link rel="stylesheet" href="./fontawesome-free-6.3.0-web/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
 </head>
@@ -103,7 +104,7 @@
     width: 60vw;
     /* background-color: #c9b8b8; */
     margin-left: 7%;
-    height: 1000px;
+    height: 100px;
   }
 
   .photo img {
@@ -165,23 +166,18 @@
     width: 30vw;
     padding: 10px;
     font-size: 16px;
-    border-radius: 3px 0 0 3px;
-  }
+    border-top-left-radius: 40px;
+        border-bottom-left-radius: 40px;  }
 
-  .search button[type="submit"] {
-    background-color: #333;
-    color: #fff;
-    border-color: none;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 0 3px 3px 0;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  .search button[type="submit"]:hover {
-    background-color: #666;
-  }
+  .searchbtn{
+        background-color: gray;
+        display: flex;
+        align-items: center;
+        width: 9%;
+        border-top-right-radius: 40px;
+        border-bottom-right-radius: 40px;
+        justify-content: center;
+    }
 
   .cart img {
     width: 40px;
@@ -199,74 +195,78 @@
     margin: 0px 90px 0px 20px;
   }
 
-  .footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    font-size: 14px;
-    /* display: flex; */
-  }
+  /* Footer styling */
 
-  .footer h3 {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
+      .footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px 0;
+        font-size: 14px;
+        display: flex;
+    }
 
-  .news {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
+    .news {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
 
-  .footer p {
-    margin-bottom: 10px;
-  }
+    .footer h3 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
 
-  .legal_doc a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 10px;
-  }
+    .footer p {
+        margin-bottom: 10px;
+    }
 
-  .legal_doc a:hover {
-    text-decoration: underline;
-  }
+    .bottom a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 10px;
+    }
 
-  .right_container {
-    text-align: left;
-    padding-top: 1%;
-    width: 49%;
-    display: inline-block;
-    margin: 0px 90px 0px 20px;
-  }
+    .bottom a:hover {
+        text-decoration: underline;
+    }
 
-  .left_container {
-    padding-top: 1%;
-    width: 49%;
-    display: inline-block;
-    margin: 0px 90px 0px 20px;
-  }
+    .legal_doc a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 10px;
+    }
 
-  .leftk {
+    .legal_doc a:hover {
+        text-decoration: underline;
+    }
 
-    padding-top: 1%;
-    width: 90%;
-    display: inline-block;
-    margin: 0px 90px 0px 20px;
-  }
+    .right_container {
+        text-align: left;
+        padding-top: 1%;
+        width: 49%;
+        display: inline-block;
+        margin: 0px 90px 0px 20px;
+    }
 
-  .navFooter {
-    margin: 0px 0px auto auto;
-  }
+    .left_container {
+        padding-top: 1%;
+        width: 49%;
+        display: inline-block;
+        margin: 0px 90px 0px 20px;
+    }
 
-  .name {
-    display: flex;
-    width: 600px;
-    justify-content: space-evenly;
+    .leftk {
 
+        padding-top: 1%;
+        width: 90%;
+        display: inline-block;
+        margin: 0px 90px 0px 20px;
+    }
 
-  }
+    .navFooter {
+        margin: 0px 0px auto auto;
+    }
 
   .contactsinfo {
     display: flex;
@@ -327,14 +327,17 @@
     <div class="logo">
       <a href="home.html"><img src="./images/logo.jpg" alt="logo_black">Duronto</a><br>
     </div>
-    <div class="search">
-      <form>
-        <input type="text" placeholder="Search...">
-        <button type="submit">Search</button>
-      </form>
-    </div>
-    <div class="logout" style="position: fixed; right: 0; top: 0;">
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/152/152535.png" height="30" alt="image description">
+     <div class="search">
+            <form>
+                <input type="text" placeholder="Search...">
+                <div class="searchbtn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+         </form>
+        </div>
+    <div class="logout" style="position: absolute; left: 86%; top: 2.6%;">
+      <a href="#"><i class="fa-solid fa-right-from-bracket"></i>
         Logout</a>
     </div>
   </nav>
@@ -436,50 +439,44 @@
 
   </div>
   <br>
-  <footer div class="footer">
+  <footer class="footer">
     <div class="leftk">
-      <div class="left_container">
-        <div class="contact">
-          <h3>Contact Us</h3>
-          <p class="address">
-            123, XYZ Street,<br>
-            City - 12345<br>
-            State, Country
-          </p>
-          <p class="address">
-            Phone: +1 234 567890<br>
-            Email: info@duronto.com
-          </p>
+        <div class="left_container">
+            <div class="contact">
+                <h3>Contact Us</h3>
+                <p class="address">
+                    123, XYZ Street,<br>
+                    City - 12345<br>
+                    State, Country
+                </p>
+                <p class="address">
+                    Phone: +1 234 567890<br>
+                    Email: info@duronto.com
+                </p>
+            </div>
         </div>
-      </div>
     </div>
     <div class="right_container">
-      <div class="newsletter">
-        <h3 class="news">Newsletter</h3>
-        <form action="#" method="POST">
-          <input type="email" name="email" id="email" placeholder="Your Email Address">
-          <button type="submit" class="btn-subscribe">Subscribe</button>
-        </form>
-      </div>
-      <br>
-      <div class="legal_doc">
-        <div class="navFooter">
-          <li class="nav_first">
-            <a href="#">Terms and Conditions</a>
-          </li>
-          <li class="nav_first">
-            <a href="#">Privacy Policy</a>
-          </li>
-          <li class="nav_first">
-            <a href="#">Help</a>
-          </li>
+        <div class="newsletter">
+            <h3 class="news">Newsletter</h3>
+            <form action="#" method="POST">
+                <input type="email" name="email" id="email" placeholder="Your Email Address">
+                <button type="submit" class="btn-subscribe">Subscribe</button>
+            </form>
         </div>
-      </div>
-      <br>
-      <p class="copywrite">&copy; 2023 Duronto. All Rights Reserved.</p>
+        <br>
+        <div class="legal_doc">
+            <div class="navFooter">
+                    <a href="#">Terms and Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Help</a>
+            </div>
+        </div>
+        <br>
+        <p class="copywrite">&copy; 2023 Duronto. All Rights Reserved.</p>
     </div>
 
-  </footer>
+</footer>
 
 </body>
 <script src="./fontawesome-free-6.3.0-web/js/all.min.js"></script>

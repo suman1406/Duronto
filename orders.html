@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Duronto Orders</title>
     <!-- <link rel="icon" type="image/png" href="/favicon.png"> -->
-    <link rel="stylesheet" href="./fontawesome-free-6.3.0-web/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
 
 </head>
@@ -148,24 +149,18 @@
         width: 30vw;
         padding: 10px;
         font-size: 16px;
-        border-radius: 3px 0 0 3px;
-
+        border-top-left-radius: 40px;
+        border-bottom-left-radius: 40px;  
     }
 
-    .search button[type="submit"] {
-        background-color: #333;
-        color: #fff;
-        border-color: none;
-        padding: 10px;
-        font-size: 16px;
-        border-radius: 0 3px 3px 0;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    .search button[type="submit"]:hover {
-        background-color: #666;
-
+    .searchbtn{
+        background-color: gray;
+        display: flex;
+        align-items: center;
+        width: 9%;
+        border-top-right-radius: 40px;
+        border-bottom-right-radius: 40px;
+        justify-content: center;
     }
 
     .cart img {
@@ -204,18 +199,14 @@
 
     }
 
-    .footer {
+   /* Footer styling */
+
+   .footer {
         background-color: #333;
         color: #fff;
         padding: 20px 0;
         font-size: 14px;
-        /* display: flex; */
-    }
-
-    .footer h3 {
-        font-size: 20px;
-        font-weight: bold;
-        margin-bottom: 10px;
+        display: flex;
     }
 
     .news {
@@ -224,8 +215,24 @@
         margin-bottom: 10px;
     }
 
+    .footer h3 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
     .footer p {
         margin-bottom: 10px;
+    }
+
+    .bottom a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 10px;
+    }
+
+    .bottom a:hover {
+        text-decoration: underline;
     }
 
     .legal_doc a {
@@ -494,14 +501,13 @@
         <div class="search">
             <form>
                 <input type="text" placeholder="Search...">
-                <button type="submit">Search</button>
-            </form>
-        </div>
-        <div class="logout" style="position: fixed; right: 0; top: 0;">
-            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/152/152535.png" height="30"
-                    alt="image description"> Logout
-            </a>
-        </div>
+                <div class="searchbtn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        <div class="logout" style="position: absolute; left: 86%; top: 2.6%;">
+            <a href="#"><i class="fa-solid fa-right-from-bracket"></i>
+              Logout</a>
+          </div>
     </nav>
     <hr>
     <div class="phead">
@@ -671,15 +677,9 @@
             <br>
             <div class="legal_doc">
                 <div class="navFooter">
-                    <li class="nav_first">
                         <a href="#">Terms and Conditions</a>
-                    </li>
-                    <li class="nav_first">
                         <a href="#">Privacy Policy</a>
-                    </li>
-                    <li class="nav_first">
                         <a href="#">Help</a>
-                    </li>
                 </div>
             </div>
             <br>
