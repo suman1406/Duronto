@@ -16,6 +16,10 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;1,200&display=swap');
 
+  nav{
+    justify-content: space-between;
+    display: flex;
+  }
   nav ul {
     margin: 0;
     padding: 0;
@@ -297,6 +301,7 @@
   div>input {
     border-radius: 10px;
   }
+
 </style>
 
 <body>
@@ -304,6 +309,7 @@
     <div class="logo">
       <a href="home.html"><img src="./images/logo.jpg" alt="logo_black">Duronto</a><br>
     </div>
+    
     <div class="search">
       <form>
         <input type="text" placeholder="Search...">
@@ -311,7 +317,10 @@
           <i class="fa-solid fa-magnifying-glass"></i>
         </div>
       </form>
+      
     </div>
+   
+    
     <div class="logout" style="position: absolute; left: 86%; top: 2.6%;">
       <a href="#"><i class="fa-solid fa-right-from-bracket"></i>
         Logout</a>

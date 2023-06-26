@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duronto</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap');
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: poppins;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    body {
+        font-size: 16px;
+        line-height: 1.5;
+        background-color: white;
+    }
+
+    /* nav styling */
+
+    nav {
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        font-weight: 1000;
+    }
+
+
+    .logo a {
+        font-size: 30px;
+        font-weight: bold;
+        color: #333;
+        text-decoration: none;
+    }
+
+    .logo img {
+        width: 20%;
+    }
+
+    .search {
+        margin-right: 10%;
+        border: 2px solid white;
+    }
+
+    .search form {
+        display: flex;
+    }
+
+    .search:hover {
+        border: 2px solid gray;
+        border-radius: 40px;
+    }
+
+
+    .search input[type="text"] {
+        border-color: #333;
+        width: 30vw;
+        padding: 10px;
+        font-size: 16px;
+        border-top-left-radius: 40px;
+        border-bottom-left-radius: 40px;
+    }
+
+    .searchbtn {
+        background-color: gray;
+        display: flex;
+        align-items: center;
+        width: 9%;
+        border-top-right-radius: 40px;
+        border-bottom-right-radius: 40px;
+        justify-content: center;
+    }
+
+    .product {
+        display: flex;
+    }
+
+    main {
+        padding: 5%;
+    }
+
+    .checked {
+        color: orange;
+    }
+
+    .proddescr {
+        margin-left: 5%;
+    }
+
+    .rating {
+        display: flex;
+        margin-left: 3%;
+        width: 26%;
+    }
+
+    .numberrating {
+        margin-right: 2%;
+
+    }
+
+    .numberrated {
+        margin-left: 3%;
+    }
+
+    .price {
+        display: flex;
+    }
+
+    h2 {
+        margin-left: 1%;
+    }
+
+    .overline {
+        text-decoration: line-through;
+        margin-left: 1%;
+    }
+
+    .onlytext {
+        margin-top: 1%;
+        font-size: 0.8rem;
+
+    }
+
+    .size {
+        display: flex;
+        margin-top: 0.5%;
+    }
+
+    .material {
+        display: flex;
+        margin-top: 2%;
+        font-size: 0.8rem;
+        margin-bottom: 2%;
+
+    }
+
+    .material2 {
+        margin-left: 5%;
+    }
+
+    .material1 {
+        margin-left: 5%;
+    }
+
+    li {
+        font-size: 0.8rem;
+    }
+
+    .addtocart{
+        background-color: yellowgreen;
+        border: 2px solid blueviolet;
+        width: 80%;
+        height: 5%;
+        font-weight: 1000;
+        border-radius: 40px;
+        box-shadow: 2px 2px 8px rgba(0, 228, 196);
+        cursor: pointer;
+
+    }
+    .buynow{
+        background-color: yellowgreen;
+        border: 2px solid blueviolet;
+        width: 80%;
+        height: 5%;
+        font-weight: 1000;
+        border-radius: 40px;
+        box-shadow: 2px 2px 8px rgba(0, 228, 196);
+        cursor: pointer;
+
+
+    }
+
+    .fa-solid {
+        height: 20%;
+        margin-left: 3%;
+        margin-top: 1%;
+    }
+
+    .footpanel1 {
+        background-color: rgb(222, 213, 215);
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.85rem;
+    }
+</style>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a href="home.html"><img src="./images/logo.png" alt="logo_black">Duronto</a>
+        </div>
+        <div class="search">
+            <form>
+                <input type="text" placeholder="Search...">
+                <div class="searchbtn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </form>
+        </div>
+        <div class="about">
+            <a href="about.html">About</a>
+        </div>
+        <div class="acc"><a href="profile.html">Account</a></div>
+        <div class="login-button">
+            <a href="login.html">Login</a>
+        </div>
+        <a class="a" href="#"><img src="https://cdn-icons-png.flaticon.com/512/60/60992.png" height="20"> Cart</a>
+
+    </nav>
+    <a href="home.html"><i class="fa-solid fa-angle-left" ></i></a>  
+
+
+    <main>
+        <div class="product">
+            <div class="prodimg">
+                <img src="./images/insideimag1.png" height="400"><br><br><br>
+                <a href="#"><button class="addtocart"><i class="fa-solid fa-cart-arrow-down"></i> Add to Cart</button></a>
+                <br><br>
+                <a href="#"><button class="buynow"><i class="fa-solid fa-shop"></i> Buy now</button></a>
+
+
+            </div>
+            <div class="proddescr">
+                <h2>Utopia Bedding Throw Pillows Insert(Pack of 2, White)- 18 x 18 inches Bed and Couch Pillows-Indoor
+                    Decorative Pillows</h2>
+                <div class="rating">
+                    <h4 class="numberrating">3</h4>
+                    <span class="fa fa-star checked "></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star che"></span>
+                    <span class="fa fa-star"></span>
+                    <h4 class="numberrated">32,531 ratings</h4>
+                </div>
+                <br>
+                <hr>
+                <div class="price">
+                    List Price: <div class="overline">Rs 949</div>
+
+                </div>
+                <div class="price">
+                    Price: <h3 style="color: green; margin-left: 1%;">Rs699</h3>
+
+                </div>
+                <div class="price">
+                    You Save: Rs 250
+                </div>
+                <h4 class="onlytext">Available at a lower price from other sellers that may not offer free Shipping</h4>
+                <div class="size">
+                    Size: <h4 style="margin-left: 0.5%;">18 x 18 Inch (Pack of 2)</h4>
+
+                </div>
+                <div class="material">
+                    <div class="material1">
+                        <h4><b>Fill Material</b></h4>
+                        <h4> <b>Pillow Type</b></h4>
+                        <h4><b>Color</b></h4>
+                        <h4> <b>Size</b></h4>
+                        <h4><b>Brand</b></h4>
+                    </div>
+                    <div class="material2">
+                        <p>Polyster</p>
+                        <p>Bed Pillow</p>
+                        <p> White</p>
+                        <p> 18 x 18 Inch </p>
+                        <p>Utopia Bedding</p>
+                    </div>
+                </div>
+                <div class="aboutitem">
+                    <h4>About this item</h4>
+                    <ul>
+                        <li style="margin-top: 1%;">THROW PILLOW PACK - Pack of 2 decorative throw pillows for your
+                            couches or bedroom; they are
+                            neither too big nor too small and they give off a homely vibe</li>
+                        <li>PACKAGING - Pillows are compressed in vacuum packaging because of shipping purpose, they
+                            might appear as one large pillow.</li>
+                        <li>DIMENSIONS - Each pillow insert measures 18 by 18 inches
+                        </li>
+                        <li>MATERIAL COMPOSITION - 115 GSM Brushed Fabric and siliconized fiber filling will never make
+                            them look hollow</li>
+                        <li>SOFT AND DURABLE - The pillows are designed to give a delicate feel while retaining long
+                            term durability
+                        </li>
+                        <li>CARE INSTRUCTIONS - It is recommended to spot clean the pillow or hand wash the fabric
+                        </li>
+                    </ul>
+                </div>
+                <h4 style="margin-top: 1.5%;">Customer ratings by feature
+                </h4>
+                <div class="material">
+
+                    <div class="material1">
+                        <h4><b>Durability</b></h4>
+                        <h4> <b>Value for money</b></h4>
+                        <h4><b>Softness</b></h4>
+                        <h4> <b>Comfort</b></h4>
+                    </div>
+                    <div class="material2">
+                        <span class="fa fa-star checked "></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span><br>
+                        <span class="fa fa-star checked "></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span> <br>
+                        <span class="fa fa-star checked "></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star "></span>
+                        <span class="fa fa-star"></span> <br>
+                        <span class="fa fa-star checked "></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                </div>
+                <div class="note" style="font-size: 0.9rem;">
+                    <b>Note :</b> Products with electrical plugs are designed for use in the US. Outlets and voltage
+                    differ internationally and this product may require an adapter or converter for use in your
+                    destination. Please check compatibility before purchasing
+                </div>
+
+                </div>
+
+
+            </div>
+    </main>
+    <footer>
+        <div class="footpanel1">
+            <h4> <a href="product2.html"> Back to Top</a></h4>
+        </div>
+        
+        
+    </footer>
+</body>
+
+</html>
