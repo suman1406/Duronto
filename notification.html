@@ -32,6 +32,7 @@
         font-size: 30px;
     }
 
+
     * {
         margin: 0;
         padding: 0;
@@ -135,9 +136,7 @@
         width: 20%;
     }
 
-    .search {
-        margin-right: 35%;
-    }
+
 
     .search form {
         display: flex;
@@ -197,6 +196,9 @@
         background-color: rgb(229, 237, 237);
         height: 600px;
         display: flex;
+        border: 2px solid black;
+        margin-top: 5%;
+        margin-left: 20%;
     }
 
 
@@ -354,17 +356,28 @@
         margin: 0px 0px auto auto;
     }
 
-    .logout {
-        text-decoration: none;
-        font-size: 2px;
-        font-weight: bold;
-    }
+
 
     .phead a {
         text-decoration: none;
         color: black;
         margin-left: 1px;
         letter-spacing: 1px;
+    }
+
+    .logout {
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+    }
+
+    .cart {
+        margin-right: 350px;
+    }
+
+    .search {
+        flex: 1;
+        margin: 0 10px;
     }
 </style>
 
@@ -374,25 +387,30 @@
             <a href="home.html"><img src="./images/logo.jpg" alt="logo_black">Duronto</a><br>
         </div>
         <div class="search">
-            <form>
+            <form action="">
                 <input type="text" placeholder="Search...">
                 <div class="searchbtn">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
             </form>
-            <div class="logout" style="position: absolute; left: 86%; top: 2.6%;">
-                <a href="#"><i class="fa-solid fa-right-from-bracket"></i>
-                    Logout</a>
-            </div>
+        </div>
+        <div class="cart">
+            <a class="a" href="#"><img src="https://cdn-icons-png.flaticon.com/512/60/60992.png" height="15">
+            </a>
+        </div>
+        <div class="logout" style="position: absolute; left: 86%; top: 2.6%;">
+            <a href="#"><i class="fa-solid fa-right-from-bracket"></i>
+                Logout</a>
+        </div>
     </nav>
     <hr>
-    <div class="phead">
-        <a href="profile.html">
-            <H1 id="title"><u>PROFILE</u></H1>
-        </a>
-    </div>
     <div class="main">
-        <div class="contents"><br><br>
+        <div class="contents" style="position: fixed;">
+            <div class="phead">
+                <a href="profile.html">
+                    <H1 id="title"><u>PROFILE</u></H1>
+                </a>
+            </div><br><br>
             <a class="a" href="editprofile.html"><i class="fas fa-user" style="font-size: 20px;"></i> Edit
                 Profile</a><br>
             <a class="a" href="notification.html"><img
@@ -400,8 +418,6 @@
                     height="30"><b>Notifications</b></a><br>
             <a class="a" href="favourites.html"><img src="https://img.icons8.com/ios-filled/256/star.png" height="20">
                 Favourites</a><br>
-            <a class="a" href="#"><img src="https://cdn-icons-png.flaticon.com/512/60/60992.png" height="20">
-                Cart</a><br>
             <a class="a" href="settings.html"><img src="https://cdn-icons-png.flaticon.com/512/3524/3524659.png"
                     height="20">
                 Settings</a><br>

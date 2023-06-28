@@ -27,6 +27,7 @@
     nav {
         background-color: #fff;
         display: flex;
+        justify-content: space-between;
         align-items: center;
         padding: 20px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -77,16 +78,17 @@
         justify-content: center;
     }
 
-    .login-button {
+    .login {
         font-weight: bold;
         color: #fff;
         background: linear-gradient(to bottom right, #034cab, #a5c0e7);
-        padding: 10px 10px;
+        padding: 10px 20px;
         border-radius: 30px;
-        width: 50px;
+        position: relative;
+        top: 50%;
     }
 
-    .login-button:hover {
+    .login:hover {
         background: #0fae51;
         color: #150404;
     }
@@ -111,10 +113,6 @@
         text-decoration: none;
     }
 
-    a {
-        text-decoration: none;
-        color: black;
-    }
 
     .about {
         text-decoration: none;
@@ -139,7 +137,6 @@
 
     a {
         display: block;
-        margin-left: 60px;
         text-decoration: none;
     }
 
@@ -165,6 +162,8 @@
         width: 20%;
         box-shadow: 2px 2px 6px 6px rgba(0, 0, 0, 0.1);
         height: 480px;
+        padding-left: 4%;
+        margin-top: 3%;
 
     }
 
@@ -282,6 +281,8 @@
         margin-left: 25%;
         border-radius: 8px;
         box-shadow: 2px 2px 6px 6px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+
 
 
     }
@@ -294,6 +295,8 @@
         margin-left: 10%;
         border-radius: 8px;
         box-shadow: 2px 2px 6px 6px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+
 
 
 
@@ -336,7 +339,13 @@
             <a href="about.html">About</a>
         </div>
         <div class="acc"><a href="profile.html">Account</a></div>
-        <div class="login-button">
+
+        <div class="cart">
+            <a class="a" href="#"><img src="https://cdn-icons-png.flaticon.com/512/60/60992.png" height="20"> </a>
+
+        </div>
+        
+        <div class="login">
             <a href="login.html">Login</a>
         </div>
     </nav>
@@ -344,7 +353,8 @@
     <div class="main">
         <div class="contents" style="position: fixed;"><br><br>
             <!-- <div class="contentsmain" style="position: fixed;margin: 0;padding: 0;"> -->
-            <a href="clothes.html"><img src="https://img.icons8.com/?size=512&id=10506&format=png" height="20"> Clothes</a><br>
+            <a href="clothes.html"><img src="https://img.icons8.com/?size=512&id=10506&format=png" height="20">
+                Clothes</a><br>
             <a href="health.html"><img src="https://img.icons8.com/?size=512&id=aDdoo60TCe3D&format=png" height="20">
                 Health and
                 Personal Care</a><br>
@@ -360,7 +370,8 @@
             <a href="toys.html"><img src="https://img.icons8.com/?size=512&id=0GQzfhCMfOM5&format=png" height="20"> New
                 Arrivals
                 in Toys</a><br>
-            <a href="fitness.html"><img src="https://img.icons8.com/?size=512&id=9773&format=png" height="30"><b> For your Fitness
+            <a href="fitness.html"><img src="https://img.icons8.com/?size=512&id=9773&format=png" height="30"><b> For
+                    your Fitness
                     Needs</b></a><br><br>
             <!-- </div> -->
         </div>

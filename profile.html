@@ -16,10 +16,11 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;1,200&display=swap');
 
-  nav{
+  nav {
     justify-content: space-between;
     display: flex;
   }
+
   nav ul {
     margin: 0;
     padding: 0;
@@ -93,6 +94,10 @@
     background-color: rgb(229, 237, 237);
     width: 70%;
     height: 700px;
+    border: 2px solid black;
+    margin-left: 20%;
+    margin-top: 5%;
+
   }
 
   .personal {
@@ -146,10 +151,6 @@
 
   .logo img {
     width: 20%;
-  }
-
-  .search {
-    margin-right: 35%;
   }
 
   .search form {
@@ -302,6 +303,20 @@
     border-radius: 10px;
   }
 
+  .logout {
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+  }
+
+  .cart {
+    margin-right: 350px;
+  }
+
+  .search {
+    flex: 1;
+    margin: 0 10px;
+  }
 </style>
 
 <body>
@@ -309,7 +324,7 @@
     <div class="logo">
       <a href="home.html"><img src="./images/logo.jpg" alt="logo_black">Duronto</a><br>
     </div>
-    
+
     <div class="search">
       <form>
         <input type="text" placeholder="Search...">
@@ -317,31 +332,35 @@
           <i class="fa-solid fa-magnifying-glass"></i>
         </div>
       </form>
-      
+
     </div>
-   
-    
+    <div class="cart">
+      <a class="a" href="#"><img src="https://cdn-icons-png.flaticon.com/512/60/60992.png" height="20"> </a>
+
+    </div>
+
+
     <div class="logout" style="position: absolute; left: 86%; top: 2.6%;">
       <a href="#"><i class="fa-solid fa-right-from-bracket"></i>
         Logout</a>
     </div>
   </nav>
   <hr>
-  <div class="phead">
-    <a href="profile.html">
-      <H1 id="title"><u>PROFILE</u></H1>
-    </a>
-  </div>
+
 
   <div class="main">
-    <div class="contents"><br><br>
+    <div class="contents" style="position: fixed;">
+      <div class="phead">
+        <a href="profile.html">
+          <H1 id="title"><u>PROFILE</u></H1>
+        </a>
+      </div><br><br>
       <a class="a" href="editprofile.html"><i class="fas fa-user" style="font-size: 20px;"></i> Edit Profile</a><br>
       <a class="a" href="notification.html"><img
           src="https://cdn-icons-png.flaticon.com/512/633/633816.png?w=740&t=st=1679996267~exp=1679996867~hmac=b70e1a85ef306959940e85a8cb3b72a4a1f59ed7f7226a28244bd68cd769929a"
           height="20"> Notifications</a><br>
       <a class="a" href="favourites.html"><img src="https://img.icons8.com/ios-filled/256/star.png" height="20">
         Favourites</a><br>
-      <a class="a" href="#"><img src="https://cdn-icons-png.flaticon.com/512/60/60992.png" height="20"> Cart</a><br>
       <a class="a" href="settings.html"><img src="https://cdn-icons-png.flaticon.com/512/3524/3524659.png" height="20">
         Settings</a><br>
       <a class="a" href="orders.html"><img src="https://icon-library.com/images/orders-icon/orders-icon-4.jpg"

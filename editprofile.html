@@ -91,6 +91,9 @@
     background-color: rgb(229, 237, 237);
     width: 70%;
     height: 750px;
+    border: 2px solid black;
+    margin-top: 5%;
+    margin-left: 20%;
   }
 
   .personal {
@@ -136,26 +139,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1px;
+    padding-top: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    heig
   }
 
-  .logo a {
-    font-size: 30px;
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
-    margin-top: 10px;
 
-  }
 
   .logo img {
     width: 20%;
   }
 
-  .search {
-    margin-right: 35%;
-  }
+
 
   .search form {
     display: flex;
@@ -280,11 +275,7 @@
 
   }
 
-  .logout {
-    text-decoration: none;
-    font-size: 1px;
-    font-weight: bold;
-  }
+
 
   .address2 {
     margin-left: 10%;
@@ -322,12 +313,27 @@
   .submit:hover {
     background-color: aqua;
   }
+
+  .logout {
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+  }
+
+  .cart {
+    margin-right: 350px;
+  }
+
+  .search {
+    flex: 1;
+    margin: 0 10px;
+  }
 </style>
 
 <body>
   <nav>
     <div class="logo">
-      <a href="home.html"><img src="./images/logo.jpg" alt="logo_black">Duronto</a><br>
+      <a href="home.html"><img src="./images/logo.jpg" alt="logo_black"><b>Duronto</b></a><br>
     </div>
     <div class="search">
       <form>
@@ -337,20 +343,25 @@
         </div>
       </form>
     </div>
+    <div class="cart">
+      <a class="a" href="#"><img src="https://cdn-icons-png.flaticon.com/512/60/60992.png" height="20"> </a>
+
+    </div>
     <div class="logout" style="position: absolute; left: 86%; top: 2.6%;">
       <a href="#"><i class="fa-solid fa-right-from-bracket"></i>
         Logout</a>
     </div>
   </nav>
   <hr>
-  <div class="phead">
-    <a href="profile.html">
-      <H1 id="title"><u>PROFILE</u></H1>
-    </a>
-  </div>
+
 
   <div class="main">
-    <div class="contents"><br><br>
+    <div class="contents" style="position: fixed;">
+      <div class="phead">
+        <a href="profile.html">
+          <H1 id="title"><u>PROFILE</u></H1>
+        </a>
+      </div><br><br>
       <a class="a" href="editprofile.html"><i class="fas fa-user" style="font-size: 30px;"></i><b> Edit
           Profile</b></a><br>
       <a class="a" href="notification.html"><img
@@ -358,7 +369,6 @@
           height="20"> Notifications</a><br>
       <a class="a" href="favourites.html"><img src="https://img.icons8.com/ios-filled/256/star.png" height="20">
         Favourites</a><br>
-      <a class="a" href="#"><img src="https://cdn-icons-png.flaticon.com/512/60/60992.png" height="20"> Cart</a><br>
       <a class="a" href="settings.html"><img src="https://cdn-icons-png.flaticon.com/512/3524/3524659.png" height="20">
         Settings</a><br>
       <a class="a" href="orders.html"><img src="https://icon-library.com/images/orders-icon/orders-icon-4.jpg"

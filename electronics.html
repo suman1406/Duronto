@@ -78,19 +78,21 @@
         justify-content: center;
     }
 
-    .login-button {
-        font-weight: bold;
-        color: #fff;
+    .login {
         background: linear-gradient(to bottom right, #034cab, #a5c0e7);
-        padding: 10px 0;
-        border-radius: 30px;
-        position: relative;
-        top: 50%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        border-radius: 40px;
+        font-weight: 1000;
+        padding: 10px 20px;
     }
 
-    .login-button:hover {
+    .login:hover {
         background: #0fae51;
-        color: #150404;
+        cursor: pointer;
+
+
     }
 
     .acc {
@@ -111,11 +113,6 @@
     .acc:hover {
         background-color: rgb(190, 138, 141);
         text-decoration: none;
-    }
-
-    a {
-        text-decoration: none;
-        color: black;
     }
 
     .about {
@@ -141,7 +138,6 @@
 
     a {
         display: block;
-        margin-left: 60px;
         text-decoration: none;
     }
 
@@ -167,6 +163,8 @@
         width: 20%;
         box-shadow: 2px 2px 6px 6px rgba(0, 0, 0, 0.1);
         height: 480px;
+        padding-left: 4%;
+        margin-top: 3%;
 
     }
 
@@ -284,6 +282,8 @@
         margin-left: 25%;
         border-radius: 8px;
         box-shadow: 2px 2px 6px 6px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+
 
 
     }
@@ -296,6 +296,8 @@
         margin-left: 10%;
         border-radius: 8px;
         box-shadow: 2px 2px 6px 6px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+
 
 
 
@@ -338,7 +340,11 @@
             <a href="about.html">About</a>
         </div>
         <div class="acc"><a href="profile.html">Account</a></div>
-        <div class="login-button">
+        <div class="cart">
+            <a class="a" href="#"><img src="https://cdn-icons-png.flaticon.com/512/60/60992.png" height="20"> </a>
+
+        </div>
+        <div class="login">
             <a href="login.html">Login</a>
         </div>
     </nav>
