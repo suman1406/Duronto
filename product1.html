@@ -266,7 +266,7 @@
         <div class="login-button">
             <a href="login.html">Login</a>
         </div>
-        <a class="carthover" href="#"><div id="cartIcon">0</div><i class="fa-solid fa-cart-shopping" ></i> </a>
+        <a class="carthover" href="#"><i class="fa-solid fa-cart-shopping" ></i> </a>
 
     </nav>
     <a href="home.html"><i class="fa-solid fa-angle-left"></i></a>
@@ -276,7 +276,7 @@
         <div class="product">
             <div class="prodimg">
                 <img alt="image" src="./images/insideimag3.png" height="400"><br><br><br>
-                <a href="#"><button id="addToCartBtn" class="addtocart"><i class="fa-solid fa-cart-arrow-down"></i> Add to
+                <a href="#"><button class="addtocart"><i class="fa-solid fa-cart-arrow-down"></i> Add to
                         Cart</button></a>
                 <br><br>
                 <a href="#"><button class="buynow"><i class="fa-solid fa-shop"></i> Buy now</button></a>
@@ -509,32 +509,6 @@
 
 
     </footer>
-
-    <script>
-        // Initialize the cart
-        let cartItems = [];
-      
-        // Event listener for the "Add to Cart" button
-        const addToCartBtn = document.getElementById('addToCartBtn');
-        addToCartBtn.addEventListener('click', addToCart);
-      
-        function addToCart() {
-          // Add the selected item to the cart
-          const selectedItem = {
-            name: 'Product Name',
-            price: 9.99,
-            quantity: 1
-          };
-          cartItems.push(selectedItem);
-      
-          // Update the cart icon
-          const cartIcon = document.getElementById('cartIcon');
-          cartIcon.textContent = cartItems.length;
-      
-          // Redirect to the cart page
-          window.location.href = 'cart-page.html';
-        }
-      </script>
 </body>
 
 </html>
