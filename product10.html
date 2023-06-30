@@ -242,8 +242,116 @@
         border-radius: 7px;
         margin-bottom: 1.5%;
     }
-    .carthover:hover{
+
+    .carthover:hover {
         color: orange;
+    }
+
+    .footer {
+        background-color: #333;
+        color: white;
+        padding: 20px 0;
+        font-size: 14px;
+        display: flex;
+    }
+
+    .news {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .footer h3 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .footer p {
+        margin-bottom: 10px;
+    }
+
+    .bottom a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 10px;
+    }
+
+    .bottom a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .products {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 576px) {
+        nav {
+            flex-direction: column;
+        }
+
+        .search form {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .search input[type="text"] {
+            border-radius: 3px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .search button[type="submit"] {
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+
+        .products {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .legal_doc a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 10px;
+    }
+
+    .legal_doc a:hover {
+        text-decoration: underline;
+    }
+
+    .right_container {
+        text-align: left;
+        padding-top: 1%;
+        width: 49%;
+        display: inline-block;
+        margin: 0px 90px 0px 20px;
+    }
+
+    .left_container {
+        padding-top: 1%;
+        width: 49%;
+        display: inline-block;
+        margin: 0px 90px 0px 20px;
+    }
+
+    .leftk {
+
+        padding-top: 1%;
+        width: 90%;
+        display: inline-block;
+        margin: 0px 90px 0px 20px;
+    }
+
+    .navFooter {
+        margin: 0px 0px auto auto;
+    }
+
+    .address {
+        color: white;
     }
 </style>
 
@@ -267,7 +375,7 @@
         <div class="login-button">
             <a href="login.html">Login</a>
         </div>
-        <a class="carthover" href="#"><i class="fa-solid fa-cart-shopping" ></i> </a>
+        <a class="carthover" href="#"><i class="fa-solid fa-cart-shopping"></i> </a>
 
     </nav>
     <a href="home.html"><i class="fa-solid fa-angle-left"></i></a>
@@ -551,13 +659,54 @@
             </p><br>
         </div>
     </div>
-    <footer>
-        <div class="footpanel1">
-            <h4> <a href="product10.html"> Back to Top</a></h4>
+    <div class="footpanel1">
+        <h4> <a href="product10.html"> Back to Top</a></h4>
+    </div>
+    <footer class="footer">
+        <div class="leftk">
+            <div class="left_container">
+                <div class="contact">
+                    <h2>Contact Us</h2>
+                    <p class="address">
+                        123, XYZ Street,<br>
+                        City - 12345<br>
+                        State, Country
+                    </p>
+                    <p class="address">
+                        Phone: +1 234 567890<br>
+                        Email: info@duronto.com
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="right_container">
+            <div class="newsletter">
+                <h2 class="news">Newsletter</h2>
+                <form action="#" method="POST">
+                    <input type="email" name="email" id="email" placeholder="Your Email Address">
+                    <button type="submit" class="btn-subscribe">Subscribe</button>
+                </form>
+            </div>
+            <br>
+            <div class="legal_doc">
+                <div class="navFooter">
+                    <li class="nav_first">
+                        <a href="#">Terms and Conditions</a>
+                    </li>
+                    <li class="nav_first">
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                    <li class="nav_first">
+                        <a href="#">Help</a>
+                    </li>
+                </div>
+            </div>
+            <br>
+            <p class="copywrite" style="color: wheat;">&copy; 2023 Duronto. All Rights Reserved.</p>
         </div>
 
-
     </footer>
+
 </body>
 
 </html>
