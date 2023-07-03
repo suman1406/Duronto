@@ -20,6 +20,7 @@
           "translate"
         ]
       }
-    ]
+    ],
+    "button-type": "off"
   }
 }
