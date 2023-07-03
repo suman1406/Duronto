@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -374,6 +375,21 @@
     .address {
         color: white;
     }
+
+    .quan {
+        margin-bottom: 6%;
+        border: 2px solid black;
+        background-color: rgb(235, 233, 233);
+        border-radius: 40px;
+        height: 15%;
+        width: 300px;
+        margin-left: 4%;
+        padding: 4%;
+        padding-top: 5%;
+    }
+    .quan input{
+        height: 50px;
+    }
 </style>
 
 <body>
@@ -410,14 +426,20 @@
                 <input type="number" id="quantity" value="1" min="1">
                 <button onclick="addToCart()" id="add-to-cart" class="addtocart"><i class="fa-solid fa-cart-arrow-down"></i> Add to
                     Cart</button>
+                <img alt="image" src="./images/insideimag3.png" height="400"><br><br><br>
+                <div class="quan">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" value="1">
+                </div>
+                <button onclick="addToCart()" class="addtocart"><i class="fa-solid fa-cart-arrow-down"></i> Add to
+                    Cart</button>
                 <br><br>
-                <a href="#"><button class="buynow"><i class="fa-solid fa-shop"></i> Buy now</button></a>
-
 
             </div>
             <div class="proddescr">
                 <h2 style="color: blue;">
-                    <p id="product-name">Fisher-Price Laugh & Learn Baby Learning Toy Smart Stages Piggy Bank With Songs
+                    <p id="product-name">Fisher-Price Laugh & Learn Baby Learning Toy Smart Stages
+                    Piggy Bank With Songs
                         Sounds And Phrases For Infant To Toddler Play</p>
                 </h2>
                 <div class="rating">

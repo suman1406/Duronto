@@ -9,6 +9,43 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script>
+        function addToCart() {
+            // Get product details
+            var productName = document.getElementById("product-name").textContent;
+            var productPrice = document.getElementById("product-price").textContent;
+            var quantity = document.getElementById("quantity").value;
+
+            // Create a new row in the cart table
+            var newRow = document.createElement("tr");
+
+            // Create cells for product details
+            var productNameCell = document.createElement("td");
+            var productPriceCell = document.createElement("td");
+            var quantityCell = document.createElement("td");
+            var totalCell = document.createElement("td");
+
+            // Set cell values
+            productNameCell.textContent = productName;
+            productPriceCell.textContent = productPrice;
+            quantityCell.textContent = quantity;
+            totalCell.textContent = (parseFloat(productPrice) * parseInt(quantity)).toFixed(2);
+
+            // Append cells to the new row
+            newRow.appendChild(productNameCell);
+            newRow.appendChild(productPriceCell);
+            newRow.appendChild(quantityCell);
+            newRow.appendChild(totalCell);
+
+            // Append the new row to the cart table
+            var cartTable = window.opener.document.getElementById("cart-table");
+            cartTable.appendChild(newRow);
+
+            // Close the product window
+            window.close();
+        }
+    </script>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap');
@@ -246,6 +283,7 @@
     .carthover:hover {
         color: orange;
     }
+
     .footer {
         background-color: #333;
         color: white;
@@ -352,6 +390,22 @@
     .address {
         color: white;
     }
+
+    .quan {
+        margin-bottom: 6%;
+        border: 2px solid black;
+        background-color: rgb(235, 233, 233);
+        border-radius: 40px;
+        height: 15%;
+        width: 300px;
+        margin-left: 7%;
+        padding: 4%;
+        padding-top: 5%;
+    }
+
+    .quan input {
+        height: 50px;
+    }
 </style>
 
 <body>
@@ -384,15 +438,19 @@
         <div class="product">
             <div class="prodimg">
                 <img alt="image" src="./images/insideimag1.png" height="400"><br><br><br>
-                <a href="#"><button class="addtocart"><i class="fa-solid fa-cart-arrow-down"></i> Add to
-                        Cart</button></a>
+                <div class="quan">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" value="1">
+                </div>
+                <button onclick="addToCart()" class="addtocart"><i class="fa-solid fa-cart-arrow-down"></i> Add to
+                    Cart</button>
                 <br><br>
-                <a href="#"><button class="buynow"><i class="fa-solid fa-shop"></i> Buy now</button></a>
 
 
             </div>
             <div class="proddescr">
-                <h2 style="color: blue;">Utopia Bedding Throw Pillows Insert(Pack of 2, White)- 18 x 18 inches Bed and
+                <h2 id="product-name" style="color: blue;">Utopia Bedding Throw Pillows Insert(Pack of 2, White)- 18 x
+                    18 inches Bed and
                     Couch Pillows-Indoor
                     Decorative Pillows</h2>
                 <div class="rating">
@@ -410,7 +468,7 @@
                     List Price: <div class="overline">Rs 949</div>
 
                 </div>
-                <div class="price">
+                <div class="price" id="product-price">
                     Price: <h3 style="color: green; margin-left: 1%;">Rs699</h3>
 
                 </div>
@@ -646,54 +704,55 @@
             </p><br>
         </div>
     </div>
-        <div class="footpanel1">
-            <h4> <a href="product2.html"> Back to Top</a></h4>
+    <div class="footpanel1">
+        <h4> <a href="product2.html"> Back to Top</a></h4>
+    </div>
+
+
+    <footer class="footer">
+        <div class="leftk">
+            <div class="left_container">
+                <div class="contact">
+                    <h2>Contact Us</h2>
+                    <p class="address">
+                        123, XYZ Street,<br>
+                        City - 12345<br>
+                        State, Country
+                    </p>
+                    <p class="address">
+                        Phone: +1 234 567890<br>
+                        Email: info@duronto.com
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="right_container">
+            <div class="newsletter">
+                <h2 class="news">Newsletter</h2>
+                <form action="#" method="POST">
+                    <input type="email" name="email" id="email" placeholder="Your Email Address">
+                    <button type="submit" class="btn-subscribe">Subscribe</button>
+                </form>
+            </div>
+            <br>
+            <div class="legal_doc">
+                <div class="navFooter">
+                    <li class="nav_first">
+                        <a href="#">Terms and Conditions</a>
+                    </li>
+                    <li class="nav_first">
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                    <li class="nav_first">
+                        <a href="#">Help</a>
+                    </li>
+                </div>
+            </div>
+            <br>
+            <p class="copywrite" style="color: wheat;">&copy; 2023 Duronto. All Rights Reserved.</p>
         </div>
 
-
-        <footer class="footer">
-            <div class="leftk">
-                <div class="left_container">
-                    <div class="contact">
-                        <h2>Contact Us</h2>
-                        <p class="address">
-                            123, XYZ Street,<br>
-                            City - 12345<br>
-                            State, Country
-                        </p>
-                        <p class="address">
-                            Phone: +1 234 567890<br>
-                            Email: info@duronto.com
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="right_container">
-                <div class="newsletter">
-                    <h2 class="news">Newsletter</h2>
-                    <form action="#" method="POST">
-                        <input type="email" name="email" id="email" placeholder="Your Email Address">
-                        <button type="submit" class="btn-subscribe">Subscribe</button>
-                    </form>
-                </div>
-                <br>
-                <div class="legal_doc">
-                    <div class="navFooter">
-                        <li class="nav_first">
-                            <a href="#">Terms and Conditions</a>
-                        </li>
-                        <li class="nav_first">
-                            <a href="#">Privacy Policy</a>
-                        </li>
-                        <li class="nav_first">
-                            <a href="#">Help</a>
-                        </li>
-                    </div>
-                </div>
-                <br>
-                <p class="copywrite" style="color: wheat;">&copy; 2023 Duronto. All Rights Reserved.</p>
-            </div>
-    
-        </footer></body>
+    </footer>
+</body>
 
 </html>
