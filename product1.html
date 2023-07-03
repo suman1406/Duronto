@@ -8,6 +8,43 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <script>
+            function addToCart() {
+              // Get product details
+              var productName = document.getElementById("product-name").textContent;
+              var productPrice = document.getElementById("product-price").textContent;
+              var quantity = document.getElementById("quantity").value;
+        
+              // Create a new row in the cart table
+              var newRow = document.createElement("tr");
+        
+              // Create cells for product details
+              var productNameCell = document.createElement("td");
+              var productPriceCell = document.createElement("td");
+              var quantityCell = document.createElement("td");
+              var totalCell = document.createElement("td");
+        
+              // Set cell values
+              productNameCell.textContent = productName;
+              productPriceCell.textContent = productPrice;
+              quantityCell.textContent = quantity;
+              totalCell.textContent = (parseFloat(productPrice) * parseInt(quantity)).toFixed(2);
+        
+              // Append cells to the new row
+              newRow.appendChild(productNameCell);
+              newRow.appendChild(productPriceCell);
+              newRow.appendChild(quantityCell);
+              newRow.appendChild(totalCell);
+        
+              // Append the new row to the cart table
+              var cartTable = window.opener.document.getElementById("cart-table");
+              cartTable.appendChild(newRow);
+        
+              // Close the product window
+              window.close();
+            }
+          </script>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap');
@@ -374,7 +411,7 @@
         <div class="login-button">
             <a href="login.html">Login</a>
         </div>
-        <a class="carthover" href="#"><i class="fa-solid fa-cart-shopping"></i> </a>
+        <a class="carthover" href="cart.html"><i class="fa-solid fa-cart-shopping"></i> </a>
 
     </nav>
     <a href="home.html"><i class="fa-solid fa-angle-left"></i></a>
@@ -384,15 +421,17 @@
         <div class="product">
             <div class="prodimg">
                 <img alt="image" src="./images/insideimag3.png" height="400"><br><br><br>
-                <a href="#"><button class="addtocart"><i class="fa-solid fa-cart-arrow-down"></i> Add to
-                        Cart</button></a>
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" value="1">
+                <button onclick="addToCart()" class="addtocart"><i class="fa-solid fa-cart-arrow-down"></i> Add to
+                        Cart</button>
                 <br><br>
                 <a href="#"><button class="buynow"><i class="fa-solid fa-shop"></i> Buy now</button></a>
 
 
             </div>
             <div class="proddescr">
-                <h2 style="color: blue;">Fisher-Price Laugh & Learn Baby Learning Toy Smart Stages Piggy Bank With Songs
+                <h2 id="product-name" style="color: blue;">Fisher-Price Laugh & Learn Baby Learning Toy Smart Stages Piggy Bank With Songs
                     Sounds And Phrases For Infant To Toddler Play</h2>
                 <div class="rating">
                     <h4 class="numberrating">5</h4>
@@ -409,7 +448,7 @@
                     List Price: <div class="overline">Rs 1399</div>
 
                 </div>
-                <div class="price">
+                <div id="product-price" class="price">
                     Price: <h3 style="color: green; margin-left: 1%;">Rs999</h3>
 
                 </div>
