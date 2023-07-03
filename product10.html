@@ -9,41 +9,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
     <script>
-        function addToCart() {
-            // Get product details
-            var productName = document.getElementById("product-name").textContent;
-            var productPrice = document.getElementById("product-price").textContent;
-            var quantity = document.getElementById("quantity").value;
+        $(document).ready(function () {
+            $('#add-to-cart').click(function () {
+                var productName = $('#product-name').text();
+                var price = $('#price').text();
+                var quantity = $('#quantity').val();
+                var imageSrc = $('#product-image').attr('src');
+                var data = {
+                    productName: productName,
+                    price: price,
+                    quantity: quantity,
+                    imageSrc: imageSrc
+                };
 
-            // Create a new row in the cart table
-            var newRow = document.createElement("tr");
+                var existingCart = localStorage.getItem('cartItems');
+                var cartItems = existingCart ? JSON.parse(existingCart) : [];
+                cartItems.push(data);
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
-            // Create cells for product details
-            var productNameCell = document.createElement("td");
-            var productPriceCell = document.createElement("td");
-            var quantityCell = document.createElement("td");
-            var totalCell = document.createElement("td");
-
-            // Set cell values
-            productNameCell.textContent = productName;
-            productPriceCell.textContent = productPrice;
-            quantityCell.textContent = quantity;
-            totalCell.textContent = (parseFloat(productPrice) * parseInt(quantity)).toFixed(2);
-
-            // Append cells to the new row
-            newRow.appendChild(productNameCell);
-            newRow.appendChild(productPriceCell);
-            newRow.appendChild(quantityCell);
-            newRow.appendChild(totalCell);
-
-            // Append the new row to the cart table
-            var cartTable = window.opener.document.getElementById("cart-table");
-            cartTable.appendChild(newRow);
-
-            // Close the product window
-            window.close();
-        }
+                alert('Item added to cart!');
+            });
+        });
     </script>
 </head>
 <style>
@@ -405,6 +395,21 @@
     .quan input {
         height: 50px;
     }
+
+    .login-button {
+        font-weight: bold;
+        color: #fff;
+        background: linear-gradient(to bottom right, #034cab, #a5c0e7);
+        padding: 10px 30px;
+        border-radius: 30px;
+        position: relative;
+        top: 50%;
+    }
+
+    .login-button:hover {
+        background: #0fae51;
+        color: #150404;
+    }   
 </style>
 
 <body>
@@ -425,7 +430,7 @@
         </div>
         <div class="acc"><a href="profile.html">Account</a></div>
         <div class="login-button">
-            <a href="login.html">Login</a>
+            <a href="">Logout</a>
         </div>
         <a class="carthover" href="cart.html"><i class="fa-solid fa-cart-shopping"></i> </a>
 
@@ -436,12 +441,13 @@
     <main>
         <div class="product">
             <div class="prodimg">
-                <img src="./images/insideimag10.png" height="400"><br><br><br>
+                <img id="product-image" src="./images/insideimag10.png" height="400"><br><br><br>
                 <div class="quan">
                     <label for="quantity">Quantity:</label>
                     <input type="number" id="quantity" value="1">
                 </div>
-                <button onclick="addToCart()" class="addtocart"><i class="fa-solid fa-cart-arrow-down"></i> Add to
+                <button onclick="addToCart()" id="add-to-cart" class="addtocart"><i
+                        class="fa-solid fa-cart-arrow-down"></i> Add to
                     Cart</button>
                 <br><br>
 
@@ -465,8 +471,8 @@
                     List Price: <div class="overline">Rs 21,399</div>
 
                 </div>
-                <div class="price">
-                    Price: <h3 id="product-price" style="color: green; margin-left: 1%;">Rs 19,999</h3>
+                <div class="price" id="product-price">
+                    Price: <h3 id="price" style="color: green; margin-left: 1%;"> 19999</h3>
 
                 </div>
                 <div class="price">

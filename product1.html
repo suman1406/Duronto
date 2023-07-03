@@ -10,33 +10,33 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
-          <script>
-            $(document).ready(function() {
-              $('#add-to-cart').click(function() {
+    <script>
+        $(document).ready(function () {
+            $('#add-to-cart').click(function () {
                 var productName = $('#product-name').text();
                 var price = $('#price').text();
                 var quantity = $('#quantity').val();
                 var imageSrc = $('#product-image').attr('src');
                 var data = {
-                  productName: productName,
-                  price: price,
-                  quantity: quantity,
-                  imageSrc: imageSrc
+                    productName: productName,
+                    price: price,
+                    quantity: quantity,
+                    imageSrc: imageSrc
                 };
-                
+
                 var existingCart = localStorage.getItem('cartItems');
                 var cartItems = existingCart ? JSON.parse(existingCart) : [];
                 cartItems.push(data);
                 localStorage.setItem('cartItems', JSON.stringify(cartItems));
-                
+
                 alert('Item added to cart!');
-              });
             });
-          </script>
-          
+        });
+    </script>
+
 
 </head>
 <style>
@@ -394,8 +394,24 @@
         padding: 4%;
         padding-top: 5%;
     }
-    .quan input{
+
+    .quan input {
         height: 50px;
+    }
+
+    .login-button {
+        font-weight: bold;
+        color: #fff;
+        background: linear-gradient(to bottom right, #034cab, #a5c0e7);
+        padding: 10px 30px;
+        border-radius: 30px;
+        position: relative;
+        top: 50%;
+    }
+
+    .login-button:hover {
+        background: #0fae51;
+        color: #150404;
     }
 </style>
 
@@ -417,7 +433,7 @@
         </div>
         <div class="acc"><a href="profile.html">Account</a></div>
         <div class="login-button">
-            <a href="login.html">Login</a>
+            <a href=" ">Logout</a>
         </div>
         <a class="carthover" href="cart.html"><i class="fa-solid fa-cart-shopping"></i> </a>
 
@@ -433,7 +449,8 @@
                     <label for="quantity">Quantity:</label>
                     <input type="number" id="quantity" value="1">
                 </div>
-                <button onclick="addToCart()" id="add-to-cart" class="addtocart"><i class="fa-solid fa-cart-arrow-down"></i> Add to
+                <button onclick="addToCart()" id="add-to-cart" class="addtocart"><i
+                        class="fa-solid fa-cart-arrow-down"></i> Add to
                     Cart</button>
                 <br><br>
 
@@ -441,7 +458,7 @@
             <div class="proddescr">
                 <h2 style="color: blue;">
                     <p id="product-name">Fisher-Price Laugh & Learn Baby Learning Toy Smart Stages
-                    Piggy Bank With Songs
+                        Piggy Bank With Songs
                         Sounds And Phrases For Infant To Toddler Play</p>
                 </h2>
                 <div class="rating">
@@ -456,6 +473,10 @@
                 <br>
                 <hr>
                 <div class="price">
+                    List Price: <div class="overline">Rs 1239</div>
+
+                </div>
+                <div class="price" id="product-price">
                     Price: <h3 id="price" style="color: green; margin-left: 1%;">999</h3>
                 </div>
                 <div class="price">
