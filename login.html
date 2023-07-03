@@ -14,19 +14,19 @@
 
 
     * {
-	box-sizing: border-box;
-}
+        box-sizing: border-box;
+    }
 
-body {
-	background: #f6f5f7;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	font-family: 'Montserrat', sans-serif;
-	height: 100vh;
-	margin: -20px 0 50px;
-}
+    body {
+        background: #f6f5f7;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-family: 'Montserrat', sans-serif;
+        height: 100vh;
+        margin: -20px 0 50px;
+    }
 
     h1 {
         font-weight: bold;
@@ -104,7 +104,7 @@ body {
     .container {
         background-color: #fff;
         border-radius: 10px;
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        box-shadow: 14px 14px 14px rgba(0, 0, 0, 0.25),
             0 10px 10px rgba(0, 0, 0, 0.22);
         position: relative;
         overflow: hidden;
@@ -225,30 +225,30 @@ body {
     .container.right-panel-active .overlay-right {
         transform: translateX(20%);
     }
-
 </style>
 
 <body>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form action="#">
+            <form action="#" id="signUpForm">
                 <i class="fa fa-times" aria-hidden="true" style="position: absolute; top: 12; right: 12;"></i>
                 <h1>Create Account</h1>
                 <span>or use your email for registration</span>
-                <input type="text" placeholder="Name" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
+                <input type="text" placeholder="Name" id="signUpName" />
+                <input type="email" placeholder="Email" id="signUpEmail" />
+                <input type="password" placeholder="Password" id="signUpPassword" />
                 <button>Sign Up</button>
             </form>
         </div>
+
         <div class="form-container sign-in-container">
-            <form action="#">
+            <form action="#" id="signInForm">
                 <h1>Sign in</h1>
                 <span>or use your account</span>
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
+                <input type="email" placeholder="Email" id="signInEmail" />
+                <input type="password" placeholder="Password" id="signInPassword" />
                 <a href="#">Forgot your password?</a>
-                <button>Sign In</button>
+                <button type="submit">Sign In</button>
             </form>
         </div>
         <div class="overlay-container">
@@ -273,6 +273,38 @@ body {
     const signUpButton = document.getElementById('signUp');
     const signInButton = document.getElementById('signIn');
     const container = document.getElementById('container');
+    const signInForm = document.getElementById('signInForm');
+    const signInEmail = document.getElementById('signInEmail');
+    const signInPassword = document.getElementById('signInPassword');
+    const signUpForm = document.getElementById('signUpForm');
+    const signUpName = document.getElementById('signUpName');
+    const signUpEmail = document.getElementById('signUpEmail');
+    const signUpPassword = document.getElementById('signUpPassword');
+
+
+    signUpForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Get the entered name, email, and password
+        const name = signUpName.value;
+        const email = signUpEmail.value;
+        const password = signUpPassword.value;
+
+        // Store the new credentials for future sign-in
+        predefinedCredentials.name = name;
+        predefinedCredentials.email = email;
+        predefinedCredentials.password = password;
+
+        // Clear the signup form fields
+        signUpName.value = '';
+        signUpEmail.value = '';
+        signUpPassword.value = '';
+
+        // Show the sign-in panel
+        container.classList.remove("right-panel-active");
+    });
+
+
 
     signUpButton.addEventListener('click', () => {
         container.classList.add("right-panel-active");
@@ -281,7 +313,30 @@ body {
     signInButton.addEventListener('click', () => {
         container.classList.remove("right-panel-active");
     });
+
+    // Predefined user credentials
+    const predefinedCredentials = {
+        email: "example@example.com",
+        password: "password"
+    };
+
+    signInForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Get the entered email and password
+        const email = signInEmail.value;
+        const password = signInPassword.value;
+
+        // Check if the entered credentials match the predefined credentials
+        if (email === predefinedCredentials.email && password === predefinedCredentials.password) {
+            // Successful login
+            alert("Logged in successfully!");
+            window.location.href = "home.html";
+        } else {
+            // Invalid credentials
+            alert("Invalid email or password. Please try again.");
+        }
+    });
 </script>
-<script src="./fontawesome-free-6.3.0-web/js/all.min.js"></script>
 
 </html>

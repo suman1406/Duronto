@@ -474,6 +474,36 @@
     </div>
   </footer>
 </body>
-<script src="./fontawesome-free-6.3.0-web/js/all.min.js"></script>
+<script>
+  // This function will validate the email address input field
+  function validateEmail() {
+    var email = document.getElementById("email").value;
+    var regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!regex.test(email)) {
+      alert("Invalid email address!");
+      return false;
+    }
+    return true;
+  }
+
+  // This function will validate the phone number input field
+  function validatePhone() {
+    var phone = document.getElementById("phone").value;
+    var regex = /^\d{10}$/;
+    if (!regex.test(phone)) {
+      alert("Invalid phone number!");
+      return false;
+    }
+    return true;
+  }
+
+  // This function will submit the form when the user clicks the "Submit" button
+  function submitForm() {
+    if (validateEmail() && validatePhone()) {
+      document.getElementById("editProfileForm").submit();
+    }
+  }
+
+</script>
 
 </html>
