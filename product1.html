@@ -11,25 +11,32 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script>
+
+
+          <script>
             $(document).ready(function() {
               $('#add-to-cart').click(function() {
                 var productName = $('#product-name').text();
                 var price = $('#price').text();
                 var quantity = $('#quantity').val();
-                var imageSrc = $('#product-image').attr('src'); // Get the image source
-          
+                var imageSrc = $('#product-image').attr('src');
                 var data = {
                   productName: productName,
                   price: price,
                   quantity: quantity,
-                  imageSrc: imageSrc // Add the image source to the data object
+                  imageSrc: imageSrc
                 };
-                localStorage.setItem('cartItem', JSON.stringify(data));
+                
+                var existingCart = localStorage.getItem('cartItems');
+                var cartItems = existingCart ? JSON.parse(existingCart) : [];
+                cartItems.push(data);
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                
                 alert('Item added to cart!');
               });
             });
           </script>
+          
 
 </head>
 <style>
@@ -421,12 +428,12 @@
     <main>
         <div class="product">
             <div class="prodimg">
-                <img alt="image" src="./images/insideimag3.png" height="400"><br><br><br>
+                <img id="product-image" alt="image" src="./images/insideimag3.png" height="400"><br><br><br>
                 <div class="quan">
                     <label for="quantity">Quantity:</label>
                     <input type="number" id="quantity" value="1">
                 </div>
-                <button onclick="addToCart()" class="addtocart"><i class="fa-solid fa-cart-arrow-down"></i> Add to
+                <button onclick="addToCart()" id="add-to-cart" class="addtocart"><i class="fa-solid fa-cart-arrow-down"></i> Add to
                     Cart</button>
                 <br><br>
 
