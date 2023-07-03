@@ -11,7 +11,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script>
+        <!-- <script>
             $(document).ready(function() {
               $('#add-to-cart').click(function() {
                 var productName = $('#product-name').text();
@@ -29,7 +29,32 @@
                 alert('Item added to cart!');
               });
             });
-          </script>          
+          </script>           -->
+
+          <script>
+            $(document).ready(function() {
+              $('#add-to-cart').click(function() {
+                var productName = $('#product-name').text();
+                var price = $('#price').text();
+                var quantity = $('#quantity').val();
+                var imageSrc = $('#product-image').attr('src');
+                var data = {
+                  productName: productName,
+                  price: price,
+                  quantity: quantity,
+                  imageSrc: imageSrc
+                };
+                
+                var existingCart = localStorage.getItem('cartItems');
+                var cartItems = existingCart ? JSON.parse(existingCart) : [];
+                cartItems.push(data);
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                
+                alert('Item added to cart!');
+              });
+            });
+          </script>
+          
 
 </head>
 <style>

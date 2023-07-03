@@ -48,7 +48,7 @@
       max-width: 100px;
     }
   </style>
-  <script>
+  <!-- <script>
     $(document).ready(function() {
       var cartItem = localStorage.getItem('cartItem');
       if (cartItem) {
@@ -85,7 +85,63 @@
       var totalPrice = calculateTotalPrice();
       $('#total-price').text('Rs ' + totalPrice.toFixed(2));
     }
+  </script> -->
+
+  <script>
+    $(document).ready(function() {
+      var cartItems = localStorage.getItem('cartItems');
+      if (cartItems) {
+        var items = JSON.parse(cartItems);
+        items.forEach(function(item) {
+          var productName = item.productName;
+          var price = parseFloat(item.price);
+          var quantity = parseInt(item.quantity);
+          var imageSrc = item.imageSrc;
+  
+          var tableRow = '<tr><td><img src="' + imageSrc + '" alt="Product Image" class="product-image"></td><td>' + productName + '</td><td>₹' + price + '</td><td>' + quantity + '</td><td><button class="remove-button" onclick="removeProduct(this)">Remove</button></td></tr>';
+          $('#cart-item tbody').append(tableRow);
+        });
+      }
+  
+      var totalPrice = calculateTotalPrice();
+      $('#total-price').text('Rs ' + totalPrice.toFixed(2));
+    });
+  
+    function calculateTotalPrice() {
+      var total = 0;
+      $('#cart-item tbody tr').each(function() {
+        var priceText = $(this).find('td:eq(2)').text();
+        var price = parseFloat(priceText.replace('₹', ''));
+        var quantity = parseInt($(this).find('td:eq(3)').text());
+        total += price * quantity;
+      });
+      return total;
+    }
+  
+    function removeProduct(button) {
+      var row = $(button).closest('tr');
+      row.remove();
+      var totalPrice = calculateTotalPrice();
+      $('#total-price').text('Rs ' + totalPrice.toFixed(2));
+  
+      var cartItems = [];
+      $('#cart-item tbody tr').each(function() {
+        var productName = $(this).find('td:eq(1)').text();
+        var price = $(this).find('td:eq(2)').text();
+        var quantity = $(this).find('td:eq(3)').text();
+        var imageSrc = $(this).find('img').attr('src');
+        var data = {
+          productName: productName,
+          price: price,
+          quantity: quantity,
+          imageSrc: imageSrc
+        };
+        cartItems.push(data);
+      });
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    }
   </script>
+  
 </head>
 <body>
   <h1>Cart</h1>
