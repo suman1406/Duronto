@@ -27,9 +27,9 @@
     nav {
         background-color: #fff;
         display: flex;
+        justify-content: space-between;
         align-items: center;
         padding: 20px;
-        justify-content: space-between;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
@@ -79,20 +79,18 @@
     }
 
     .login {
+        font-weight: bold;
+        color: #fff;
         background: linear-gradient(to bottom right, #034cab, #a5c0e7);
-        display: flex;
-        align-items: center;
-        text-align: center;
-        border-radius: 40px;
-        font-weight: 1000;
         padding: 10px 20px;
+        border-radius: 30px;
+        position: relative;
+        top: 50%;
     }
 
     .login:hover {
         background: #0fae51;
-        cursor: pointer;
-
-
+        color: #150404;
     }
 
     .acc {
@@ -113,11 +111,6 @@
     .acc:hover {
         background-color: rgb(190, 138, 141);
         text-decoration: none;
-    }
-
-    a {
-        text-decoration: none;
-        color: black;
     }
 
     .about {
@@ -167,9 +160,8 @@
     .contents {
         width: 20%;
         box-shadow: 2px 2px 6px 6px rgba(0, 0, 0, 0.1);
-        height: 480px;
+        height: 400px;
         padding-left: 4%;
-        margin-top: 3%;
     }
 
     .contents a {
@@ -289,6 +281,7 @@
         cursor: pointer;
 
 
+
     }
 
     .main2 {
@@ -348,7 +341,7 @@
 <body>
     <nav>
         <div class="logo">
-            <a href="home.html"><img alt="image" src="./images/logo.png" alt="logo_black">Duronto</a>
+            <a href="home.html"><img src="./images/logo.png" alt="logo_black">Duronto</a>
         </div>
         <div class="search">
             <form>
@@ -364,6 +357,7 @@
         <div class="acc"><a href="profile.html">Account</a></div>
         <div class="cart">
             <a class="carthover" href="cart.html"><i class="fa-solid fa-cart-shopping"></i> </a>
+
         </div>
         <div class="login">
             <a href="  ">Logout</a>
@@ -371,34 +365,27 @@
     </nav>
 
     <div class="main">
-        <div class="contents"><br><br>
+        <div class="contents" style="position: fixed;"><br>
             <!-- <div class="contentsmain" style="position: fixed;margin: 0;padding: 0;"> -->
-            <a href="clothes.html"><img alt="image" src="https://img.icons8.com/?size=512&id=10506&format=png"
-                    height="35">
-                <b>Clothes </b></a><br>
-            <a href="health.html"><img alt="image" src="https://img.icons8.com/?size=512&id=aDdoo60TCe3D&format=png"
-                    height="20">
+            <a href="clothes.html"><img src="https://img.icons8.com/?size=512&id=10506&format=png" height="35">
+                <b> Clothes </b></a><br>
+            <a href="health.html"><img src="https://img.icons8.com/?size=512&id=aDdoo60TCe3D&format=png" height="20">
                 Health and
                 Personal Care</a><br>
-            <a href="furniture.html"><img alt="image" src="https://img.icons8.com/?size=512&id=vyVBEmzBf2hF&format=png"
+            <a href="furniture.html"><img src="https://img.icons8.com/?size=512&id=vyVBEmzBf2hF&format=png"
                     height="20"></i> Furniture</a><br>
-            <a href="electronics.html"><img alt="image" src="https://img.icons8.com/?size=512&id=9095&format=png"
-                    height="20">
+            <a href="electronics.html"><img src="https://img.icons8.com/?size=512&id=9095&format=png" height="20">
                 Electronics</a><br>
-            <a href="beautypicks.html"><img alt="image"
-                    src="https://img.icons8.com/?size=512&id=yfvWxS5WV5F6&format=png" height="20"> Beauty
+            <a href="beautypicks.html"><img src="https://img.icons8.com/?size=512&id=yfvWxS5WV5F6&format=png"
+                    height="20"> Beauty
                 Picks</a><br>
-            <a href="petcare.html"><img alt="image" src="https://img.icons8.com/?size=512&id=106513&format=png"
-                    height="20"> Pet
+            <a href="petcare.html"><img src="https://img.icons8.com/?size=512&id=106513&format=png" height="20"> Pet
                 Care</a><br>
-            <a href="toys.html"><img alt="image" src="https://img.icons8.com/?size=512&id=0GQzfhCMfOM5&format=png"
-                    height="20"> New
-                Arrivals
+            <a href="toys.html"><img src="https://img.icons8.com/?size=512&id=0GQzfhCMfOM5&format=png" height="20">
+                New Arrivals
                 in Toys</a><br>
-            <a href="fitness.html"><img alt="image" src="https://img.icons8.com/?size=512&id=9773&format=png"
-                    height="20"> For your
-                Fitness
-                Needs</a><br><br>
+            <a href="fitness.html"><img src="https://img.icons8.com/?size=512&id=9773&format=png" height="20"> Find your
+                Fitness Needs</a>
             <!-- </div> -->
         </div>
         <div class="mainmain">
@@ -446,6 +433,7 @@
                     </div>
                 </div>
             </div>
+
 
 
             <div class="mainsection">
