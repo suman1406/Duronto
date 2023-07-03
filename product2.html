@@ -10,42 +10,26 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <script>
-        function addToCart() {
-            // Get product details
-            var productName = document.getElementById("product-name").textContent;
-            var productPrice = document.getElementById("product-price").textContent;
-            var quantity = document.getElementById("quantity").value;
-
-            // Create a new row in the cart table
-            var newRow = document.createElement("tr");
-
-            // Create cells for product details
-            var productNameCell = document.createElement("td");
-            var productPriceCell = document.createElement("td");
-            var quantityCell = document.createElement("td");
-            var totalCell = document.createElement("td");
-
-            // Set cell values
-            productNameCell.textContent = productName;
-            productPriceCell.textContent = productPrice;
-            quantityCell.textContent = quantity;
-            totalCell.textContent = (parseFloat(productPrice) * parseInt(quantity)).toFixed(2);
-
-            // Append cells to the new row
-            newRow.appendChild(productNameCell);
-            newRow.appendChild(productPriceCell);
-            newRow.appendChild(quantityCell);
-            newRow.appendChild(totalCell);
-
-            // Append the new row to the cart table
-            var cartTable = window.opener.document.getElementById("cart-table");
-            cartTable.appendChild(newRow);
-
-            // Close the product window
-            window.close();
-        }
-    </script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function() {
+              $('#add-to-cart').click(function() {
+                var productName = $('#product-name').text();
+                var price = $('#price').text();
+                var quantity = $('#quantity').val();
+                var imageSrc = $('#product-image').attr('src'); // Get the image source
+          
+                var data = {
+                  productName: productName,
+                  price: price,
+                  quantity: quantity,
+                  imageSrc: imageSrc // Add the image source to the data object
+                };
+                localStorage.setItem('cartItem', JSON.stringify(data));
+                alert('Item added to cart!');
+              });
+            });
+          </script> 
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap');
@@ -437,12 +421,12 @@
     <main>
         <div class="product">
             <div class="prodimg">
-                <img alt="image" src="./images/insideimag1.png" height="400"><br><br><br>
+                <img id="product-image" alt="image" src="./images/insideimag1.png" height="400"><br><br><br>
                 <div class="quan">
                     <label for="quantity">Quantity:</label>
                     <input type="number" id="quantity" value="1">
                 </div>
-                <button onclick="addToCart()" class="addtocart"><i class="fa-solid fa-cart-arrow-down"></i> Add to
+                <button onclick="addToCart()" id="add-to-cart" class="addtocart"><i class="fa-solid fa-cart-arrow-down"></i> Add to
                     Cart</button>
                 <br><br>
 
@@ -469,7 +453,7 @@
 
                 </div>
                 <div class="price" id="product-price">
-                    Price: <h3 style="color: green; margin-left: 1%;">Rs699</h3>
+                    Price: <h3 id="price" style="color: green; margin-left: 1%;">699</h3>
 
                 </div>
                 <div class="price">
