@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,42 +10,42 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <script>
-            function addToCart() {
-              // Get product details
-              var productName = document.getElementById("product-name").textContent;
-              var productPrice = document.getElementById("product-price").textContent;
-              var quantity = document.getElementById("quantity").value;
-        
-              // Create a new row in the cart table
-              var newRow = document.createElement("tr");
-        
-              // Create cells for product details
-              var productNameCell = document.createElement("td");
-              var productPriceCell = document.createElement("td");
-              var quantityCell = document.createElement("td");
-              var totalCell = document.createElement("td");
-        
-              // Set cell values
-              productNameCell.textContent = productName;
-              productPriceCell.textContent = productPrice;
-              quantityCell.textContent = quantity;
-              totalCell.textContent = (parseFloat(productPrice) * parseInt(quantity)).toFixed(2);
-        
-              // Append cells to the new row
-              newRow.appendChild(productNameCell);
-              newRow.appendChild(productPriceCell);
-              newRow.appendChild(quantityCell);
-              newRow.appendChild(totalCell);
-        
-              // Append the new row to the cart table
-              var cartTable = window.opener.document.getElementById("cart-table");
-              cartTable.appendChild(newRow);
-        
-              // Close the product window
-              window.close();
-            }
-          </script>
+    <script>
+        function addToCart() {
+            // Get product details
+            var productName = document.getElementById("product-name").textContent;
+            var productPrice = document.getElementById("product-price").textContent;
+            var quantity = document.getElementById("quantity").value;
+
+            // Create a new row in the cart table
+            var newRow = document.createElement("tr");
+
+            // Create cells for product details
+            var productNameCell = document.createElement("td");
+            var productPriceCell = document.createElement("td");
+            var quantityCell = document.createElement("td");
+            var totalCell = document.createElement("td");
+
+            // Set cell values
+            productNameCell.textContent = productName;
+            productPriceCell.textContent = productPrice;
+            quantityCell.textContent = quantity;
+            totalCell.textContent = (parseFloat(productPrice) * parseInt(quantity)).toFixed(2);
+
+            // Append cells to the new row
+            newRow.appendChild(productNameCell);
+            newRow.appendChild(productPriceCell);
+            newRow.appendChild(quantityCell);
+            newRow.appendChild(totalCell);
+
+            // Append the new row to the cart table
+            var cartTable = window.opener.document.getElementById("cart-table");
+            cartTable.appendChild(newRow);
+
+            // Close the product window
+            window.close();
+        }
+    </script>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap');
@@ -389,6 +390,21 @@
     .address {
         color: white;
     }
+
+    .quan {
+        margin-bottom: 6%;
+        border: 2px solid black;
+        background-color: rgb(235, 233, 233);
+        border-radius: 40px;
+        height: 15%;
+        width: 300px;
+        margin-left: 4%;
+        padding: 4%;
+        padding-top: 5%;
+    }
+    .quan input{
+        height: 50px;
+    }
 </style>
 
 <body>
@@ -421,17 +437,18 @@
         <div class="product">
             <div class="prodimg">
                 <img alt="image" src="./images/insideimag3.png" height="400"><br><br><br>
-                <label for="quantity">Quantity:</label>
-                <input type="number" id="quantity" value="1">
+                <div class="quan">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" value="1">
+                </div>
                 <button onclick="addToCart()" class="addtocart"><i class="fa-solid fa-cart-arrow-down"></i> Add to
-                        Cart</button>
+                    Cart</button>
                 <br><br>
-                <a href="#"><button class="buynow"><i class="fa-solid fa-shop"></i> Buy now</button></a>
-
 
             </div>
             <div class="proddescr">
-                <h2 id="product-name" style="color: blue;">Fisher-Price Laugh & Learn Baby Learning Toy Smart Stages Piggy Bank With Songs
+                <h2 id="product-name" style="color: blue;">Fisher-Price Laugh & Learn Baby Learning Toy Smart Stages
+                    Piggy Bank With Songs
                     Sounds And Phrases For Infant To Toddler Play</h2>
                 <div class="rating">
                     <h4 class="numberrating">5</h4>

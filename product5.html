@@ -9,6 +9,42 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        function addToCart() {
+            // Get product details
+            var productName = document.getElementById("product-name").textContent;
+            var productPrice = document.getElementById("product-price").textContent;
+            var quantity = document.getElementById("quantity").value;
+
+            // Create a new row in the cart table
+            var newRow = document.createElement("tr");
+
+            // Create cells for product details
+            var productNameCell = document.createElement("td");
+            var productPriceCell = document.createElement("td");
+            var quantityCell = document.createElement("td");
+            var totalCell = document.createElement("td");
+
+            // Set cell values
+            productNameCell.textContent = productName;
+            productPriceCell.textContent = productPrice;
+            quantityCell.textContent = quantity;
+            totalCell.textContent = (parseFloat(productPrice) * parseInt(quantity)).toFixed(2);
+
+            // Append cells to the new row
+            newRow.appendChild(productNameCell);
+            newRow.appendChild(productPriceCell);
+            newRow.appendChild(quantityCell);
+            newRow.appendChild(totalCell);
+
+            // Append the new row to the cart table
+            var cartTable = window.opener.document.getElementById("cart-table");
+            cartTable.appendChild(newRow);
+
+            // Close the product window
+            window.close();
+        }
+    </script>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap');
@@ -245,7 +281,9 @@
 
     .carthover:hover {
         color: orange;
-    }.footer {
+    }
+
+    .footer {
         background-color: #333;
         color: white;
         padding: 20px 0;
@@ -351,6 +389,22 @@
     .address {
         color: white;
     }
+
+    .quan {
+        margin-bottom: 6%;
+        border: 2px solid black;
+        background-color: rgb(235, 233, 233);
+        border-radius: 40px;
+        height: 18%;
+        width: 240px;
+        margin-left: 5%;
+        padding: 10%;
+        padding-top: 3%;
+    }
+
+    .quan input {
+        height: 50px;
+    }
 </style>
 
 <body>
@@ -383,15 +437,18 @@
         <div class="product">
             <div class="prodimg">
                 <img src="./images/insideimag5.png" height="400"><br><br><br>
-                <a href="#"><button class="addtocart"><i class="fa-solid fa-cart-arrow-down"></i> Add to
-                        Cart</button></a>
+                <div class="quan">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" value="1">
+                </div>
+                <button onclick="addToCart()" class="addtocart"><i class="fa-solid fa-cart-arrow-down"></i> Add to
+                    Cart</button>
                 <br><br>
-                <a href="#"><button class="buynow"><i class="fa-solid fa-shop"></i> Buy now</button></a>
 
 
             </div>
             <div class="proddescr">
-                <h2 style="color: blue;">PUMA Men's Hooded Graphic Windbreaker
+                <h2 id="product-name" style="color: blue;">PUMA Men's Hooded Graphic Windbreaker
                 </h2>
                 <div class="rating">
                     <h4 class="numberrating">4</h4>
@@ -400,7 +457,7 @@
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star"></span>
-                    <h4 class="numberrated">10,419 ratings</h4>
+                    <h4 class="numberrated">419 ratings</h4>
                 </div>
                 <br>
                 <hr>
@@ -409,7 +466,7 @@
 
                 </div>
                 <div class="price">
-                    Price: <h3 style="color: green; margin-left: 1%;">Rs3199</h3>
+                    Price: <h3 id="product-price" style="color: green; margin-left: 1%;">Rs3199</h3>
 
                 </div>
                 <div class="price">
