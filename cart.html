@@ -1,105 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-  <title>Cart</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart Page</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
+      margin-bottom: 20px;
     }
-    
+
     th, td {
-      padding: 8px;
-      text-align: left;
+      padding: 10px;
       border-bottom: 1px solid #ddd;
+      text-align: center;
     }
-    
-    .total-row {
+
+    th {
+      background-color: #f9f9f9;
+    }
+
+    .total-price {
+      text-align: right;
+      margin-top: 10px;
       font-weight: bold;
+    }
+
+    .remove-button {
+      background-color: #ff0000;
+      color: #ffffff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    img.product-image {
+      max-width: 100px;
     }
   </style>
   <script>
-    function removeFromCart(row) {
-      var cartTable = document.getElementById("cart-table");
-      cartTable.removeChild(row);
-      updateCartTotal();
-    }
-    
-    function updateCartTotal() {
-      var cartTable = document.getElementById("cart-table");
-      var rows = cartTable.getElementsByTagName("tr");
-      var total = 0;
-      
-      for (var i = 1; i < rows.length - 1; i++) { // Exclude header and total row
-        var row = rows[i];
-        var quantity = parseInt(row.cells[2].textContent);
-        var price = parseFloat(row.cells[1].textContent.replace("$", ""));
-        var rowTotal = quantity * price;
-        row.cells[3].textContent = rowTotal.toFixed(2);
-        total += rowTotal;
-      }
-      
-      // Update total row
-      var totalRow = rows[rows.length - 1];
-      totalRow.cells[1].textContent = "Total";
-      totalRow.cells[3].textContent = "$" + total.toFixed(2);
-    }
-</script>
+    $(document).ready(function() {
+      var cartItem = localStorage.getItem('cartItem');
+      if (cartItem) {
+        var data = JSON.parse(cartItem);
+        var productName = data.productName;
+        var price = parseFloat(data.price);
+        var quantity = parseInt(data.quantity);
+        var imageSrc = data.imageSrc;
 
+        var tableRow = '<tr><td><img src="' + imageSrc + '" alt="Product Image" class="product-image"></td><td>' + productName + '</td><td>₹' + price + '</td><td>' + quantity + '</td><td><button class="remove-button" onclick="removeProduct(this)">Remove</button></td></tr>';
+        $('#cart-item tbody').append(tableRow);
+
+        localStorage.removeItem('cartItem');
+      }
+
+      var totalPrice = calculateTotalPrice();
+      $('#total-price').text('Rs ' + totalPrice.toFixed(2));
+    });
+
+    function calculateTotalPrice() {
+      var total = 0;
+      $('#cart-item tbody tr').each(function() {
+        var priceText = $(this).find('td:eq(2)').text();
+        var price = parseFloat(priceText.replace('₹', ''));
+        var quantity = parseInt($(this).find('td:eq(3)').text());
+        total += price * quantity;
+      });
+      return total;
+    }
+
+    function removeProduct(button) {
+      var row = $(button).closest('tr');
+      row.remove();
+      var totalPrice = calculateTotalPrice();
+      $('#total-price').text('Rs ' + totalPrice.toFixed(2));
+    }
+  </script>
+</head>
 <body>
   <h1>Cart</h1>
-  <table id="cart-table">
-    <tr>
-      <th>Product</th>
-      <th>Price</th>
-      <th>Quantity</th>
-      <th>Total</th>
-      <th></th>
-    </tr>
-    <!-- Existing cart items will be here -->
-    <tr class="total-row">
-      <td colspan="3"></td>
-      <td></td>
-      <td></td>
-    </tr>
+  <table id="cart-item">
+    <thead>
+      <tr>
+        <th>Product Image</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody></tbody>
   </table>
-  <script>
-    // Example initial cart items
-    var cartTable = document.getElementById("cart-table");
-    
-    var product1Row = document.createElement("tr");
-    var product1NameCell = document.createElement("td");
-    var product1PriceCell = document.createElement("td");
-    var product1QuantityCell = document.createElement("td");
-    var product1TotalCell = document.createElement("td");
-    var product1RemoveCell = document.createElement("td");
-    
-    product1NameCell.textContent = "Product 1";
-    product1PriceCell.textContent = "$10.00";
-    product1QuantityCell.textContent = "2";
-    product1TotalCell.textContent = "$20.00";
-    
-    var product1RemoveButton = document.createElement("button");
-    product1RemoveButton.textContent = "Remove";
-    product1RemoveButton.onclick = function() { removeFromCart(product1Row); };
-    
-    product1RemoveCell.appendChild(product1RemoveButton);
-    
-    product1Row.appendChild(product1NameCell);
-    product1Row.appendChild(product1PriceCell);
-    product1Row.appendChild(product1QuantityCell);
-    product1Row.appendChild(product1TotalCell);
-    product1Row.appendChild(product1RemoveCell);
-    
-    cartTable.appendChild(product1Row);
-    
-    // Add more initial cart items if needed
-    
-    updateCartTotal();
-  </script>
+  <div class="total-price">Total Price: <span id="total-price"></span></div>
 </body>
 </html>
