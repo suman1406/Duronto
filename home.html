@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap');
@@ -545,7 +546,7 @@
 
         </div>
         <div class="login-button">
-            <a href="">Logout</a>
+            <a href="" id="logout">Logout</a>
         </div>
     </nav>
     <main>
@@ -659,7 +660,14 @@
                     true
                 );
                 httpRequest.send();
+
+
+
             </script>
+            <script src="logout.js"></script>
+
+
+
         </div>
         <h5 class="justatext">You are on duronto.com . You can also shop on Duronto India for millions of products with
             fast local
@@ -927,39 +935,40 @@
         </div>
 
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-    <script>
-        let slideIndex = 0;
-        showSlide(slideIndex);
-
-        function changeSlide(n) {
-            showSlide(slideIndex += n);
-        }
-
-        function showSlide(n) {
-            const slides = document.getElementsByClassName("slide");
-
-            if (n >= slides.length) {
-                slideIndex = 0;
-            } else if (n < 0) {
-                slideIndex = slides.length - 1;
-            }
-
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-
-            slides[slideIndex].style.display = "block";
-
-            // Automatically change slide after 2 seconds
-            setTimeout(() => {
-                showSlide(slideIndex += 1);
-            }, 2000);
-        }
-
-    </script>
-
-
 </body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+<script>
+    let slideIndex = 0;
+    showSlide(slideIndex);
+
+    function changeSlide(n) {
+        showSlide(slideIndex += n);
+    }
+
+    function showSlide(n) {
+        const slides = document.getElementsByClassName("slide");
+
+        if (n >= slides.length) {
+            slideIndex = 0;
+        } else if (n < 0) {
+            slideIndex = slides.length - 1;
+        }
+
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+
+        slides[slideIndex].style.display = "block";
+
+        // Automatically change slide after 2 seconds
+        setTimeout(() => {
+            showSlide(slideIndex += 1);
+        }, 2000);
+    }
+
+</script>
+
+
 
 </html>

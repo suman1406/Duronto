@@ -288,17 +288,32 @@
 
     .submit {
         background-color: yellowgreen;
-    width: 100px;
-    font-weight: 100;
-    border: 2px dotted blue;
-    border-radius: 20px;
-    width: 20%;
-    margin-left: 2%;
-    cursor: pointer;
+        width: 100px;
+        font-weight: 100;
+        border: 2px dotted blue;
+        border-radius: 20px;
+        width: 20%;
+        margin-left: 2%;
+        cursor: pointer;
     }
 
     .submit:hover {
         background-color: aqua;
+    }
+
+    .login-button {
+        font-weight: bold;
+        color: #fff;
+        background: linear-gradient(to bottom right, #034cab, #a5c0e7);
+        padding: 1px 3px;
+        border-radius: 30px;
+        position: relative;
+        top: 50%;
+    }
+
+    .login-button:hover {
+        background: #0fae51;
+        color: #150404;
     }
 </style>
 
@@ -314,20 +329,19 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
             </form>
-            <div class="logout" style="position: absolute; left: 86%; top: 2.6%;">
-                <a href="#"><i class="fa-solid fa-right-from-bracket"></i>
-                    Logout</a>
+            <div class="login-button">
+                <a id="logout" href="">Logout</a>
             </div>
     </nav>
     <hr>
-    
+
 
     <div class="main">
         <div class="contents " style="position: fixed;">
             <div class="phead">
                 <a href="profile.html">
                     <H1 id="title"><u>PROFILE</u></H1>
-                </a>f
+                </a>
             </div><br><br>
             <a class="a" href="editprofile.html"><i class="fas fa-user" style="font-size: 20px;"></i> Edit
                 Profile</a><br>
@@ -477,5 +491,6 @@
     </footer>
 </body>
 <script src="./fontawesome-free-6.3.0-web/js/all.min.js"></script>
+<script src="logout.js"></script>
 
 </html>
