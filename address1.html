@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
 
     * {
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -145,6 +147,7 @@
         background-color: #e5e3e3;
     }
 
+
     .container form {
         padding: 20px;
         width: 700px;
@@ -206,9 +209,9 @@
         filter: drop-shadow(0 0 1px #000);
     }
 
-    .button {
+    .container form .submit-btn {
         width: 100%;
-        padding: 2%;
+        padding: 12px;
         font-size: 17px;
         background: #27ae60;
         color: #fff;
@@ -216,7 +219,7 @@
         cursor: pointer;
     }
 
-    .button:hover {
+    .container form .submit-btn:hover {
         background: #2ecc71;
     }
 
@@ -357,7 +360,7 @@
 
     <div class="container">
 
-        <form action="" onsubmit="return validateForm()">
+        <form action="#" onsubmit="return validateForm()">
 
             <div class="row">
 
@@ -395,58 +398,19 @@
 
                 </div>
 
+
+
             </div>
 
-
-
-            <div class="button">
+            <div class="submit-btn">
                 <a href="netbanking.html">
-                    <h3>Proceed to Payment</h3>
+                    <h3>Proceed to Checkout</h3>
                 </a>
             </div>
 
+        </form>
+
     </div>
-    <script>
-        function validateForm() {
-            // Retrieve form values
-            var fullName = document.getElementById("fullname").value;
-            var email = document.getElementById("email").value;
-            var address = document.getElementById("address").value;
-            var city = document.getElementById("city").value;
-            var state = document.getElementById("state").value;
-            var zipCode = document.getElementById("zipcode").value;
-
-            // Perform validation
-            if (fullName === "") {
-                alert("Please enter your full name.");
-                return false;
-            }
-            if (email === "") {
-                alert("Please enter your email.");
-                return false;
-            }
-            if (address === "") {
-                alert("Please enter your address.");
-                return false;
-            }
-            if (city === "") {
-                alert("Please enter your city.");
-                return false;
-            }
-            if (state === "") {
-                alert("Please enter your state.");
-                return false;
-            }
-            if (zipCode === "") {
-                alert("Please enter your zip code.");
-                return false;
-            }
-
-
-            return true;
-        }
-    </script>
-
     <footer class="footer">
         <div class="leftk">
             <div class="left_container">
@@ -491,6 +455,55 @@
         </div>
 
     </footer>
+
+
+    <script>
+        function validateForm() {
+            // Retrieve form values
+            var fullName = document.getElementById("fullname").value;
+            var email = document.getElementById("email").value;
+            var address = document.getElementById("address").value;
+            var city = document.getElementById("city").value;
+            var state = document.getElementById("state").value;
+            var zipCode = document.getElementById("zipcode").value;
+
+            // Perform validation
+            if (fullName === "") {
+                alert("Please enter your full name.");
+                return false;
+            }
+            if (email === "") {
+                alert("Please enter your email.");
+                return false;
+            }
+            if (address === "") {
+                alert("Please enter your address.");
+                return false;
+            }
+            if (city === "") {
+                alert("Please enter your city.");
+                return false;
+            }
+            if (state === "") {
+                alert("Please enter your state.");
+                return false;
+            }
+            if (zipCode === "") {
+                alert("Please enter your zip code.");
+                return false;
+            }
+
+
+
+            return true;
+        }
+
+        function isValidCardNumber(cardNumber) {
+            // Regular expression to match the pattern of credit card numbers (16 digits)
+            var cardNumberPattern = /^\d{4}-\d{4}-\d{4}-\d{4}$/;
+            return cardNumberPattern.test(cardNumber);
+        }
+    </script>
 
 </body>
 
