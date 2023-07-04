@@ -25,12 +25,11 @@
         list-style: none;
         display: flex;
     }
-
+ 
     nav a {
         color: rgb(22, 26, 19);
         text-decoration: none;
         font-weight: 100;
-        font-size: 30px;
     }
 
     * {
@@ -49,7 +48,6 @@
 
     a {
         display: block;
-        margin-left: 60px;
     }
 
     #title {
@@ -71,17 +69,19 @@
 
     .contents {
         width: 20%;
+
     }
 
     .contents a {
         text-decoration: none;
         color: #333;
         font-weight: 500;
+        margin-left: 20%;
     }
 
     .contents a:hover {
-        color: #333;
         font-weight: bold;
+        color: #07010d;
         transform: scale(1.1);
         transition: 0.5s;
     }
@@ -93,7 +93,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1px;
+        padding: 20px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
@@ -135,8 +135,7 @@
     }
 
     .cart img {
-        width: 40px;
-        height: 40px;
+
         cursor: pointer;
     }
 
@@ -541,9 +540,21 @@
         margin-right: 350px;
     }
 
-    .search {
-        flex: 1;
-        margin: 0 10px;
+
+    .logout {
+        color: #fff;
+        border: none;
+        margin-top: 1%;
+        font-size: 1rem;
+        background: linear-gradient(to bottom right, #034cab, #a5c0e7);
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .logout:hover {
+        background: #0fae51;
+        color: #150404;
     }
 </style>
 
@@ -565,7 +576,7 @@
                     height="20"></a>
         </div>
         <div class="logout" style="position: absolute; left: 86%; top: 2.6%;">
-            <a id="logout" href="#"><i class="fa-solid fa-right-from-bracket"></i>
+            <a id="logout" href="#">
                 Logout</a>
         </div>
     </nav>
@@ -573,7 +584,7 @@
     <div class="main">
         <div class="contents" style="position: fixed;">
             <div class="phead">
-                <a href="profile.html">
+                <a href="profile.html"><br>
                     <H1 id="title"><u>PROFILE</u></H1>
                 </a>
             </div><br><br>

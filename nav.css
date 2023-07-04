@@ -1,0 +1,107 @@
+nav {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .logo a {
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+  }
+
+  .logo img {
+    width: 20%;
+  }
+
+  .search {
+    margin-right: 10%;
+    border: 1px solid black;
+    border-radius: 40px;
+  }
+
+  .search form {
+    display: flex;
+  }
+
+
+
+
+  .search input[type="text"] {
+    border-color: #333;
+    width: 30vw;
+    padding: 10px;
+    font-size: 16px;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+  }
+
+  .searchbtn {
+    background-color: gray;
+    display: flex;
+    align-items: center;
+    width: 9%;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    justify-content: center;
+  }
+
+  .login-button {
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(to bottom right, #034cab, #a5c0e7);
+    padding: 10px 30px;
+    border-radius: 30px;
+    position: relative;
+    top: 50%;
+  }
+
+  .login-button:hover {
+    background: #0fae51;
+    color: #150404;
+  }
+
+  .acc {
+    text-decoration: none;
+    color: #333;
+    padding: 6px 15px;
+    border-radius: 20px;
+    margin: 0 20px;
+    font-weight: 600;
+    display: flex;
+  }
+
+  .acc a {
+    text-decoration: none;
+    color: #150404;
+  }
+
+  .acc:hover {
+    background-color: rgb(190, 138, 141);
+    text-decoration: none;
+  }
+
+  .about {
+    text-decoration: none;
+    color: #333;
+    padding: 6px 15px;
+    border-radius: 20px;
+    margin: 0 10px;
+    font-weight: 600;
+    display: flex;
+    text-align: center;
+  }
+
+  .about a {
+    text-decoration: none;
+    color: #150404;
+  }
+
+  .about:hover {
+    background-color: rgb(190, 138, 141);
+    text-decoration: none;
+  }

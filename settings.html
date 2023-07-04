@@ -26,7 +26,6 @@
         color: rgb(22, 26, 19);
         text-decoration: none;
         font-weight: 100;
-        font-size: 30px;
     }
 
     * {
@@ -46,7 +45,6 @@
 
     a {
         display: block;
-        margin-left: 60px;
     }
 
     #title {
@@ -66,6 +64,23 @@
         display: flex;
     }
 
+
+    .logout {
+        color: #fff;
+        border: none;
+        margin-top: 1%;
+        font-size: 1rem;
+        background: linear-gradient(to bottom right, #034cab, #a5c0e7);
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .logout:hover {
+        background: #0fae51;
+        color: #150404;
+    }
+
     .contents {
         width: 20%;
     }
@@ -74,6 +89,8 @@
         text-decoration: none;
         color: #333;
         font-weight: 500;
+        margin-left: 20%;
+
     }
 
     .contents a:hover {
@@ -90,7 +107,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1px;
+        padding: 20px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
@@ -100,14 +117,11 @@
         color: #333;
         text-decoration: none;
         margin-top: 10px;
+
     }
 
     .logo img {
         width: 20%;
-    }
-
-    .search {
-        margin-right: 35%;
     }
 
     .search form {
@@ -134,8 +148,6 @@
     }
 
     .cart img {
-        width: 40px;
-        height: 40px;
         cursor: pointer;
     }
 
@@ -244,12 +256,6 @@
         margin: 0px 0px auto auto;
     }
 
-    .logout {
-        text-decoration: none;
-        font-size: 1px;
-        font-weight: bold;
-    }
-
     .settingsdetails1 {
         margin-left: 7.5%;
         margin-top: 3%;
@@ -301,26 +307,15 @@
         background-color: aqua;
     }
 
-    .login-button {
-        font-weight: bold;
-        color: #fff;
-        background: linear-gradient(to bottom right, #034cab, #a5c0e7);
-        padding: 1px 3px;
-        border-radius: 30px;
-        position: relative;
-        top: 50%;
-    }
-
-    .login-button:hover {
-        background: #0fae51;
-        color: #150404;
+    .cart {
+        margin-right: 350px;
     }
 </style>
 
 <body>
     <nav>
         <div class="logo">
-            <a href="home.html"><img src="./images/logo.jpg" alt="logo_black">Duronto</a><br>
+            <a href="home.html"><img alt="image" src="./images/logo.jpg" alt="logo_black">Duronto </a><br>
         </div>
         <div class="search">
             <form>
@@ -329,9 +324,16 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
             </form>
-            <div class="login-button">
-                <a id="logout" href="">Logout</a>
-            </div>
+        </div>
+        <div class="cart">
+            <a class="a" href="cart.html"><img alt="image" src="https://cdn-icons-png.flaticon.com/512/60/60992.png"
+                    height="20"></a>
+        </div>
+       
+        <div class="logout" style="position: absolute; left: 86%; top: 2.6%;">
+            <a id="logout" href="#">
+                Logout</a>
+        </div>
     </nav>
     <hr>
 
@@ -339,7 +341,7 @@
     <div class="main">
         <div class="contents " style="position: fixed;">
             <div class="phead">
-                <a href="profile.html">
+                <a href="profile.html"><br>
                     <H1 id="title"><u>PROFILE</u></H1>
                 </a>
             </div><br><br>
@@ -350,8 +352,6 @@
                     height="20">Notifications</a><br>
             <a class="a" href="favourites.html"><img src="https://img.icons8.com/ios-filled/256/star.png" height="20">
                 Favourites</a><br>
-            <a class="a" href="#"><img src="https://cdn-icons-png.flaticon.com/512/60/60992.png" height="20">
-                Cart</a><br>
             <a class="a" href="settings.html"><img src="https://cdn-icons-png.flaticon.com/512/3524/3524659.png"
                     height="30">
                 <b>Settings</b></a><br>
