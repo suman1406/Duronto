@@ -31,7 +31,6 @@
                 var cartItems = existingCart ? JSON.parse(existingCart) : [];
                 cartItems.push(data);
                 localStorage.setItem('cartItems', JSON.stringify(cartItems));
-
                 alert('Item added to cart!');
             });
         });
