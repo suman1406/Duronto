@@ -546,6 +546,19 @@
                 return false;
             }
 
+            var expirationDateInput = document.getElementById("expiration-date");
+            var expirationDateValue = new Date(expirationDateInput.value);
+            var currentDate = new Date();
+
+            // Set the day of the expiration date to the last day of the month
+            expirationDateValue.setMonth(expirationDateValue.getMonth() + 1);
+            expirationDateValue.setDate(0);
+
+            if (expirationDateValue < currentDate) {
+                showError("expiration-date", "Invalid expiration date");
+            }
+
+
             var accountNumber = document.getElementById("cvv").value;
             if (accountNumber.length !== 3) {
                 alert("CVV must be a 3 digit number.");
