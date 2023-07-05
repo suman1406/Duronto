@@ -558,6 +558,12 @@
                 showError("expiration-date", "Invalid expiration date");
             }
 
+            function showError(elementId, errorMessage) {
+                var errorElement = document.getElementById(elementId);
+                errorElement.classList.add("error"); // Add an error class to visually indicate the error
+                errorElement.setCustomValidity(errorMessage); // Set a custom validation message
+                alert(errorMessage); // Display an alert with the error message
+            }
 
             var accountNumber = document.getElementById("cvv").value;
             if (accountNumber.length !== 3) {
