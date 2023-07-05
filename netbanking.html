@@ -17,7 +17,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
     }
 
@@ -373,7 +373,8 @@
       display: flex;
       justify-content: space-between;
     }
-    a{
+
+    a {
       text-decoration: none;
     }
   </style>
@@ -439,7 +440,7 @@
               </p>
             </td>
             <td>
-              <p> Email : <input type="email" class="pin" id="email" pattern="[a-zA-Z]+.*" ></p>
+              <p> Email : <input type="email" class="pin" id="email" pattern="[a-zA-Z]+.*"></p>
             </td>
           </tr>
           <tr>
@@ -511,56 +512,61 @@
   </footer>
 
 
-  
-
-<script>
-function validateForm() {
-
-  var cardholder = document.getElementById("name").value;
-  if (cardholder === "") {
-    alert("Please enter name of cardholder");
-    return false;
-  }
 
 
-  var accountNumber = document.getElementById("account-number").value;
-  if (accountNumber.length !== 12) {
-    alert("Please enter a valid account number.");
-    return false;
-  }
+  <script>
+    function validateForm() {
 
- 
-
-  var ifscCode = document.getElementById("ifsc-code").value;
-  if (ifscCode === "") {
-    alert("Please enter the IFSC code.");
-    return false;
-  }
+      var cardholder = document.getElementById("name").value;
+      if (cardholder === "") {
+        alert("Please enter name of cardholder");
+        return false;
+      }
 
 
-   var transactionId = document.getElementById("transaction-id").value;
-  if (transactionId === "") {
-    alert("Please enter the transaction ID.");
-    return false;
-  }
+      var accountNumber = document.getElementById("account-number").value;
+      if (accountNumber.length !== 12) {
+        alert("Please enter a valid account number.");
+        return false;
+      }
 
 
 
-  var amount = document.getElementById("amount").value;
-  if (amount === "") {
-    alert("Please enter the amount.");
-    return false;
-  }
+      var ifscCode = document.getElementById("ifsc-code").value;
+      if (ifscCode === "") {
+        alert("Please enter the IFSC code.");
+        return false;
+      }
+
+      var transactionId = document.getElementById("transaction-id").value;
+      if (transactionId === "") {
+        alert("Please enter the transaction ID.");
+        return false;
+      }
 
 
-  var email = document.getElementById("email").value;
-  if (!email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
-    alert("Please enter a valid email address.");
-    return false;
-  }
-}
-</script>
-  
+
+      var amount = document.getElementById("amount").value;
+      if (amount === "") {
+        alert("Please enter the amount.");
+        return false;
+      }
+
+
+      var email = document.getElementById("email").value;
+      if (!email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+
+      // Redirect to the checkout.html page
+      window.location.href = 'checkout.html';
+
+      // Prevent form submission (since we're redirecting)
+      return false;
+    }
+  </script>
+
 
 </body>
 

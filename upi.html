@@ -407,7 +407,7 @@
                 <b>UPI / BHIM </b> </a><br><br>
         </div>
 
-        <div class="container"  onsubmit = "return validateForm()"><br>
+        <div class="container" onsubmit="return validateForm()"><br>
             <h1> UPI </h1>
             <form action=" " method="post" id="hello">
                 <div class="form-group">
@@ -454,7 +454,7 @@
 
 
         </div>
-       
+
     </div><br><br><br>
     <footer class="footer">
         <div class="leftk">
@@ -503,36 +503,39 @@
 
     <script>
         function validateForm() {
-        
-          var cardholder = document.getElementById("name").value;
-          if (cardholder === "") {
-            alert("Please enter UPI ID");
+
+            var cardholder = document.getElementById("name").value;
+            if (cardholder === "") {
+                alert("Please enter UPI ID");
+                return false;
+            }
+
+
+            var transactionId = document.getElementById("transaction-id").value;
+            if (transactionId === "") {
+                alert("Please enter the transaction ID.");
+                return false;
+            }
+
+            var amount = document.getElementById("amount").value;
+            if (amount === "") {
+                alert("Please enter the amount.");
+                return false;
+            }
+
+            var email = document.getElementById("email").value;
+            if (!email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            // Redirect to the checkout.html page
+            window.location.href = 'checkout.html';
+
+            // Prevent form submission (since we're redirecting)
             return false;
-          }
-        
-        
-           var transactionId = document.getElementById("transaction-id").value;
-          if (transactionId === "") {
-            alert("Please enter the transaction ID.");
-            return false;
-          }
-        
-        
-        
-          var amount = document.getElementById("amount").value;
-          if (amount === "") {
-            alert("Please enter the amount.");
-            return false;
-          }
-        
-        
-          var email = document.getElementById("email").value;
-          if (!email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
-            alert("Please enter a valid email address.");
-            return false;
-          }
         }
-        </script>
+    </script>
 
 </body>
 

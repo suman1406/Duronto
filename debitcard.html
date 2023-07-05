@@ -18,7 +18,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
         }
 
@@ -60,9 +60,6 @@
         .search form {
             display: flex;
         }
-
-       
-
 
         .search input[type="text"] {
             border-color: #333;
@@ -144,7 +141,7 @@
             background-color: #f0eeee;
         }
 
-        
+
 
         .container {
             width: 700px;
@@ -387,7 +384,8 @@
             flex-direction: column;
 
         }
-        h3:hover{
+
+        h3:hover {
             background-color: grey;
             color: white;
         }
@@ -411,23 +409,24 @@
             <a href="about.html">About</a>
         </div>
         <div class="acc"><a href="profile.html">Account</a></div>
-       
+
     </nav>
     <div class="main">
         <div class="contents" style="position: fixed;"><br><br>
             <a href="netbanking.html"><i class="fa-solid fa-globe pic"></i>
                 Net Banking</a><br><br>
-            <a href="creditcard.html"><i class="fa-solid fa-credit-card pic" style="color: orange;" height="35"></i><B> Credit Card / Debit Card </B></a><br><br>
+            <a href="creditcard.html"><i class="fa-solid fa-credit-card pic" style="color: orange;" height="35"></i><B>
+                    Credit Card / Debit Card </B></a><br><br>
             <a href="upi.html"><i class="fa-brands fa-google-pay pic"></i>
-                UPI / BHIM  </a><br><br>
+                UPI / BHIM </a><br><br>
         </div>
-        <div class="container"  onsubmit = "return validateForm()"><br>
-                <a href="creditcard.html">
-                    <h3 > Credit Card Payment  </h1>
-                </a>
-                <a href="debitcard.html">
-                    <h3 style="background-color: grey; color: white;"> Debit Card Payment </h1>
-                </a>
+        <div class="container" onsubmit="return validateForm()"><br>
+            <a href="creditcard.html">
+                <h3> Credit Card Payment </h1>
+            </a>
+            <a href="debitcard.html">
+                <h3 style="background-color: grey; color: white;"> Debit Card Payment </h1>
+            </a>
             <form method="post" id="hello">
                 <div class="form-group">
                     <label class="head" for="name">Card Holder</label>
@@ -455,16 +454,16 @@
                     <tr>
                         <td>
                             <p> Mobile Number : <input type="number" class="pin" id="pin" pattern="[0-9]{10}"
-                            placeholder="optional"></p>
+                                    placeholder="optional"></p>
                         </td>
                         <td>
-                            <p> Email : <input type="email" class="pin" id="email" pattern="[a-zA-Z]+.*" ></p>
+                            <p> Email : <input type="email" class="pin" id="email" pattern="[a-zA-Z]+.*"></p>
                         </td>
                     </tr>
                     <tr>
                         <td><br>
                             <p> Payer Name : <input type="text" id="name" class="hi" class="form-control"
-                            placeholder="optional"></p>
+                                    placeholder="optional"></p>
                         </td>
                     </tr>
                 </table>
@@ -530,41 +529,47 @@
 
     <script>
         function validateForm() {
-        
-          var cardholder = document.getElementById("name").value;
-          if (cardholder === "") {
-            alert("Please enter name of cardholder");
-            return false;
-          }
-        
-        
-          var accountNumber = document.getElementById("card-number").value;
-          if (accountNumber.length !== 12) {
-            alert("Please enter a valid card number.");
-            return false;
-          }
 
-          var accountNumber = document.getElementById("cvv").value;
-          if (accountNumber.length !== 3) {
-            alert("CVV must be a 3 digit number.");
+            var cardholder = document.getElementById("name").value;
+            if (cardholder === "") {
+                alert("Please enter name of cardholder");
+                return false;
+            }
+
+
+            var accountNumber = document.getElementById("card-number").value;
+            if (accountNumber.length !== 12) {
+                alert("Please enter a valid card number.");
+                return false;
+            }
+
+            var accountNumber = document.getElementById("cvv").value;
+            if (accountNumber.length !== 3) {
+                alert("CVV must be a 3 digit number.");
+                return false;
+            }
+
+
+            var amount = document.getElementById("amount").value;
+            if (amount === "") {
+                alert("Please enter the amount.");
+                return false;
+            }
+
+
+            var email = document.getElementById("email").value;
+            if (!email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            // Redirect to the checkout.html page
+            window.location.href = 'checkout.html';
+
+            // Prevent form submission (since we're redirecting)
             return false;
-          }
-        
-        
-          var amount = document.getElementById("amount").value;
-          if (amount === "") {
-            alert("Please enter the amount.");
-            return false;
-          }
-        
-        
-          var email = document.getElementById("email").value;
-          if (!email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
-            alert("Please enter a valid email address.");
-            return false;
-          }
         }
-        </script>
+    </script>
 
 </body>
 
