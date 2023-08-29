@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duronto</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#add-to-cart').click(function () {
+                var productName = $('#product-name').text();
+                var price = $('#price').text();
+                var quantity = $('#quantity').val();
+                var imageSrc = $('#product-image').attr('src');
+                var data = {
+                    productName: productName,
+                    price: price,
+                    quantity: quantity,
+                    imageSrc: imageSrc
+                };
+
+                var existingCart = localStorage.getItem('cartItems');
+                var cartItems = existingCart ? JSON.parse(existingCart) : [];
+                cartItems.push(data);
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+                alert('Item added to cart!');
+            });
+        });
+    </script>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap');
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    body {
+        font-size: 16px;
+        line-height: 1.5;
+        background-color: white;
+    }
+
+    /* nav styling */
+
+    nav {
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        font-weight: 1000;
+    }
+
+
+    .logo a {
+        font-size: 30px;
+        font-weight: bold;
+        color: #333;
+        text-decoration: none;
+    }
+
+    .logo img {
+        width: 20%;
+    }
+
+    .search {
+        margin-right: 10%;
+        border: 2px solid white;
+    }
+
+    .search form {
+        display: flex;
+    }
+
+    .search:hover {
+        border: 2px solid gray;
+        border-radius: 40px;
+    }
+
+
+    .search input[type="text"] {
+        border-color: #333;
+        width: 30vw;
+        padding: 10px;
+        font-size: 16px;
+        border-top-left-radius: 40px;
+        border-bottom-left-radius: 40px;
+    }
+
+    .searchbtn {
+        background-color: gray;
+        display: flex;
+        align-items: center;
+        width: 9%;
+        border-top-right-radius: 40px;
+        border-bottom-right-radius: 40px;
+        justify-content: center;
+    }
+
+    .product {
+        display: flex;
+    }
+
+    main {
+        padding: 5%;
+    }
+
+    .checked {
+        color: orange;
+    }
+
+    .proddescr {
+        margin-left: 5%;
+    }
+
+    .rating {
+        display: flex;
+        margin-left: 3%;
+        width: 26%;
+    }
+
+    .numberrating {
+        margin-right: 2%;
+
+    }
+
+    .numberrated {
+        margin-left: 3%;
+    }
+
+    .price {
+        display: flex;
+    }
+
+    h2 {
+        margin-left: 1%;
+    }
+
+    .overline {
+        text-decoration: line-through;
+        margin-left: 1%;
+    }
+
+    .onlytext {
+        margin-top: 1%;
+        font-size: 0.8rem;
+
+    }
+
+    .size {
+        display: flex;
+        margin-top: 0.5%;
+    }
+
+    .material {
+        display: flex;
+        margin-top: 2%;
+        font-size: 0.8rem;
+        margin-bottom: 2%;
+
+    }
+
+    .material2 {
+        margin-left: 5%;
+    }
+
+    .material1 {
+        margin-left: 5%;
+    }
+
+    li {
+        font-size: 0.8rem;
+    }
+
+    .addtocart {
+        background-color: yellowgreen;
+        border: 2px solid blueviolet;
+        width: 80%;
+        height: 5%;
+        font-weight: 1000;
+        border-radius: 40px;
+        box-shadow: 2px 2px 8px rgba(0, 228, 196);
+        cursor: pointer;
+        transition: 1s;
+
+    }
+
+    .buynow {
+        background-color: yellowgreen;
+        border: 2px solid blueviolet;
+        width: 80%;
+        height: 5%;
+        font-weight: 1000;
+        border-radius: 40px;
+        box-shadow: 2px 2px 8px rgba(0, 228, 196);
+        cursor: pointer;
+        transition: 1s;
+
+
+    }
+
+    .addtocart:hover {
+        background-color: rgb(125, 168, 40);
+
+    }
+
+    .buynow:hover {
+        background-color: rgb(125, 168, 40);
+
+    }
+
+    .fa-solid {
+        height: 20%;
+        margin-left: 3%;
+        margin-top: 1%;
+    }
+
+    .footpanel1 {
+        background-color: rgb(222, 213, 215);
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.85rem;
+    }
+
+    .prodtable {
+        margin-left: 4%;
+        margin-bottom: 4%;
+    }
+
+    td {
+        padding: 10px;
+    }
+
+    .ratings {
+        margin-left: 25%;
+        width: 60%;
+    }
+
+    .verified {
+        display: flex;
+        margin-top: 1%;
+    }
+
+    .ratinginside {
+        background-color: rgb(237, 232, 232);
+        padding-left: 2%;
+        padding-top: 1%;
+        border-radius: 7px;
+        margin-bottom: 1.5%;
+    }
+
+    .carthover:hover {
+        color: orange;
+    }
+
+    .footer {
+        background-color: #333;
+        color: white;
+        padding: 20px 0;
+        font-size: 14px;
+        display: flex;
+    }
+
+    .news {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .footer h3 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .footer p {
+        margin-bottom: 10px;
+    }
+
+    .bottom a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 10px;
+    }
+
+    .bottom a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .products {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 576px) {
+        nav {
+            flex-direction: column;
+        }
+
+        .search form {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .search input[type="text"] {
+            border-radius: 3px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .search button[type="submit"] {
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+
+        .products {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .legal_doc a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 10px;
+    }
+
+    .legal_doc a:hover {
+        text-decoration: underline;
+    }
+
+    .right_container {
+        text-align: left;
+        padding-top: 1%;
+        width: 49%;
+        display: inline-block;
+        margin: 0px 90px 0px 20px;
+    }
+
+    .left_container {
+        padding-top: 1%;
+        width: 49%;
+        display: inline-block;
+        margin: 0px 90px 0px 20px;
+    }
+
+    .leftk {
+
+        padding-top: 1%;
+        width: 90%;
+        display: inline-block;
+        margin: 0px 90px 0px 20px;
+    }
+
+    .navFooter {
+        margin: 0px 0px auto auto;
+    }
+
+    .address {
+        color: white;
+    }
+
+    .quan {
+        margin-bottom: 6%;
+        border: 2px solid black;
+        background-color: rgb(235, 233, 233);
+        border-radius: 40px;
+        height: 15%;
+        width: 280px;
+        margin-left: 6%;
+        padding: 10%;
+        padding-top: 5%;
+    }
+
+    .quan input {
+        height: 50px;
+    }
+
+    .login-button {
+        font-weight: bold;
+        color: #fff;
+        background: linear-gradient(to bottom right, #034cab, #a5c0e7);
+        padding: 10px 30px;
+        border-radius: 30px;
+        position: relative;
+        top: 50%;
+    }
+
+    .login-button:hover {
+        background: #0fae51;
+        color: #150404;
+    }
+</style>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a href="/index.html"><img src="/images/logo.png" alt="logo_black">Duronto</a>
+        </div>
+        <div class="search">
+            <form>
+                <input type="text" placeholder="Search...">
+                <div class="searchbtn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </form>
+        </div>
+        <div class="about">
+            <a href="/about.html">About</a>
+        </div>
+        <div class="acc"><a href="/Accounts/profile.html">Account</a></div>
+        <div class="login-button">
+            <a id="logout" href=" ">Logout</a>
+        </div>
+        <a class="carthover" href="/accounts/cart.html"><i class="fa-solid fa-cart-shopping"></i> </a>
+
+    </nav>
+    <a href="/index.html"><i class="fa-solid fa-angle-left"></i></a>
+
+
+    <main>
+        <div class="product">
+            <div class="prodimg">
+                <img id="product-image" src="/images/insideimag2.png" height="400"><br><br><br>
+                <div class="quan">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" value="1">
+                </div>
+                <button onclick="addToCart()" id="add-to-cart" class="addtocart"><i
+                        class="fa-solid fa-cart-arrow-down"></i> Add to
+                    Cart</button>
+                <br><br>
+
+
+            </div>
+            <div class="proddescr">
+                <h2 id="product-name" style="color: blue;">Wireless Game Joystick Controller, 2.4G Wireless Gamepad
+                    Joystick PC, Dual
+                    Vibration, 14 Hours of Playing for PC/Steam/PS3/TV BOX/Nintendo Switch (Black)</h2>
+                <div class="rating">
+                    <h4 class="numberrating">3</h4>
+                    <span class="fa fa-star checked "></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star che"></span>
+                    <span class="fa fa-star"></span>
+                    <h4 class="numberrated">728 ratings</h4>
+                </div>
+                <br>
+                <hr>
+                <div class="price">
+                    List Price: <div class="overline">2949</div>
+
+                </div>
+                <div class="price" id="product-price">
+                    Price: <h3 id="price" style="color: green; margin-left: 1%;">2549</h3>
+
+                </div>
+                <div class="price">
+                    You Save: Rs 400
+                </div>
+                <h4 class="onlytext">Eligible for Return, Refund or Replacement within 30 days of receipt</h4>
+                <div class="size">
+                    Size: <h4 style="margin-left: 0.5%;">6.89 x 5.31 x 3.07Inch</h4>
+
+                </div>
+                <div class="material">
+                    <div class="material1">
+                        <h4><b>Brand</b></h4>
+                        <h4> <b>Compatible Devices</b></h4>
+                        <h4><b>Controller Type </b></h4>
+                        <h4> <b>Connectivity Technology</b></h4>
+                        <h4><b>Color</b></h4>
+                    </div>
+                    <div class="material2">
+                        <p>EasySMX</p>
+                        <p>PC, Nintendo Switch, Windows, Android
+                        </p>
+                        <p> Joystick</p>
+                        <p> Wireless </p>
+                        <p>Black</p>
+                    </div>
+                </div>
+                <div class="aboutitem">
+                    <h4>About this item</h4>
+                    <ul>
+                        <li style="margin-top: 1%;">Universal Compatibility -EasySMX 9101 Wireless Game Controller
+                            supports PS3, Windows PC, TV BOX, Android phones and tablets, Android 4.0 or above and
+                            Nintendo Switch</li>
+                        <li>Wireless Connectivity -10m(32.8ft) connectivity range covers the living room and bedroom. No
+                            wires, no mess, no hassle. Just wirelessly connect to your device and get to the gaming.
+                        </li>
+                        <li>Dual Vibration Feedback - Asymmetrical linear motor put you in the center of the action,
+                            giving you immersive gaming experience with multi magnitude of vibration feedback.
+                        </li>
+                        <li>Ergonomics - The non-slip grips are designed for improved stability. The indentation and
+                            textured surface of the joystick fit your fingers snuggly and prevent slips in intense
+                            games, giving you full control.</li>
+                        <li> Battery Operated - The wireless game controller has an embedded lithium battery and it has
+                            a
+                            smart sleep function, increasing battery efficiency.
+                        </li>
+                    </ul>
+                </div>
+                <h4 style="margin-top: 1.5%;">Customer ratings by feature
+                </h4>
+                <div class="material">
+
+                    <div class="material1">
+                        <h4><b>Comfort</b></h4>
+                        <h4> <b>Battery Life</b></h4>
+                        <h4><b>Sheerness</b></h4>
+                        <h4> <b>Quality of material
+                            </b></h4>
+                    </div>
+                    <div class="material2">
+                        <span class="fa fa-star checked "></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span><br>
+                        <span class="fa fa-star checked "></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star "></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span> <br>
+                        <span class="fa fa-star checked "></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star "></span>
+                        <span class="fa fa-star"></span> <br>
+                        <span class="fa fa-star checked "></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                </div>
+                <div class="note" style="font-size: 0.9rem;">
+                    <b>Note :</b> Products with electrical plugs are designed for use in the US. Outlets and voltage
+                    differ internationally and this product may require an adapter or converter for use in your
+                    destination. Please check compatibility before purchasing
+                </div>
+
+            </div>
+
+
+        </div>
+    </main>
+
+
+
+    <div class="prodtable">
+        <h4>Product Description</h4>
+        <p style="font-size: 0.85rem;">With four easy-to-read LEDs, the status and connectivity of the controller are
+            always visible.
+            The 360 Degree Rotatable Joysticks give you more control of how slowly you can move around or how
+            aggressively you’re steering. 360 degree movement in games like dark souls and first person shooters provide
+            you with a full range of movement in all possible directions </p><br>
+        <table border="2" style="border-collapse: collapse;">
+            <tbody>
+                <tr>
+                    <td style="background-color: gainsboro;">Product Dimensions </td>
+                    <td style="height:40px;">6.89 x 5.31 x 3.07 inches
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: gainsboro;">Item Weight </td>
+                    <td style="height:40px;">215 g
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="background-color: gainsboro;">Manufacturer </td>
+                    <td style="height:40px;">EasySMX </td>
+                </tr>
+                <tr>
+                    <td style="background-color: gainsboro;">ASIN</td>
+                    <td style="height:40px;">B07G13KQ57
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: gainsboro;">Item model number </td>
+                    <td style="height:40px;">ESM-9101-EU
+
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: gainsboro;">Batteries </td>
+                    <td style="height:40px;">1 Lithium Polymer batteries required.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: gainsboro;">USB Port </td>
+                    <td style="height:40px;">Type C
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: gainsboro;">Connection </td>
+                    <td style="height:40px;">2.4G Wireless</td>
+                </tr>
+                <tr>
+                    <td style="background-color: gainsboro;">USB Cable Length </td>
+                    <td style="height:40px;">1 m</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+    <div class="ratings">
+        <h4>Top Reviews</h4>
+        <br>
+        <div class="ratinginside">
+            <h5>Gautham</h5>
+            <div class="verified">
+
+                <span class="fa fa-star checked "></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <h6 style="color: brown;margin-left: 0.5%;"> | Verified Purchase</h6>
+            </div>
+            <p style="font-size: 0.85rem;">I made the mistake of reading about how to set this up to work with Android
+                TV (Google), before trying just because I was not sure where my TV manual was. For the life of me I
+                could not find the setting on my TV to set up a peripheral device besides Bluetooth, which this device
+                doesn't require as it has its own dongle. Now maybe this was for a prior iteration of Smart TVs hence
+                why I could not even find what they were referencing. So I decided to ignore those websites and treat my
+                TV like any other Android device. Plug in the dongle, make sure the controller is set to Android, which
+                according to the manual is when the lighted buttons 3 and 4 (bottom two lights of the home button) are
+                active. Just hold the home button for 5 seconds each time to change the setting.</p><br>
+            <p style="font-size: 0.85rem;">Well, after the controller was in Android mode, I accidently touched a button
+                on the controller and noticed my TV responding to button clicks. I assumed that the controller was now
+                correctly paired and decided to test a game. I did check the settings on the game first using the TV
+                remote to select the input for the game (one game had to change from touch to button, others might say
+                controller) and voila! Turned out to be as easy as pie as with other Android devices! I don't know why
+                some people have to complicate things by talking about game emulators and peripheral inputs. My
+                experience turned out to be plug and play like PC. If the game is not compatible, that's when all the
+                other advise might come into play.
+            </p><br>
+        </div>
+        <div class="ratinginside">
+            <h5>Varun Krishna</h5>
+            <div class="verified">
+
+                <span class="fa fa-star checked "></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star "></span>
+                <h6 style="color: brown;margin-left: 0.5%;"> | Verified Purchase</h6>
+            </div>
+            <p style="font-size: 0.85rem;">I've ordered this controller twice. The first controller has lasted going on
+                2 years now. The other one I ordered in September 2022 and the left shoulder button wore down 3 months
+                after purchase. After disassembling the controller, I could see that the plastic retainer for the left
+                shoulder button had snapped and was constantly registering the button as being depressed. I blame Sekiro
+                for this as that game requires precise and repeated left shoulder button pressing (excellent game,
+                btw!!). I ended up going with a different company because I didn't want to roll the dice on whether I'd
+                get a defective one again.
+            </p><br>
+        </div>
+        <div class="ratinginside">
+            <h5>Mohan Reddy</h5>
+            <div class="verified">
+
+                <span class="fa fa-star checked "></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star  checked"></span>
+                <span class="fa fa-star "></span>
+                <h6 style="color: brown;margin-left: 0.5%;"> | Verified Purchase</h6>
+            </div>
+            <p style="font-size: 0.85rem;">It definitely isn’t as nice as the first party console controllers, but it’s
+                pretty decent. Love a USB dongle setup as Bluetooth is always so finicky with Windows (and in general).
+                I don’t think I’ve even run out of battery yet. For the price, it’s a good buy and I’m happy with it.
+            </p><br>
+        </div>
+        <div class="ratinginside">
+            <h5>Amit Chauhan</h5>
+            <div class="verified">
+
+                <span class="fa fa-star checked "></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked "></span>
+                <h6 style="color: brown;margin-left: 0.5%;"> | Verified Purchase</h6>
+            </div>
+            <p style="font-size: 0.85rem;">Great quality and it connects easily. I like it. I was searching for a good
+                pc controller.
+
+            </p><br>
+        </div>
+    </div>
+    <div class="footpanel1">
+        <h4> <a href="product3.html"> Back to Top</a></h4>
+    </div>
+
+    <footer class="footer">
+        <div class="leftk">
+            <div class="left_container">
+                <div class="contact">
+                    <h2>Contact Us</h2>
+                    <p class="address">
+                        123, XYZ Street,<br>
+                        City - 12345<br>
+                        State, Country
+                    </p>
+                    <p class="address">
+                        Phone: +1 234 567890<br>
+                        Email: info@duronto.com
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="right_container">
+            <div class="newsletter">
+                <h2 class="news">Newsletter</h2>
+                <form action="#" method="POST">
+                    <input type="email" name="email" id="email" placeholder="Your Email Address">
+                    <button type="submit" class="btn-subscribe">Subscribe</button>
+                </form>
+            </div>
+            <br>
+            <div class="legal_doc">
+                <div class="navFooter">
+                    <li class="nav_first">
+                        <a href="#">Terms and Conditions</a>
+                    </li>
+                    <li class="nav_first">
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                    <li class="nav_first">
+                        <a href="#">Help</a>
+                    </li>
+                </div>
+            </div>
+            <br>
+            <p class="copywrite" style="color: wheat;">&copy; 2023 Duronto. All Rights Reserved.</p>
+        </div>
+
+    </footer>
+</body>
+<script src="/authentication/logout.js"></script>
+
+
+</html>

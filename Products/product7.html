@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duronto</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#add-to-cart').click(function () {
+                var productName = $('#product-name').text();
+                var price = $('#price').text();
+                var quantity = $('#quantity').val();
+                var imageSrc = $('#product-image').attr('src');
+                var data = {
+                    productName: productName,
+                    price: price,
+                    quantity: quantity,
+                    imageSrc: imageSrc
+                };
+
+                var existingCart = localStorage.getItem('cartItems');
+                var cartItems = existingCart ? JSON.parse(existingCart) : [];
+                cartItems.push(data);
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+                alert('Item added to cart!');
+            });
+        });
+    </script>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap');
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    body {
+        font-size: 16px;
+        line-height: 1.5;
+        background-color: white;
+    }
+
+    /* nav styling */
+
+    nav {
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        font-weight: 1000;
+    }
+
+
+    .logo a {
+        font-size: 30px;
+        font-weight: bold;
+        color: #333;
+        text-decoration: none;
+    }
+
+    .logo img {
+        width: 20%;
+    }
+
+    .search {
+        margin-right: 10%;
+        border: 2px solid white;
+    }
+
+    .search form {
+        display: flex;
+    }
+
+    .search:hover {
+        border: 2px solid gray;
+        border-radius: 40px;
+    }
+
+
+    .search input[type="text"] {
+        border-color: #333;
+        width: 30vw;
+        padding: 10px;
+        font-size: 16px;
+        border-top-left-radius: 40px;
+        border-bottom-left-radius: 40px;
+    }
+
+    .searchbtn {
+        background-color: gray;
+        display: flex;
+        align-items: center;
+        width: 9%;
+        border-top-right-radius: 40px;
+        border-bottom-right-radius: 40px;
+        justify-content: center;
+    }
+
+    .product {
+        display: flex;
+    }
+
+    main {
+        padding: 5%;
+    }
+
+    .checked {
+        color: orange;
+    }
+
+    .proddescr {
+        margin-left: 5%;
+    }
+
+    .rating {
+        display: flex;
+        margin-left: 3%;
+        width: 26%;
+    }
+
+    .numberrating {
+        margin-right: 2%;
+
+    }
+
+    .numberrated {
+        margin-left: 3%;
+    }
+
+    .price {
+        display: flex;
+    }
+
+    h2 {
+        margin-left: 1%;
+    }
+
+    .overline {
+        text-decoration: line-through;
+        margin-left: 1%;
+    }
+
+    .onlytext {
+        margin-top: 1%;
+        font-size: 0.8rem;
+
+    }
+
+    .size {
+        display: flex;
+        margin-top: 0.5%;
+    }
+
+    .material {
+        display: flex;
+        margin-top: 2%;
+        font-size: 0.8rem;
+        margin-bottom: 2%;
+
+    }
+
+    .material2 {
+        margin-left: 5%;
+    }
+
+    .material1 {
+        margin-left: 5%;
+    }
+
+    li {
+        font-size: 0.8rem;
+    }
+
+    .addtocart {
+        background-color: yellowgreen;
+        border: 2px solid blueviolet;
+        width: 300px;
+        height: 9%;
+        font-weight: 1000;
+        border-radius: 40px;
+        box-shadow: 2px 2px 8px rgba(0, 228, 196);
+        cursor: pointer;
+        transition: 1s;
+
+    }
+
+    .buynow {
+        background-color: yellowgreen;
+        border: 2px solid blueviolet;
+        width: 90%;
+        height: 8%;
+        font-weight: 1000;
+        border-radius: 40px;
+        box-shadow: 2px 2px 8px rgba(0, 228, 196);
+        cursor: pointer;
+        transition: 1s;
+
+
+    }
+
+    .addtocart:hover {
+        background-color: rgb(125, 168, 40);
+
+    }
+
+    .buynow:hover {
+        background-color: rgb(125, 168, 40);
+
+    }
+
+    .fa-solid {
+        height: 20%;
+        margin-left: 3%;
+        margin-top: 1%;
+    }
+
+    .footpanel1 {
+        background-color: rgb(222, 213, 215);
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.85rem;
+    }
+
+    .prodtable {
+        margin-left: 4%;
+        margin-bottom: 4%;
+    }
+
+    td {
+        padding: 10px;
+    }
+
+    .ratings {
+        margin-left: 25%;
+        width: 60%;
+    }
+
+    .verified {
+        display: flex;
+        margin-top: 1%;
+    }
+
+    .ratinginside {
+        background-color: rgb(237, 232, 232);
+        padding-left: 2%;
+        padding-top: 1%;
+        border-radius: 7px;
+        margin-bottom: 1.5%;
+    }
+
+    .carthover:hover {
+        color: orange;
+    }
+
+    .footer {
+        background-color: #333;
+        color: white;
+        padding: 20px 0;
+        font-size: 14px;
+        display: flex;
+    }
+
+    .news {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .footer h3 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .footer p {
+        margin-bottom: 10px;
+    }
+
+    .bottom a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 10px;
+    }
+
+    .bottom a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .products {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 576px) {
+        nav {
+            flex-direction: column;
+        }
+
+        .search form {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .search input[type="text"] {
+            border-radius: 3px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .search button[type="submit"] {
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+
+        .products {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .legal_doc a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 10px;
+    }
+
+    .legal_doc a:hover {
+        text-decoration: underline;
+    }
+
+    .right_container {
+        text-align: left;
+        padding-top: 1%;
+        width: 49%;
+        display: inline-block;
+        margin: 0px 90px 0px 20px;
+    }
+
+    .left_container {
+        padding-top: 1%;
+        width: 49%;
+        display: inline-block;
+        margin: 0px 90px 0px 20px;
+    }
+
+    .leftk {
+
+        padding-top: 1%;
+        width: 90%;
+        display: inline-block;
+        margin: 0px 90px 0px 20px;
+    }
+
+    .navFooter {
+        margin: 0px 0px auto auto;
+    }
+
+    .address {
+        color: white;
+    }
+
+    .quan {
+        margin-bottom: 6%;
+        border: 2px solid black;
+        background-color: rgb(235, 233, 233);
+        border-radius: 40px;
+        height: 18%;
+        width: 240px;
+        margin-left: 10%;
+        padding: 10%;
+        padding-top: 3%;
+    }
+
+    .quan input {
+        height: 50px;
+    }
+
+    .login-button {
+        font-weight: bold;
+        color: #fff;
+        background: linear-gradient(to bottom right, #034cab, #a5c0e7);
+        padding: 10px 30px;
+        border-radius: 30px;
+        position: relative;
+        top: 50%;
+    }
+
+    .login-button:hover {
+        background: #0fae51;
+        color: #150404;
+    }
+</style>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a href="/index.html"><img src="/images/logo.png" alt="logo_black">Duronto</a>
+        </div>
+        <div class="search">
+            <form>
+                <input type="text" placeholder="Search...">
+                <div class="searchbtn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </form>
+        </div>
+        <div class="about">
+            <a href="/about.html">About</a>
+        </div>
+        <div class="acc"><a href="/Accounts/profile.html">Account</a></div>
+        <div class="login-button">
+            <a id="logout" href=" ">Logout</a>
+        </div>
+        <a class="carthover" href="/accounts/cart.html"><i class="fa-solid fa-cart-shopping"></i> </a>
+
+    </nav>
+    <a href="/index.html"><i class="fa-solid fa-angle-left"></i></a>
+
+
+    <main>
+        <div class="product">
+            <div class="prodimg">
+                <img id="product-image" src="/images/insideimag7.png" height="400"><br><br><br>
+                <div class="quan">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" value="1">
+                </div>
+                <button onclick="addToCart()" id="add-to-cart" class="addtocart"><i
+                        class="fa-solid fa-cart-arrow-down"></i> Add to
+                    Cart</button>
+                <br><br>
+            </div>
+            <div class="proddescr">
+                <h2 id="product-name" style="color: blue;">Wrangler Authentics Men's Classic 5-Pocket Regular Fit Cotton
+                    Jean</h2>
+                <div class="rating">
+                    <h4 class="numberrating">4</h4>
+                    <span class="fa fa-star checked "></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star "></span>
+                    <h4 class="numberrated">41,571 ratings</h4>
+                </div>
+                <br>
+                <hr>
+                <div class="price">
+                    List Price: <div class="overline">Rs 3399</div>
+
+                </div>
+                <div class="price" id="product-price">
+                    Price: <h3 id="price" style="color: green; margin-left: 1%;"> 2999</h3>
+
+                </div>
+                <div class="price">
+                    You Save: Rs 400
+                </div>
+                <h4 class="onlytext">True to size. Order usual size.</h4><br>
+                <div class="aboutitem">
+                    <h4>About this item</h4>
+                    <ul>
+                        <li style="margin-top: 1%;">REGULAR FIT. This classic five-pocket jean is constructed with a
+                            regular fit through the seat and thigh, made to sit at the natural waist.</li>
+                        <li>DURABLE MATERIALS. Built with durable cotton denim, this regular fit jean will hold up over
+                            time -- even through long days on the job. </li>
+                        <li>FUNCTIONAL COMFORT. Great for long days on the job or working in the yard, this cotton jean
+                            keeps you comfortable throughout any task. Made with breathable cotton for a timeless fit
+                            and all day comfort</li>
+                        <li>HEAVY-DUTY HARDWARE. Finished with a zipper fly, button closure and embroidered back
+                            pockets.
+
+                        </li>
+                        <li>FIVE POCKET STYLING. This jean is constructed with an authentic five pocket styling: (1)
+                            watch pocket, (2) front scoop pockets, (3) back patch pockets.
+
+                        </li>
+                    </ul>
+                </div>
+                <h4 style="margin-top: 1.5%;">Customer ratings by feature
+                </h4>
+                <div class="material">
+
+                    <div class="material1">
+                        <h4><b>Material</b></h4>
+                        <h4> <b>Value for Money</b></h4>
+                        <h4><b>Comfort</b></h4>
+                    </div>
+                    <div class="material2">
+                        <span class="fa fa-star checked "></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span><br>
+                        <span class="fa fa-star checked "></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span> <br>
+                        <span class="fa fa-star checked "></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star "></span> <br>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </main>
+    <div class="prodtable">
+        <h4>Product Description</h4>
+        <p style="font-size: 0.85rem;">The Wrangler Authentics collection delivers laid-back style for the man on the
+            go. Performance-level comfort is built into our classic button-downs and blue jeans for an outfit that feels
+            as good as it looks. Wrangler Authentics jeans are constructed with 5-pocket styling, made from heavyweight
+            100% cotton denim and feature a comfortable waist with deep front pockets. Available with Advanced Comfort
+            technology that helps your jeans move with you for all day comfort. Pair with your favorite Wrangler
+            Authentics shirt for a night out or casual weekend.</p><br>
+        <table border="2" style="border-collapse: collapse;">
+            <tbody>
+                <tr>
+                    <td style="background-color: gainsboro;">Product Dimensions</td>
+                    <td style="height:40px;"> 5 x 5 x 0.7 inches
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: gainsboro;">Item model number</td>
+                    <td style="height:40px;">ZM100BK
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="background-color: gainsboro;">Department </td>
+                    <td style="height:40px;">Mens </td>
+                </tr>
+                <tr>
+                    <td style="background-color: gainsboro;">Country of Origin </td>
+                    <td style="height:40px;">India</td>
+                </tr>
+                <tr>
+                    <td style="background-color: gainsboro;">Material </td>
+                    <td style="height:40px;">100% Cotton
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="ratings">
+        <h4>Top Reviews</h4>
+        <br>
+        <div class="ratinginside">
+            <h5>Bhuvan Patel</h5>
+            <div class="verified">
+
+                <span class="fa fa-star checked "></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked "></span>
+                <h6 style="color: brown;margin-left: 0.5%;"> | Verified Purchase</h6>
+            </div>
+            <p style="font-size: 0.85rem;">I've been wearing Wrangler jeans since I was 12, and I'm now 76 and they are
+                still my "go-to" favorites. This is probably my fourth or fifth purchase from Amazon, they fit and they
+                are priced at a sane amount.
+                Abd amazon is the only place I've fount to get a 28" length.
+
+
+            </p><br>
+        </div>
+        <div class="ratinginside">
+            <h5>Vallabh</h5>
+            <div class="verified">
+
+                <span class="fa fa-star checked "></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star "></span>
+                <h6 style="color: brown;margin-left: 0.5%;"> | Verified Purchase</h6>
+            </div>
+            <p style="font-size: 0.85rem;">This is not a slam against Wrangler (other than the fact that they are no
+                longer made in the USA), I have worn them for years and have no argument with them.
+                I chose my preferred size: 35x32, and Amazon suggested, based on customer reviews (or so they said) that
+                I would be happier with 36x32. I am not happier with their suggestion.
+                Taking into account that pre-washed jeans still shrink about 3 percent, I assumed that Amazon had data
+                to back up their claim; it would appear not.
+                My choice would have shrunk after wash to my perfect fit; these jeans are "falling off my butt" too
+                large, working into the area of butt-crack territory even after a wash, and now its too late to return
+                them.
+                I have already washed them once and will now attempt to wash and dry them in the dryer - something I
+                have never done, because I am not a savage.
+                Bottom line: if you know your size do not be swayed by "suggestions". Go with what you know, and if you
+                are in doubt, try them on before taking the tags off, and imagine a 3 percent shrinkage. You have worn
+                jeans your entire life, you know how to judge size by now.
+                If you don't, post a question, the Amazonian users are a knowledgeable group, they can help.
+            </p><br>
+        </div>
+        <div class="ratinginside">
+            <h5>Harshith Raju </h5>
+            <div class="verified">
+
+                <span class="fa fa-star checked "></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked "></span>
+                <span class="fa fa-star "></span>
+                <h6 style="color: brown;margin-left: 0.5%;"> | Verified Purchase</h6>
+            </div>
+            <p style="font-size: 0.85rem;">I've bought the same pair of pants in blue before. It can be stretched a bit
+                and fits perfectly.
+                The light-colored pants lack stretch and they don't fit perfectly but they fit well.
+                The fabric is relatively thick but still very comfortable to wear.
+                I really like wearing these pants and they really last a long time. I've had the blue one for almost 3
+                years now - and I wear it often.
+            </p><br>
+        </div>
+    </div>
+    <div class="footpanel1">
+        <h4> <a href="product7.html"> Back to Top</a></h4>
+    </div>
+
+    <footer class="footer">
+        <div class="leftk">
+            <div class="left_container">
+                <div class="contact">
+                    <h2>Contact Us</h2>
+                    <p class="address">
+                        123, XYZ Street,<br>
+                        City - 12345<br>
+                        State, Country
+                    </p>
+                    <p class="address">
+                        Phone: +1 234 567890<br>
+                        Email: info@duronto.com
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="right_container">
+            <div class="newsletter">
+                <h2 class="news">Newsletter</h2>
+                <form action="#" method="POST">
+                    <input type="email" name="email" id="email" placeholder="Your Email Address">
+                    <button type="submit" class="btn-subscribe">Subscribe</button>
+                </form>
+            </div>
+            <br>
+            <div class="legal_doc">
+                <div class="navFooter">
+                    <li class="nav_first">
+                        <a href="#">Terms and Conditions</a>
+                    </li>
+                    <li class="nav_first">
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                    <li class="nav_first">
+                        <a href="#">Help</a>
+                    </li>
+                </div>
+            </div>
+            <br>
+            <p class="copywrite" style="color: wheat;">&copy; 2023 Duronto. All Rights Reserved.</p>
+        </div>
+
+    </footer>
+</body>
+<script src="/authentication/logout.js"></script>
+
+</html>

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duronto Notifications</title>
+    <!-- <link rel="icon" type="image/png" href="/favicon.png"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+</head>
+<style>
+    /* Define styles for the navigation bar */
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;1,200&display=swap');
+
+
+    nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+    }
+
+    nav a {
+        color: rgb(22, 26, 19);
+        text-decoration: none;
+        font-weight: 100;
+    }
+
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+
+    nav a:hover {
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    a {
+        display: block;
+    }
+
+    #title {
+        font-size: 40px;
+        margin-left: 10px;
+    }
+
+    .background-color {
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        background-color: #b72626;
+        padding: 20px;
+    }
+
+    .main {
+        display: flex;
+    }
+
+    .contents {
+        width: 20%;
+    }
+
+    .contents a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        margin-left: 20%;
+
+    }
+
+    .contents a:hover {
+        color: #333;
+        font-weight: bold;
+        transform: scale(1.1);
+        transition: 0.5s;
+    }
+
+    /* nav styling */
+
+    nav {
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo a {
+        font-size: 30px;
+        font-weight: bold;
+        color: #333;
+        text-decoration: none;
+        margin-top: 10px;
+
+    }
+
+    .logo img {
+        width: 20%;
+    }
+
+
+
+    .search form {
+        display: flex;
+
+    }
+
+    .search input[type="text"] {
+        border-color: #333;
+        width: 30vw;
+        padding: 10px;
+        font-size: 16px;
+        border-top-left-radius: 40px;
+        border-bottom-left-radius: 40px;
+    }
+
+    .searchbtn {
+        background-color: gray;
+        display: flex;
+        align-items: center;
+        width: 9%;
+        border-top-right-radius: 40px;
+        border-bottom-right-radius: 40px;
+        justify-content: center;
+    }
+
+    .cart img {
+        cursor: pointer;
+        height: 20px;
+    }
+
+    .container {
+        max-width: 1300px;
+        margin: 0 auto;
+
+        padding: 0 0px;
+    }
+
+    .contact {
+        margin: 0px 90px 0px 20px;
+    }
+
+    .heading {
+        width: 15%;
+        text-align: left;
+        margin-left: 3%;
+        margin-top: 4%;
+        width: 80%;
+    }
+
+    .heading h2,
+    h6 {
+        margin-left: 20px;
+    }
+
+    .npanel {
+        width: 45%;
+        background-color: rgb(229, 237, 237);
+        height: 600px;
+        display: flex;
+        border: 2px solid black;
+        margin-top: 5%;
+        margin-left: 20%;
+    }
+
+
+    .npanelswitch {
+        margin-top: 20%;
+    }
+
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 45px;
+        height: 24px;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+        border-radius: 30px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 15px;
+        width: 15px;
+        left: 2px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .3s;
+        border-radius: 100%;
+    }
+
+    input:checked+.slider {
+        background-color: #4CAF50;
+    }
+
+    input:focus+.slider {
+        box-shadow: 0 0 1px #4CAF50;
+    }
+
+    input:checked+.slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    .info1 {
+        margin-left: 10%;
+    }
+
+    .info2 {
+        margin-left: 10%;
+    }
+
+    .info3 {
+        margin-left: 10%;
+    }
+
+    .info4 {
+        margin-left: 10%;
+    }
+
+    .info5 {
+        margin-left: 10%;
+    }
+
+    .info6 {
+        margin-left: 10%;
+    }
+
+    /* Footer styling */
+
+    .footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px 0;
+        font-size: 14px;
+        display: flex;
+    }
+
+    .news {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .footer h3 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .footer p {
+        margin-bottom: 10px;
+    }
+
+    .bottom a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 10px;
+    }
+
+    .bottom a:hover {
+        text-decoration: underline;
+    }
+
+    .legal_doc a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 10px;
+    }
+
+    .legal_doc a:hover {
+        text-decoration: underline;
+    }
+
+    .right_container {
+        text-align: left;
+        padding-top: 1%;
+        width: 49%;
+        display: inline-block;
+        margin: 0px 90px 0px 20px;
+    }
+
+    .left_container {
+        padding-top: 1%;
+        width: 49%;
+        display: inline-block;
+        margin: 0px 90px 0px 20px;
+    }
+
+    .leftk {
+
+        padding-top: 1%;
+        width: 90%;
+        display: inline-block;
+        margin: 0px 90px 0px 20px;
+    }
+
+    .navFooter {
+        margin: 0px 0px auto auto;
+    }
+
+
+
+    .phead a {
+        text-decoration: none;
+        color: black;
+        margin-left: 1px;
+        letter-spacing: 1px;
+    }
+
+
+    .cart {
+        margin-right: 350px;
+    }
+
+    .logout {
+        color: #fff;
+        border: none;
+        margin-top: 1%;
+        font-size: 1rem;
+        background: linear-gradient(to bottom right, #034cab, #a5c0e7);
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .logout:hover {
+        background: #0fae51;
+        color: #150404;
+    }
+</style>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a href="/index.html"><img src="/images/logo.jpg" alt="logo_black">Duronto</a><br>
+        </div>
+        <div class="search">
+            <form action="">
+                <input type="text" placeholder="Search...">
+                <div class="searchbtn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </form>
+        </div>
+        <div class="cart">
+            <a class="a" href="cart.html"><img src="https://cdn-icons-png.flaticon.com/512/60/60992.png" height="15">
+            </a>
+        </div>
+        <div class="logout" style="position: absolute; left: 86%; top: 2.6%;">
+            <a id="logout" href="#">
+                Logout</a>
+        </div>
+    </nav>
+    <hr>
+    <div class="main">
+        <div class="contents" style="position: fixed;">
+            <div class="phead"><br>
+                <a href="profile.html">
+                    <H1 id="title"><u>PROFILE</u></H1>
+                </a>
+            </div><br><br>
+            <a class="a" href="editprofile.html"><i class="fas fa-user" style="font-size: 20px;"></i> Edit
+                Profile</a><br>
+            <a class="a" href="notification.html"><img
+                    src="https://cdn-icons-png.flaticon.com/512/633/633816.png?w=740&t=st=1679996267~exp=1679996867~hmac=b70e1a85ef306959940e85a8cb3b72a4a1f59ed7f7226a28244bd68cd769929a"
+                    height="30"><b>Notifications</b></a><br>
+            <a class="a" href="favourites.html"><img src="https://img.icons8.com/ios-filled/256/star.png" height="20">
+                Favourites</a><br>
+            <a class="a" href="settings.html"><img src="https://cdn-icons-png.flaticon.com/512/3524/3524659.png"
+                    height="20">
+                Settings</a><br>
+            <a class="a" href="orders.html"><img src="https://icon-library.com/images/orders-icon/orders-icon-4.jpg"
+                    height="20"> Orders</a>
+        </div>
+        <div class="npanel">
+            <div class="npaneltext">
+                <div class="heading">
+                    <h2>Notifications</h2>
+                    <h6>"Never miss an important message again with our notification panel! Stay informed with instant
+                        alerts and notifications."</h6><br>
+                    <hr>
+                </div><br>
+                <div class="info1">
+                    <h3>Your Account</h3>
+                    <i>
+                        <h6>Get notified for account alerts.</h6>
+                    </i><br>
+                </div>
+                <div class="info2">
+                    <h3>New Products</h3>
+                    <i>
+                        <h6>Update yourselves with our latest arrivals!</h6>
+                    </i>
+                </div><br>
+                <div class="info3">
+                    <h3>Seasonal sales and offers</h3>
+                    <i>
+                        <h6>Save big with huge discounts.</h6>
+                    </i>
+                </div><br>
+                <div class="info4">
+                    <h3>Recommendations and Reminders</h3>
+                    <i>
+                        <h6>Get notified about the coupons and recommendations for you.</h6>
+                    </i>
+                </div><br>
+                <div class="info5">
+                    <h3>Order details and Updates</h3>
+                    <i>
+                        <h6>Receive updates related to your order status and find out when packages ship & arrive.</h6>
+                    </i>
+                </div><br>
+                <div class="info6">
+                    <h3>Account Security</h3>
+                    <i>
+                        <h6>Receive notifications about any suspicious account activity or password
+                            resets.</h6>
+                    </i>
+                </div>
+            </div>
+            <div class="npanelswitch">
+                <label class="switch">
+                    <input type="checkbox" id="button1">
+                    <span class="slider"></span>
+                </label><br><br>
+                <label class="switch">
+                    <input type="checkbox" id="button2">
+                    <span class="slider"></span>
+                </label><br><br><br>
+                <label class="switch">
+                    <input type="checkbox" id="button3">
+                    <span class="slider"></span>
+                </label><br><br><br>
+                <label class="switch">
+                    <input type="checkbox" id="button4">
+                    <span class="slider"></span>
+                </label><br><br><br>
+                <label class="switch">
+                    <input type="checkbox" id="button5">
+                    <span class="slider"></span>
+                </label><br><br><br>
+                <label class="switch">
+                    <input type="checkbox" id="button5">
+                    <span class="slider"></span>
+                </label><br><br>
+            </div>
+        </div><br>
+    </div>
+    <br>
+    <footer div class="footer">
+        <div class="leftk">
+            <div class="left_container">
+                <div class="contact">
+                    <h3>Contact Us</h3>
+                    <p class="address">
+                        123, XYZ Street,<br>
+                        City - 12345<br>
+                        State, Country
+                    </p>
+                    <p class="address">
+                        Phone: +1 234 567890<br>
+                        Email: info@duronto.com
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="right_container">
+            <div class="newsletter">
+                <h3 class="news">Newsletter</h3>
+                <form action="#" method="POST">
+                    <input type="email" name="email" id="email" placeholder="Your Email Address">
+                    <button type="submit" class="btn-subscribe">Subscribe</button>
+                </form>
+            </div>
+            <br>
+            <div class="legal_doc">
+                <div class="navFooter">
+                    <a href="#">Terms and Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Help</a>
+                </div>
+            </div>
+            <br>
+            <p class="copywrite">&copy; 2023 Duronto. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+<script src="./fontawesome-free-6.3.0-web/js/all.min.js"></script>
+<script src="/authentication/logout.js"></script>
+
+</html>

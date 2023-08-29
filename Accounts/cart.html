@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart Page</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    h1 {
+      margin-left: 45%;
+      margin-bottom: 1%;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f9f9f9;
+    }
+
+    .total-price {
+      text-align: right;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .remove-button {
+      background-color: #ff0000;
+      color: #ffffff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    img.product-image {
+      max-width: 100px;
+    }
+
+    .footer {
+      background-color: #333;
+      color: white;
+      padding: 20px 0;
+      font-size: 14px;
+      display: flex;
+    }
+
+    .news {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .footer h3 {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .footer p {
+      margin-bottom: 10px;
+    }
+
+    .bottom a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    .bottom a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 576px) {
+      nav {
+        flex-direction: column;
+      }
+
+      .search form {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      .search input[type="text"] {
+        border-radius: 3px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+
+      .search button[type="submit"] {
+        border-radius: 3px;
+        margin-bottom: 10px;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .legal_doc a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    .legal_doc a:hover {
+      text-decoration: underline;
+    }
+
+    .right_container {
+      text-align: left;
+      padding-top: 1%;
+      width: 49%;
+      display: inline-block;
+      margin: 0px 90px 0px 20px;
+    }
+
+    .left_container {
+      padding-top: 1%;
+      width: 49%;
+      display: inline-block;
+      margin: 0px 90px 0px 20px;
+    }
+
+    .leftk {
+
+      padding-top: 1%;
+      width: 90%;
+      display: inline-block;
+      margin: 0px 90px 0px 20px;
+    }
+
+    .navFooter {
+      margin: 0px 0px auto auto;
+    }
+
+    .address {
+      color: white;
+    }
+
+    nav {
+      background-color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo a {
+      font-size: 30px;
+      font-weight: bold;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .logo img {
+      width: 20%;
+    }
+
+    .search {
+      margin-right: 10%;
+      border: 1px solid black;
+      border-radius: 40px;
+    }
+
+    .search form {
+      display: flex;
+    }
+
+
+
+
+    .search input[type="text"] {
+      border-color: #333;
+      width: 30vw;
+      padding: 10px;
+      font-size: 16px;
+      border-top-left-radius: 40px;
+      border-bottom-left-radius: 40px;
+    }
+
+    .searchbtn {
+      background-color: gray;
+      display: flex;
+      align-items: center;
+      width: 9%;
+      border-top-right-radius: 40px;
+      border-bottom-right-radius: 40px;
+      justify-content: center;
+    }
+
+    .login-button {
+      font-weight: bold;
+      color: #fff;
+      background: linear-gradient(to bottom right, #034cab, #a5c0e7);
+      padding: 10px 30px;
+      border-radius: 30px;
+      position: relative;
+      top: 50%;
+    }
+
+    .login-button:hover {
+      background: #0fae51;
+      color: #150404;
+    }
+
+    .acc {
+      text-decoration: none;
+      color: #333;
+      padding: 6px 15px;
+      border-radius: 20px;
+      margin: 0 20px;
+      font-weight: 600;
+      display: flex;
+    }
+
+    .acc a {
+      text-decoration: none;
+      color: #150404;
+    }
+
+    .acc:hover {
+      background-color: rgb(190, 138, 141);
+      text-decoration: none;
+    }
+
+    .about {
+      text-decoration: none;
+      color: #333;
+      padding: 6px 15px;
+      border-radius: 20px;
+      margin: 0 10px;
+      font-weight: 600;
+      display: flex;
+      text-align: center;
+    }
+
+    .about a {
+      text-decoration: none;
+      color: #150404;
+    }
+
+    .about:hover {
+      background-color: rgb(190, 138, 141);
+      text-decoration: none;
+    }
+
+    .checkout {
+      background-color: gainsboro;
+      margin-left: 40%;
+      height: 10%;
+      width: 13%;
+      padding: 2%;
+      border-radius: 20px;
+      box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .checkout:hover {
+      background-color: rgb(220, 236, 236);
+      cursor: pointer;
+
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  </style>
+
+
+  <script>
+    $(document).ready(function () {
+      var cartItems = localStorage.getItem('cartItems');
+      if (cartItems) {
+        var items = JSON.parse(cartItems);
+        items.forEach(function (item) {
+          var productName = item.productName;
+          var price = parseFloat(item.price);
+          var quantity = parseInt(item.quantity);
+          var imageSrc = item.imageSrc;
+
+          var tableRow = '<tr><td><img src="' + imageSrc + '" alt="Product Image" class="product-image"></td><td>' + productName + '</td><td>₹' + price + '</td><td>' + quantity + '</td><td><button class="remove-button" onclick="removeProduct(this)">Remove</button></td></tr>';
+          $('#cart-item tbody').append(tableRow);
+        });
+      }
+
+      var totalPrice = calculateTotalPrice();
+      $('#total-price').text('Rs ' + totalPrice.toFixed(2));
+    });
+
+    function calculateTotalPrice() {
+      var total = 0;
+      $('#cart-item tbody tr').each(function () {
+        var priceText = $(this).find('td:eq(2)').text();
+        var price = parseFloat(priceText.replace('₹', ''));
+        var quantity = parseInt($(this).find('td:eq(3)').text());
+        total += price * quantity;
+      });
+      return total;
+    }
+
+    function removeProduct(button) {
+      var row = $(button).closest('tr');
+      row.remove();
+      var totalPrice = calculateTotalPrice();
+      $('#total-price').text('Rs ' + totalPrice.toFixed(2));
+
+      var cartItems = [];
+      $('#cart-item tbody tr').each(function () {
+        var productName = $(this).find('td:eq(1)').text();
+        var price = $(this).find('td:eq(2)').text();
+        var quantity = $(this).find('td:eq(3)').text();
+        var imageSrc = $(this).find('img').attr('src');
+        var data = {
+          productName: productName,
+          price: price,
+          quantity: quantity,
+          imageSrc: imageSrc
+        };
+        cartItems.push(data);
+      });
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    }
+  </script>
+</head>
+
+<body>
+  <nav>
+    <div class="logo">
+      <a href="/index.html"><img src="/images/logo.png" alt="logo_black">Duronto</a>
+    </div>
+    <div class="search">
+      <form>
+        <input type="text" placeholder="Search...">
+        <div class="searchbtn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+      </form>
+    </div>
+    <div class="about">
+      <a href="/about.html">About</a>
+    </div>
+    <div class="acc"><a href="profile.html">Account</a></div>
+  </nav><br><br>
+  <h1>Cart</h1>
+  <table id="cart-item">
+    <thead>
+      <tr>
+        <th>Product Image</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <div class="total-price">Total Price: <span id="total-price"></span></div><br>
+
+  <div class="checkout">
+    <a href="/payment/address.html">
+      <h3>Proceed to Checkout</h3>
+    </a>
+
+  </div>
+
+  <br><br><br>
+  <footer class="footer">
+    <div class="leftk">
+      <div class="left_container">
+        <div class="contact">
+          <h2>Contact Us</h2>
+          <p class="address">
+            123, XYZ Street,<br>
+            City - 12345<br>
+            State, Country
+          </p>
+          <p class="address">
+            Phone: +1 234 567890<br>
+            Email: info@duronto.com
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="right_container">
+      <div class="newsletter">
+        <h2 class="news">Newsletter</h2>
+        <form action="#" method="POST">
+          <input type="email" name="email" id="email" placeholder="Your Email Address">
+          <button type="submit" class="btn-subscribe">Subscribe</button>
+        </form>
+      </div>
+      <br>
+      <div class="legal_doc">
+        <div class="navFooter">
+          <li class="nav_first">
+            <a href="#">Terms and Conditions</a>
+          </li>
+          <li class="nav_first">
+            <a href="#">Privacy Policy</a>
+          </li>
+          <li class="nav_first">
+            <a href="#">Help</a>
+          </li>
+        </div>
+      </div>
+      <br>
+      <p class="copywrite" style="color: wheat;">&copy; 2023 Duronto. All Rights Reserved.</p>
+    </div>
+
+  </footer>
+
+</body>
+
+</html>
