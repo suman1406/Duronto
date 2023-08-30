@@ -1,7 +1,5 @@
 # Duronto Ecommerce Platform
 
-![Duronto Ecommerce Platform](https://suman1406.github.io/Duronto/images/logo.png)
-
 Welcome to the Duronto Ecommerce Platform GitHub Repository! Duronto is an ecommerce platform developed as a part of a semester project, utilizing HTML, JavaScript, and CSS technologies to provide a seamless online shopping experience.
 
 ## Features
@@ -16,10 +14,6 @@ Welcome to the Duronto Ecommerce Platform GitHub Repository! Duronto is an ecomm
 
 - **Order History**: Users can track their order history and view details about previous purchases.
 
-- **Search Functionality**: A search bar enables users to find products quickly based on keywords.
-
-- **Responsive Design**: The platform is designed to work well on various devices, including desktops, tablets, and mobile phones.
-
 ## Getting Started
 
 To run the Duronto Ecommerce Platform locally on your machine, follow these steps:
@@ -28,10 +22,6 @@ To run the Duronto Ecommerce Platform locally on your machine, follow these step
 
    ```sh
    git clone https://github.com/suman1406/Duronto.git
-
-```sh
-   git clone https://github.com/suman1406/Duronto.git
-   ```
 
 2. Navigate to the project directory:
 
@@ -92,4 +82,3 @@ Duronto Ecommerce Platform is released under the [MIT License](https://github.co
 For any inquiries or issues, please contact psuman1406@gmail.com
 
 Thank you for your interest and contributions to the Duronto Ecommerce Platform! Happy shopping! 🛍️
-```
